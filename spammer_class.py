@@ -1,10 +1,10 @@
-class Spammer:
+class BCSpammer:
     author = ''
 
     def main(self):
         print '+-+-+-+-+-+-+-+ BelkaCar SMS Spammer v1.0\n|S|p|a|m|m|e|r|\tAuthor: FSystem88\n+-+-+-+-+-+-+-+ https://github.com/FSystem88\n\t\t'
         import requests, datetime, sys, time, argparse
-        parser = argparse.ArgumentParser(prog='Spammer', description="Spammer is a tool used to send BelkaCar (SMS) to a phone number repeatedly. 1 SMS in 1 minute.", epilog='Contact me by mail fsystem88@bk.ru')
+        parser = argparse.ArgumentParser(prog='BCSpammer ', description="Spammer is a tool used to send BelkaCar (SMS) to a phone number repeatedly. 1 SMS in 1 minute.", epilog='Contact me by mail fsystem88@bk.ru')
         parser.add_argument('phonenum', metavar='phone', help='the phone number to send the BelkaCar SMS. (example: 79153509908)')
         parser.add_argument('--delay', type=int, help='the delay time (wait time) in seconds | (dont work, only 1 SMS in 1 minute)')
         parser.add_argument('--proxy', type=int, help="use a proxy (format: '69.69.69.69:8080')")
