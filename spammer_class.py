@@ -2,10 +2,10 @@ class spymer:
     author = ''
 
     def main(self):
-        print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.1.4      8888\n8888888888888888888888888\n8888888888888888888888888\n'
+        print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.1.5      8888\n8888888888888888888888888\n8888888888888888888888888\n'
         import requests, datetime, sys, time, argparse
         parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. LOL))", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
-        parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
+        parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 9153509908)')
         args = parser.parse_args()
 
         def showstatus(message, type='new'):
