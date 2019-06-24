@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# spymer v1
+# spymer v2
 # Author: FSystem88
 class spymer:
 	def main(self):
@@ -30,8 +30,8 @@ class spymer:
 				exit()
 		_phone = args.phonenum
 		iteration = 0			
-		_phone9 = _phone[1:]
-		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
+		_phone9 = _phone[1:] # '9153509908'
+		_phoneDostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10] # '915+350-99-08'
 		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
 		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
