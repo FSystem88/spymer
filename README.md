@@ -1,7 +1,7 @@
 # spymer
 SMS Spammer<br>
 Only for Russia!<br>
-связь со мной <a href="https://t.me/FSystem88">в телеграме</a> или <a href="https://vk.com/fsys88">во Вконтакте</a><br><br>
+Link with me <a href="https://t.me/FSystem88">in Telegram Inc.</a> or <a href="https://vk.com/fsys88">in Vkontakte</a> or <a href="https://www.facebook.com/ivan.godunov.junior">in Facebook</a><br><br>
 apt install git <br>
 git clone https://github.com/FSystem88/spymer <br>
 sh spymer/install.sh <br>
