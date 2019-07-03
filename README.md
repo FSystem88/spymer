@@ -6,8 +6,8 @@ Link with me in <a href="https://t.me/FSystem88">Telegram Inc.</a> or <a href="h
 <code>git clone https://github.com/FSystem88/spymer</code><br>
 <code>sh spymer/install.sh</code><br>
 <code>spymer  --name '[any message]' phone</code><br>
-<br><br>
-<b>example:</b><br><br>
+<br>
+<b>example:</b><br>
 <code>spymer --name 'Big brother's watching you' 79153509908</code>
 <br><br>
 FSystem88@bk.ru or chmod.777@mail.ru
