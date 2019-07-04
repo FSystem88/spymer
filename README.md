@@ -2,7 +2,7 @@
 SMS-спамер<br>
 Только для России!<br>
 Связь со мной в <a href="https://t-do.ru/FSystem88">Telegram</a> или <a href="https://vk.com/fsys88">Вконтакте</a> или <a href="https://www.facebook.com/ivan.godunov.junior">Facebook</a><br>
-Новости об обновлении в <a href="https://t-do.ru/spymer">Telegram</a><br><br>
+Новости об обновлениях в <a href="https://t-do.ru/spymer">Telegram</a><br><br>
 
 # Как уставновить?
 Только на андроид. Тупо следуйте инструкции...<br>
@@ -16,9 +16,6 @@ SMS-спамер<br>
 <code>spymer phone --name '[любое сообщение]'</code> //<i>Запустим Спамер с телефоном жертвы</i><br>
 <br>
 <b>Пример:</b><br>
-<code>spymer 79153509908 --name 'Путин любит тебя'</code>
-<br><br>
-FSystem88@bk.ru
-<br>
-<br>
-May be this sh♥t not work
+<code>spymer 79153509908 --name 'Путин любит тебя'</code><br><br>
+Будут вопросы - контакты выше.<br>
+<b>Приятного пользования!</b>
