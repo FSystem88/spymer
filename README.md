@@ -6,7 +6,7 @@ SMS-спамер<br>
 
 # Как уставновить?
 Только на андроид. Тупо следуйте инструкции...<br>
-Скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a><br>
+Скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a> и открыть его.<br>
 <code>apt update</code> //<i>Проверим на наличие обновлений</i><br>
 <code>apt upgrade</code> //<i>Обновим предложенные пакеты</i><br>
 <code>apt install git</code> //<i>Установим Git для копирования программ с гитхаба</i><br>
