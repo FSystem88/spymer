@@ -1,7 +1,7 @@
 # Spymer
 SMS-спамер<br>
 Только для России!<br>
-Связь со мной в <a href="https://t-do.ru/FSystem88">Telegram</a> или <a href="https://vk.com/fsys88">Вконтакте</a> или <a href="https://www.facebook.com/ivan.godunov.junior">Facebook</a><br>
+Связь со мной в <a href="https://t-do.ru/FSystem88">Telegram</a> или <a href="https://vk.com/fsys88">Вконтакте</a><br>
 Новости об обновлениях в <a href="https://t-do.ru/spymer">Telegram</a><br><br>
 
 # Как уставновить?
