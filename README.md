@@ -26,3 +26,14 @@ SMS-спамер<br>
 http://FSystem88.ru/donate
 <br>
 https://qiwi.com/n/FSYSTEM88
+<br><br>
+# Как обновить?
+<br>
+Открываем Термух и прописываем следующее:<br>
+<code>rm -rf spymer</code> (удаляем папки с прогой)
+<br>
+<code>git clone https://github.com/FSystem88/spymer</code> скачаем обновленную версию с гитхаба
+<br>
+<code>sh spymer/install.sh</code> (обновим конфигурацию).
+<br>
+<b>Готово! Можете дальше использовать мой спамер.</b>
