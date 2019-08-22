@@ -4,7 +4,12 @@ SMS-спамер<br>
 Связь со мной в <a href="https://t-do.ru/FSystem88">Telegram</a> или <a href="https://vk.com/fsys88">Вконтакте</a><br>
 Новости об обновлениях в <a href="https://t-do.ru/spymer">Telegram</a><br>
 <b>Обязательно подпишитесь на канал в телеграме, так как именно там я пишу когда надо обновиться, чтобы сервисов было больше!</b><br><br>
-
+# Донатерная
+<b>Кому не жалко копейку на развитие проекта:</b><br>
+http://FSystem88.ru/donate
+<br>
+https://qiwi.com/n/FSYSTEM88
+<br><br>
 # Как уставновить?
 Только на андроид. Тупо следуйте инструкции...<br>
 Скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a> и открыть его.<br>
@@ -20,12 +25,6 @@ SMS-спамер<br>
 <code>spymer 79991234455 --name 'Путин тебя любит'</code><br><br>
 Будут вопросы - контакты выше.<br>
 <b>Приятного пользования!</b>
-<br><br>
-#Донатерная
-<b>Кому не жалко копейку на развитие проекта:</b><br>
-http://FSystem88.ru/donate
-<br>
-https://qiwi.com/n/FSYSTEM88
 <br><br>
 # Как обновить?
 <br>
