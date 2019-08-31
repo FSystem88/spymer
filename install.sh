@@ -11,4 +11,3 @@ echo alias spymer="'clear && cd && python3 spymer/spammer.py'">>.bashrc
 clear
 cd
 python3 spymer/spammer.py
-read -sn1 -p "Press any key to restart your Terminal..."; exit
