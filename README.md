@@ -28,6 +28,8 @@ https://qiwi.com/n/FSYSTEM88
 <br><br>
 # Как обновить?
 <br>
+Прописываем <code>spymer-update</code>
+<br>или<br>
 Открываем Термух и прописываем следующее:<br>
 <code>rm -rf spymer</code> (удаляем папки с прогой)
 <br>
