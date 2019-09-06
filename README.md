@@ -19,10 +19,10 @@ https://qiwi.com/n/FSYSTEM88
 <code>git clone https://github.com/FSystem88/spymer</code> //<i>Скачаем Спамер с гитхаба</i><br>
 <code>sh spymer/install.sh</code> //<i>Установим Спамер в Termux'e</i><br>
 <a>Перезапустите Termux</a><br>
-<code>spymer phone --name '[любое сообщение]'</code> //<i>Запустим Спамер с телефоном жертвы</i><br>
+<code>spymer phone --text '[любое сообщение]'</code> //<i>Запустим Спамер с телефоном жертвы</i><br>
 <br>
 <b>Пример:</b><br>
-<code>spymer 79991234455 --name 'Путин тебя любит'</code><br><br>
+<code>spymer 79991234455 --text 'Путин тебя любит'</code><br><br>
 Будут вопросы - контакты выше.<br>
 <b>Приятного пользования!</b>
 <br><br>
