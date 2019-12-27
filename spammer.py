@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# spymer v3
+#!/usr/bin/python3
+# spymer v6
 # Author: FSystem88
 class spymer:
 	def main(self):
