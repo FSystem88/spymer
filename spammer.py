@@ -3,8 +3,9 @@
 # Author: FSystem88
 class spymer:
 	def main(self):
-		import requests, random, datetime, sys, time, argparse
+		import requests, random, datetime, sys, time, argparse, os
 		from colorama import Fore, Back, Style
+		os.system("clear")
 		print(Fore.GREEN + '''
 8888888888888888888888888
 8888888888888888888888888
@@ -32,6 +33,17 @@ https://github.com/crinny
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79991234455)')
 		args = parser.parse_args()
+		_phone = args.phonenum
+
+		if _phone == "update":
+			if os.getuid() != 0:
+				print("Sorry. This script requires sudo privledges")
+				sys.exit()
+			else:
+				cmd = os.system("cd && echo rm -rf /usr/bin/spymer && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sudo cp spymer/spammer.py /usr/bin/spymer && sudo chmod +x /usr/bin/spymer>spymer.sh")
+				cmd = os.system("cd && sh spymer.sh && rm -rf spymer.sh")
+				exit()
+			
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
 			icon = '*'
