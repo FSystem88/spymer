@@ -1,5 +1,6 @@
 #! /bin/sh
 apt install python3 python3-pip
+pkg install python3 python3-pip
 pip3 install requests
 pip3 install colorama
 cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
