@@ -1,10 +1,13 @@
 #!/bin/bash
 clear
-echo "Кто ты?"
-echo "1. Termux"
-echo "2. Другой Unix"
-echo
-echo "Введите 1 или 2:"
+echo "--------------------"
+echo "|     Кто ты ?     |"
+echo "|------------------|"
+echo "| 1. Termux        |"
+echo "| 2. Другой Unix   |"
+echo "|                  |"
+echo "| Введите 1 или 2: |"
+echo "--------------------"
 read numb
 if [ $numb = "1" ]
 then
