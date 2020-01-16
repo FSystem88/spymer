@@ -28,10 +28,6 @@ https://paypal.me/FSystem88
 <br><br>
 # Как обновить?
 Открываем Термух и прописываем следующее:<br>
-<code>rm -rf spymer</code> (удаляем папки с прогой)
+<code>spymer update</code>
 <br>
-<code>git clone https://github.com/FSystem88/spymer</code> скачаем обновленную версию с гитхаба
-<br>
-<code>sh spymer/install.sh</code> (обновим конфигурацию).
-<br>
-<b>Готово! Можете дальше использовать мой спамер.</b>
+<b>Готово! Всё само обновится и можешь дальше использовать мой спамер.</b>
