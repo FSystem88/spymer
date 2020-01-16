@@ -12,8 +12,8 @@ https://paypal.me/FSystem88
 <br>
 <br>
 # Как уставновить?
-<br><b>Тупо следуйте инструкции...</b><br>
-• Скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a> и открыть его.<br>
+<b>Тупо следуйте инструкции...</b><br>
+• Если у вас Андроид - скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a> и открыть его.<br>
 • <code>apt update</code><br>
 • <code>apt upgrade</code><br>
 • <code>apt install git</code><br>
@@ -27,9 +27,6 @@ https://paypal.me/FSystem88
 <b>Приятного пользования!</b>
 <br><br>
 # Как обновить?
-<br>
-Прописываем <code>spymer-update</code>
-<br>или<br>
 Открываем Термух и прописываем следующее:<br>
 <code>rm -rf spymer</code> (удаляем папки с прогой)
 <br>
