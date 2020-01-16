@@ -8,17 +8,18 @@ SMS-спамер<br>
 <b>Кому не жалко копейку на развитие проекта:</b><br>
 http://FSystem88.ru/donate
 <br>
-https://qiwi.com/n/FSYSTEM88
-<br><br>
+https://paypal.me/FSystem88
+<br>
+<br>
 # Как уставновить?
-<i>Только на андроид.</i><br><b>Тупо следуйте инструкции...</b><br>
+<br><b>Тупо следуйте инструкции...</b><br>
 • Скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из GooglePlay</a> и открыть его.<br>
-• <code>apt update</code> //<i>Проверим на наличие обновлений</i><br>
-• <code>apt upgrade</code> //<i>Обновим предложенные пакеты</i><br>
-• <code>apt install git</code> //<i>Установим Git для копирования программ с гитхаба</i><br>
-• <code>git clone https://github.com/FSystem88/spymer</code> //<i>Скачаем Спамер с гитхаба</i><br>
-• <code>sh spymer/install.sh</code> //<i>Установим Спамер в Termux'e</i><br>
-• <code>spymer phone</code> //<i>Запустим Спамер с телефоном жертвы</i><br>
+• <code>apt update</code><br>
+• <code>apt upgrade</code><br>
+• <code>apt install git</code><br>
+• <code>git clone https://github.com/FSystem88/spymer</code><br>
+• <code>sh spymer/install.sh</code><br>
+• <code>spymer phone</code><br>
 <br>
 <b>Пример:</b><br>
 <code>spymer 79991234455</code><br><br>
