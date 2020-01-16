@@ -1,4 +1,5 @@
 #! /bin/sh
+pkg install tsu
 pkg install python
 pkg install python3
 pkg install python3-pip
@@ -10,4 +11,5 @@ dos2unix /data/data/com.termux/files/usr/bin/spymer
 cp ~/spymer/spammer.py /usr/bin/spymer
 chmod +x /usr/bin/spymer
 dos2unix /usr/bin/spymer
+echo alias sudo="'tsu'">>.bashrc
 spymer
