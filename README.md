@@ -18,7 +18,6 @@ https://qiwi.com/n/FSYSTEM88
 • <code>apt install git</code> //<i>Установим Git для копирования программ с гитхаба</i><br>
 • <code>git clone https://github.com/FSystem88/spymer</code> //<i>Скачаем Спамер с гитхаба</i><br>
 • <code>sh spymer/install.sh</code> //<i>Установим Спамер в Termux'e</i><br>
-• <code>source .bashrc</code> //<i>Перезапуск Термукс.</i><br>
 • <code>spymer phone</code> //<i>Запустим Спамер с телефоном жертвы</i><br>
 <br>
 <b>Пример:</b><br>
