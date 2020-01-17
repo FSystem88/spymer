@@ -36,13 +36,8 @@ https://github.com/crinny
 		_phone = args.phonenum
 
 		if _phone == "update":
-			if os.getuid() != 0:
-				print("Sorry. This script requires SUDO privledges")
-				sys.exit()
-			else:
-				cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
-				exit()
-			
+			cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
+
 		def showstatus(message, type='new'):
 			now = datetime.datetime.now().strftime('%H:%M:%S')
 			icon = '*'
