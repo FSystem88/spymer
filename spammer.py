@@ -40,7 +40,7 @@ https://github.com/crinny
 				print("Sorry. This script requires SUDO privledges")
 				sys.exit()
 			else:
-				cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sudo sh ~/spymer/install.sh")
+				cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
 				exit()
 			
 		def showstatus(message, type='new'):
