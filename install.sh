@@ -26,6 +26,7 @@ else
 
 		if [ "$(whoami)" != 'root' ]; then
 			echo "У вас нет прав. Запустите install.sh с root правами (sudo sh ~/spymer/install.sh)"
+			exit
 		else
 			apt install python3 python3-pip
 			pip3 install requests
