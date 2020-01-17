@@ -36,7 +36,7 @@ https://github.com/crinny
 		_phone = args.phonenum
 
 		if _phone == "update":
-			cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
+			cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh && exit")
 			cmd = os.system("exit")
 
 		def showstatus(message, type='new'):
