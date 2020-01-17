@@ -18,8 +18,8 @@ then
 	pip3 install requests
 	pip3 install colorama
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
-	chmod +x /data/data/com.termux/files/usr/bin/spymer
 	dos2unix /data/data/com.termux/files/usr/bin/spymer
+	chmod 777 /data/data/com.termux/files/usr/bin/spymer
 	echo alias sudo="'tsu'">>.bashrc
 else
 	if [ $numb = "2" ]
@@ -32,8 +32,8 @@ else
 			pip3 install requests
 			pip3 install colorama
 			cp ~/spymer/spammer.py /usr/bin/spymer
-			chmod +x /usr/bin/spymer
 			dos2unix /usr/bin/spymer
+			chmod 777 /usr/bin/spymer
 			spymer
 		fi
 	else
