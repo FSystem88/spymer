@@ -11,7 +11,6 @@ echo "--------------------"
 read numb
 if [ $numb = "1" ]
 then
-	pkg install tsu
 	pkg install python
 	pkg install python3
 	pkg install python3-pip
@@ -20,7 +19,7 @@ then
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
 	dos2unix /data/data/com.termux/files/usr/bin/spymer
 	chmod 777 /data/data/com.termux/files/usr/bin/spymer
-	echo alias sudo="'tsu'">>.bashrc
+	spymer
 else
 	if [ $numb = "2" ]
 	then
