@@ -37,11 +37,10 @@ https://github.com/crinny
 
 		if _phone == "update":
 			if os.getuid() != 0:
-				print("Sorry. This script requires sudo privledges")
+				print("Sorry. This script requires SUDO privledges")
 				sys.exit()
 			else:
-				cmd = os.system("cd && echo rm -rf /usr/bin/spymer && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sudo cp spymer/spammer.py /usr/bin/spymer && sudo chmod +x /usr/bin/spymer>spymer.sh")
-				cmd = os.system("cd && sh spymer.sh && rm -rf spymer.sh")
+				cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sudo sh ~/spymer/install.sh")
 				exit()
 			
 		def showstatus(message, type='new'):
