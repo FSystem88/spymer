@@ -60,6 +60,7 @@ https://github.com/crinny
 				print('\r' + showstatus(wrapsbrace('except', True) + 'KeyboardInterrupt thrown! Exiting . . .', 'warn'))
 				exit()
 		_phone = args.phonenum
+		try:
 			if _phone[0] == '+':
 				_phone = _phone[1:]
 			if _phone[0] == '8':
@@ -141,6 +142,7 @@ https://github.com/crinny
 				requests.post('https://youdo.com/api/verification/sendverificationcode/', data={'PhoneE164':_phone})
 				iteration += 1
 				print(('{} круг пройден.').format(iteration))
-
+		except:
+			pass
 spammer = spymer()
 spammer.main()
