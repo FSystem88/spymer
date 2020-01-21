@@ -24,11 +24,7 @@ class spymer:
 8888   SMS Spammer   8888
 8888   v.6 (final)   8888
 8888888888888888888888888
-8888888888888888888888888'''+Style.RESET_ALL+Fore.BLUE+'''
-
-Спасибо Crinny за некоторые сервисы.
-https://github.com/crinny
-''')
+8888888888888888888888888'''+Style.RESET_ALL)
 		print(Style.RESET_ALL)
 		parser = argparse.ArgumentParser(prog='spymer', description="Fucking shit by FSystem88. Возможно что-то уже не работает. Только для России!",epilog='Мой e-mail - FSystem88@bk.ru')
 		parser.add_argument('phonenum', metavar='phone', help='Телефонный номер жертвы (пример: 79991234455)')
