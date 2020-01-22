@@ -14,6 +14,7 @@ then
 	pkg install python
 	pkg install python3
 	pkg install python3-pip
+	pkg install dos2unix
 	pip3 install requests
 	pip3 install colorama
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
@@ -28,7 +29,7 @@ else
 			echo "У вас нет прав. Запустите install.sh с root правами (sudo sh ~/spymer/install.sh)"
 			exit
 		else
-			apt install python3 python3-pip
+			apt install python3 python3-pip dos2unix
 			pip3 install requests
 			pip3 install colorama
 			cp ~/spymer/spammer.py /usr/bin/spymer
