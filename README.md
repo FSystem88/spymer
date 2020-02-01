@@ -18,19 +18,11 @@ https://paypal.me/FSystem88
 • <code>apt install git</code><br>
 • <code>git clone https://github.com/FSystem88/spymer</code><br>
 • <code>sh spymer/install.sh</code><br>
-• <code>spymer phone</code><br>
+• <code>spymer</code><br>
 <br>
-<b>Пример:</b><br>
-<code>spymer 79991234455</code><br><br>
 Будут вопросы - контакты выше.<br>
 <b>Приятного пользования!</b>
 <br><br>
-# Как обновить?
-Открываем Термух и прописываем следующее:<br>
-<code>spymer update</code>
-<br>
-<b>Готово! Всё само обновится и можешь дальше использовать мой спамер.</b>
-<br>
 # LICENSE 
 Лицензия есть и не ебёт, пошли все нахуй!<br>
 Лицензия: MPL-2.0<br>
