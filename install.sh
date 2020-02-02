@@ -18,10 +18,8 @@ then
 	pip3 install requests
 	pip3 install colorama
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
-	cp -R ~/spymer/pytransform /data/data/com.termux/files/usr/bin/pytransform/
 	dos2unix /data/data/com.termux/files/usr/bin/spymer
 	chmod 777 /data/data/com.termux/files/usr/bin/spymer
-	chmod 777 /data/data/com.termux/files/usr/bin/pytransform
 	spymer
 else
 	if [ $numb = "2" ]
@@ -35,10 +33,8 @@ else
 			pip3 install requests
 			pip3 install colorama
 			cp ~/spymer/spammer.py /usr/bin/spymer
-			cp -R ~/spymer/pytransform /usr/bin/pytransform/
 			dos2unix /usr/bin/spymer
 			chmod 777 /usr/bin/spymer
-			chmod 777 /usr/bin/pytransform
 			spymer
 		fi
 	else
