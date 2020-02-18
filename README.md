@@ -25,7 +25,7 @@ https://paypal.me/FSystem88
 • <code>apk upgrade</code><br>
 • <code>apk add git</code><br>
 • <code>git clone https://github.com/FSystem88/spymer</code><br>
-• <code>sh spymer/ish.sh</code><br>
+• <code>sh spymer/install.sh</code><br>
 • <code>spymer</code><br>
 <br>
 Установка на Linux аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.
