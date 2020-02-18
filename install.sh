@@ -5,8 +5,9 @@ echo "|     Кто ты ?     |"
 echo "|------------------|"
 echo "| 1. Termux        |"
 echo "| 2. Другой Unix   |"
+echo "| 3. iSH           |"
 echo "|                  |"
-echo "| Введите 1 или 2: |"
+echo "| Введите 1/2/3:   |"
 echo "--------------------"
 read numb
 if [ $numb = "1" ]
@@ -24,8 +25,8 @@ then
 else
 	if [ $numb = "2" ]
 	then
-
-		if [ "$(whoami)" != 'root' ]; then
+		if [ "$(whoami)" != 'root' ];
+		then
 			echo "У вас нет прав. Запустите install.sh с root правами (sudo sh ~/spymer/install.sh)"
 			exit
 		else
@@ -38,6 +39,19 @@ else
 			spymer
 		fi
 	else
-		echo "Некорректный ввод"
+		if [ $numb = "3" ] 
+		then
+			apk add python
+			apk add python3
+			apk add dos2unix
+			pip3 install requests
+			pip3 install colorama
+			cp ~/spymer/spammer.py /usr/bin/spymer
+			dos2unix /usr/bin/spymer
+			chmod 777 /usr/bin/spymer
+			spymer
+		else
+			echo "Некорректный ввод"
+		fi
 	fi
 fi
