@@ -29,7 +29,7 @@ https://paypal.me/FSystem88
 • <code>spymer</code><br>
 <br>
 Установка на Linux аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
-На windows как нибудь напишу инструкцию... когда-нибудь...<br>
+Инструкция для Windows находится [тут](win.md)<br>
 За инструкцию для iOS спасибо <a href="https://github.com/botduck">BOTDUCK</a>.
 <br><br>
 Будут вопросы - контакты выше.<br>
