@@ -2,7 +2,7 @@
 Установка spymer на Windows тоже предельно проста:
 1) Скачиваем Python с [официального](https://www.python.org/downloads/) сайта и производим его установку.
 2) При установке ОБЯЗАТЕЛЬНО ставим галочку на графе PATH чтобы иметь доступ к Python из CMD:
-![PATH](img/pythonpath.png)
+![PATH](img/pythonpath.PNG)
 ![PATH](img/pythonpath2.png)
 3) Далее находим в поиске Windows программу cmd, открываем, и прописываем команду:
 ```
