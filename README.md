@@ -57,7 +57,7 @@ pip install colorama
 
 5) Распаковываем в любое удобное место, и запускаем spammer.py двойным щелчком мыши.
 
-6) PROFIT!
+6) PROFIT!<br>
 ![PATH](img/hooray.PNG)
 
 # LICENSE
