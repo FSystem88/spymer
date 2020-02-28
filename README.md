@@ -38,7 +38,7 @@ https://paypal.me/FSystem88
 <b>Приятного пользования!</b>
 <br><br>
 
-# Легкая установка для Windows
+# For Windows
 Установка spymer на Windows тоже предельно проста:
 
 1) Скачиваем Python с [официального](https://www.python.org/downloads/) сайта и производим его установку.
