@@ -668,7 +668,7 @@ def Main():
 					proxy = "localhost"
 			
 			elif input1 == "6":
-				a=input("Вы уверены, что хотите обновить? (y/n)")
+				a=input("Вы уверены, что хотите обновить? (y/n) ")
 				if a=="y":
 					cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
 					exit()
