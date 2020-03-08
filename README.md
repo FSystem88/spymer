@@ -39,8 +39,13 @@ https://paypal.me/FSystem88
 <b>Приятного пользования!</b>
 <br><br>
 
-# For Windows
-Установка spymer на Windows тоже предельно проста:
+# For Windows (NEW)
+
+Теперь ничего не нужно устанавливать, просто качаете [архив](https://github.com/FSystem88/spymer/archive/master.zip) с репозиторием, распаковываете его, и запускаете spammer.exe
+
+# For Windows (OLD)
+
+Если же у вас не рабоатет первый способ, или вам просто нечем заняться, то можно запустить spymer из исходников:
 
 1) Скачиваем Python с [официального](https://www.python.org/downloads/) сайта и производим его установку.
 
