@@ -1,3 +1,4 @@
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GitHub contributors](https://img.shields.io/github/contributors/fsystem88/spymer.svg)](https://GitHub.com/fsystem88/spymer/graphs/contributors/) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) ![repo-size](https://img.shields.io/github/repo-size/fsystem88/spymer)
 
 
 # Spymer
@@ -38,8 +39,13 @@ https://paypal.me/FSystem88
 <b>Приятного пользования!</b>
 <br><br>
 
-# For Windows
-Установка spymer на Windows тоже предельно проста:
+# For Windows (NEW)
+
+Теперь ничего не нужно устанавливать, просто качаете [архив](https://github.com/FSystem88/spymer/archive/master.zip) с репозиторием, распаковываете его, и запускаете spammer.exe
+
+# For Windows (OLD)
+
+Если же у вас не рабоатет первый способ, или вам просто нечем заняться, то можно запустить spymer из исходников:
 
 1) Скачиваем Python с [официального](https://www.python.org/downloads/) сайта и производим его установку.
 
