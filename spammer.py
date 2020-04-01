@@ -17,7 +17,7 @@ os.system('cls' if os.name=='nt' else 'clear')
 def Main():
 	global info
 	global proxy
-	ver = '74'
+	ver = '75'
 	version = requests.post("https://rainbow-t-shirt.com/spymer/version.php").json()["version"]
 	if int(ver) < int(version):
 		info = Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL
