@@ -14,6 +14,10 @@ http://FSystem88.ru/donate
 <br>
 https://paypal.me/FSystem88
 <br>
+https://qiwi.com/n/FSYSTEM88
+<br>
+https://money.yandex.ru/to/410015440700904
+<br>
 <br>
 # Как установить?
 <b>Тупо следуйте инструкции...</b><br>
