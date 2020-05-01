@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# spymer v7.6
+# spymer v7.7
 # Author: FSystem88
 import requests
 import random
@@ -17,14 +17,14 @@ os.system('cls' if os.name=='nt' else 'clear')
 def Main():
 	global info
 	global proxy
-	ver = '76'
+	ver = '77'
 	version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
 	if int(ver) < int(version):
 		info = Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL
 	else:
 		info = " "
 	proxy = "localhost"
-	logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.7.6      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
+	logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.7.7      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
 	def main():
 		global info
 		global proxy		
@@ -59,12 +59,12 @@ def Main():
 						print(info)
 						print("Введите токен: ")
 						print("Загрузить файл и получить токен можно по ссылке:")
-						print(Fore.BLUE+"http://FSystem88.ru/spymer/\n"+Style.RESET_ALL)
+						print(Fore.GREEN+"http://FSystem88.ru/spymer/\n"+Style.RESET_ALL)
 						token=input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
 						id=requests.post('https://fsystem88.ru/spymer/spym.php', data={'token': token}).json()["id"]
 						if int(id) != 0:
 							os.system("rm -rf ~/spymer/{}".format(token))
-							os.system("wget -P ~/spymer/ https://fsystem88.ru/spymer/{}".format(token))
+							os.system("wget -P ~/spymer/ https://fsystem88.ru/spymer/token/{}".format(token))
 							os.system("cd ~/spymer")
 							info=""
 							os.system('cls' if os.name=='nt' else 'clear')
