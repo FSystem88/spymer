@@ -17,7 +17,7 @@ then
 	pip install requests colorama
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
 	dos2unix /data/data/com.termux/files/usr/bin/spymer
-	chmod 777 ~/spymer
+	chmod -R 777 ~/spymer
 	chmod 777 /data/data/com.termux/files/usr/bin/spymer
 	spymer
 else
@@ -33,7 +33,7 @@ else
 			cp ~/spymer/spammer.py /usr/bin/spymer
 			dos2unix /usr/bin/spymer
 			chmod 777 /usr/bin/spymer
-			chmod 777 ~/spymer
+			chmod -R 777 ~/spymer
 			spymer
 		fi
 	else
