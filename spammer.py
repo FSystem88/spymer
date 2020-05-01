@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# spymer v7.5
+# spymer v7.6
 # Author: FSystem88
 import requests
 import random
@@ -17,14 +17,14 @@ os.system('cls' if os.name=='nt' else 'clear')
 def Main():
 	global info
 	global proxy
-	ver = '75'
-	version = requests.post("https://rainbow-t-shirt.com/spymer/version.php").json()["version"]
+	ver = '76'
+	version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
 	if int(ver) < int(version):
 		info = Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL
 	else:
 		info = " "
 	proxy = "localhost"
-	logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.7.5      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
+	logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.7.6      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
 	def main():
 		global info
 		global proxy		
@@ -61,10 +61,10 @@ def Main():
 						print("Загрузить файл и получить токен можно по ссылке:")
 						print(Fore.BLUE+"http://FSystem88.ru/spymer/\n"+Style.RESET_ALL)
 						token=input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-						id=requests.post('https://rainbow-t-shirt.com/spymer/spym.php', data={'token': token}).json()["id"]
+						id=requests.post('https://fsystem88.ru/spymer/spym.php', data={'token': token}).json()["id"]
 						if int(id) != 0:
 							os.system("rm -rf ~/spymer/{}".format(token))
-							os.system("wget -P ~/spymer/ https://rainbow-t-shirt.com/spymer/{}".format(token))
+							os.system("wget -P ~/spymer/ https://fsystem88.ru/spymer/{}".format(token))
 							os.system("cd ~/spymer")
 							info=""
 							os.system('cls' if os.name=='nt' else 'clear')
@@ -93,7 +93,7 @@ def Main():
 														os.system('cls' if os.name=='nt' else 'clear')
 														print(logo)
 														print(info)
-														id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': _phone}).json()["id"]
+														id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
 														if int(id) > 0:
 															print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.\nПриступаю к следующему номеру.".format(phone)+Style.RESET_ALL)
 															time.sleep(5)
@@ -434,7 +434,7 @@ def Main():
 													os.system('cls' if os.name=='nt' else 'clear')
 													print(logo)
 													print(info)
-													id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': _phone}).json()["id"]
+													id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
 													if int(id) > 0:
 														print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.\nПриступаю к следующему номеру.".format(phone)+Style.RESET_ALL)
 														time.sleep(5)
@@ -760,7 +760,7 @@ def Main():
 										if _phone[0] == '9':
 											_phone = '7'+_phone
 										iteration = 0
-										id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': _phone}).json()["id"]
+										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
 										if int(id) > 0:
 											info = Fore.RED+"\nНомер телефона находится в антиспам листе."+Style.RESET_ALL
 										elif int(id)==0:
@@ -1087,13 +1087,17 @@ def Main():
 					phone = '7'+phone
 				try:
 					if int(phone):
-						id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': phone}).json()["id"]
+						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
 						if int(id) > 0:
 							info = Fore.GREEN+"\nPhone {} is allready in antispam list.".format(phone)+Style.RESET_ALL
 						elif int(id) == 0:
-							requests.post('https://rainbow-t-shirt.com/spymer/ajax.php', data={'phone': phone})
-							info = Fore.GREEN+"\nТелефон {} добавлен в антиспам лист.".format(phone)+Style.RESET_ALL
-							
+							result=requests.post('https://fsystem88.ru/spymer/ajax.php', data={'phone': phone}).json()["result"]
+							if result == "no":
+								info = Fore.RED+"\nТелефон {} НЕ добавлен в антиспам лист.\nВо избежание DDoS подождите час с момента последнего доавления номера в антиспам.".format(phone)+Style.RESET_ALL
+							elif result == "yes":
+								info = Fore.GREEN+"\nТелефон {} добавлен в антиспам лист.".format(phone)+Style.RESET_ALL
+							elif result == "error":
+								info = Fore.RED+"Ошибка"+Style.RESET_ALL
 				except:
 					info = Fore.RED+"\nНекорректно введен телефон!".format(phone)+Style.RESET_ALL
 			
@@ -1108,7 +1112,7 @@ def Main():
 					phone = '7'+phone
 				try:
 					if int(phone):
-						id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': phone}).json()["id"]
+						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
 						if int(id) > 0:
 							info = Fore.GREEN+"\nТелефон {} находится в антиспам листе.".format(phone)+Style.RESET_ALL
 						elif int(id) == 0:
@@ -1142,7 +1146,7 @@ def Main():
 									_phone = '7'+_phone[1:]
 								if _phone[0] == '9':
 									_phone = '7'+_phone
-								id=requests.post('https://rainbow-t-shirt.com/spymer/json.php', data={'phone': _phone}).json()["id"]
+								id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
 								if int(id) > 0:
 									info = Fore.RED+"\nТелефон находится в антиспам листе."+Style.RESET_ALL
 									main()
