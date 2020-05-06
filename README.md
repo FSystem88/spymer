@@ -8,16 +8,14 @@ SMS-спамер<br>
 # Обязательно подпишитесь на канал в телеграме, там может решаться дальнейшая судьба проекта или очень важная информация!!!
 <br><b>---> <a href="https://t-do.ru/spymer">Канал в Telegram</a> <---</b><br>
 
-# Пожалуйста, скиньте рублей 50 на пиво!))
+# Приму в дар деньги на пиво! :))
+<i>в любой валюте))</i><br>
 <b>Донатерная!</b><br>
-http://FSystem88.ru/donate
+<b>1. PAYPAL:</b> https://paypal.me/FSystem88<br>
+<b>2. QIWI:</b> https://qiwi.com/n/FSYSTEM88<br>
+<b>3. YANDEX MONEY:</b> https://money.yandex.ru/to/410015440700904<br>
 <br>
-https://paypal.me/FSystem88
-<br>
-https://qiwi.com/n/FSYSTEM88
-<br>
-https://money.yandex.ru/to/410015440700904
-<br>
+<i>Free programmers also need to eat :)</i>
 <br>
 # Как установить?
 <b>Тупо следуйте инструкции...</b><br>
