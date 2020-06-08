@@ -14,7 +14,7 @@ if [ $numb = "1" ]
 then
 	pkg install python
 	pkg install dos2unix
-	pip install requests colorama
+	pip install requests colorama proxyscrape
 	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
 	dos2unix /data/data/com.termux/files/usr/bin/spymer
 	chmod -R 777 ~/spymer
@@ -29,7 +29,7 @@ else
 			exit
 		else
 			apt install python3 python3-pip dos2unix
-			pip3 install requests colorama
+			pip3 install requests colorama proxyscrape
 			cp ~/spymer/spammer.py /usr/bin/spymer
 			dos2unix /usr/bin/spymer
 			chmod 777 /usr/bin/spymer
@@ -44,6 +44,7 @@ else
 			apk add dos2unix
 			pip3 install requests
 			pip3 install colorama
+			pip3 install proxyscrape
 			cp ~/spymer/spammer.py /usr/bin/spymer
 			dos2unix /usr/bin/spymer
 			chmod 777 /usr/bin/spymer
