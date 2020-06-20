@@ -13,7 +13,6 @@ def MAIN():
 		import datetime
 		import json
 		import threading
-		import proxyscrape
 		from threading import Thread
 		from colorama import Fore, Back, Style
 		from random import randint
@@ -818,7 +817,7 @@ def MAIN():
 									if proxy=="localhost":
 										proxies=None
 									else:
-										proxies="{'"+ssl+"':'"+proxy+"'}"
+										proxies={ssl:proxy}
 									while iteration < count:
 										addparams()
 										sms()
@@ -829,8 +828,6 @@ def MAIN():
 							info=Fore.RED+"Неверно введено кол-во кругов"+Style.RESET_ALL
 				except:
 					info=Fore.RED+"Неверно введен номер телефона"+Style.RESET_ALL
-
-
 
 			def filesend():
 				global phone
@@ -872,7 +869,7 @@ def MAIN():
 								if proxy=="localhost":
 									proxies=None
 								else:
-									proxies="{'"+ssl+"':'"+proxy+"'}"
+									proxies={ssl:proxy}
 								try:
 									if int(phone):
 										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
@@ -917,56 +914,54 @@ def MAIN():
 				id=requests.post('https://fsystem88.ru/spymer/spym.php', data={'token': token}).json()["id"]
 				if int(id) != 0:
 					req=requests.get("https://fsystem88.ru/spymer/token/{}".format(token))
-					file=open(token, "w+")
-					file.write(req.text)
-					file.close()
 					info=""
 					clear()
 					logo()
 					print(info)
-					file=open(token)
-					array=file.read().splitlines()
-					if array[-1] == '':
-						array.pop()
-					file.close()
-					print("Файл скачан успешно.\nТелефоны:\n{}".format(req.text))
-					print('Введите количество кругов ("Enter" - отмена):')
-					count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-					try:
-						if int(count):
-							count=int(count)
-							info = '\nТокен: {}\nКол-во кругов: {}'.format(token, count)
-							clear()
-							logo()
-							print(info)
-							for phone in array:
-								make7phone()
-								if proxy=="localhost":
-									proxies=None
-								else:
-									proxies="{'"+ssl+"':'"+proxy+"'}"
-								try:
-									if int(phone):
-										id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
-										if int(id) > 0:
-											print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.".format(phone)+Style.RESET_ALL)
-											exit()
-										elif int(id)==0:
-											print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
-											thread_list = []
-											t = threading.Thread (target=n_send, args=(phone,count, proxies))
-											thread_list.append(t)
-											t.start()
-								except:
-									print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
-							for th in threading.enumerate(): 
-								if th != threading.currentThread():
-									th.join()	
-					except:
-						info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
+					array=req.text.splitlines()
+					if "<h1>Not Found</h1>" in array:
+						info=Fore.RED+"Токен не найден на сервере.\n Загрузите файл и получите токен на сайте:\n"+Fore.GREEN+"https://FSystem88.ru/spymer"+Style.RESET_ALL
+					else:
+						if array[-1] == '':
+							array.pop()
+						print("Файл загружен успешно.\nТелефоны:\n{}".format(req.text))
+						print('Введите количество кругов ("Enter" - отмена):')
+						count = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+						try:
+							if int(count):
+								count=int(count)
+								info = '\nТокен: {}\nКол-во кругов: {}'.format(token, count)
+								clear()
+								logo()
+								print(info)
+								for phone in array:
+									make7phone()
+									if proxy=="localhost":
+										proxies=None
+									else:
+										proxies={ssl:proxy}
+									try:
+										if int(phone):
+											id=requests.post('https://fsystem88.ru/spymer/json.php', data={'phone': phone}).json()["id"]
+											if int(id) > 0:
+												print(Fore.RED+"\nНомер телефона {} находится в антиспам листе.".format(phone)+Style.RESET_ALL)
+												exit()
+											elif int(id)==0:
+												print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
+												thread_list = []
+												t = threading.Thread (target=n_send, args=(phone,count, proxies))
+												thread_list.append(t)
+												t.start()
+									except:
+										print(Fore.RED+'\n"{}" не является номером телефона.'.format(phone)+Style.RESET_ALL)
+								for th in threading.enumerate(): 
+									if th != threading.currentThread():
+										th.join()	
+						except:
+							info = Fore.RED+"\nНекорректно введено количество кругов!"+Style.RESET_ALL
 
-					print(Fore.BLUE+"\nГотово.\nТокен: {}\nКол-во кругов: {}\n".format(token, count)+Style.RESET_ALL)
-					exit()
+						print(Fore.BLUE+"\nГотово.\nТокен: {}\nКол-во кругов: {}\n".format(token, count)+Style.RESET_ALL)
+						exit()
 
 			def n_send(phone, count, proxies):
 				global name
@@ -1057,7 +1052,7 @@ def MAIN():
 		os.system('cls' if os.name=='nt' else 'clear')
 		print("Нажмите Enter чтобы установить недостающие библиотеки...")
 		input()
-		os.system("python -m pip install requests colorama")
+		os.system("python -m pip install requests colorama proxyscrape")
 
 		MAIN()
 MAIN()
