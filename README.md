@@ -1,13 +1,13 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GitHub contributors](https://img.shields.io/github/contributors/fsystem88/spymer.svg)](https://GitHub.com/fsystem88/spymer/graphs/contributors/) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) ![repo-size](https://img.shields.io/github/repo-size/fsystem88/spymer)
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=FSystem88)](https://github.com/FSystem88/spymer)
+[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=FSystem88)](https://github.com/FSystem88)
 
 # Spymer
 SMS-спамер<br>
 Только для России!<br><i>(но можете попробовать и для Украины или Казахстана)</i><br>
-Новости об обновлениях на <a href="https://t-do.ru/spymer">канале в Telegram</a><br>
+Новости об обновлениях на <a href="https://t.me/FS88ch">канале в Telegram</a><br>
 # Обязательно подпишитесь на канал в телеграме, там может решаться дальнейшая судьба проекта или очень важная информация!!!
-<br><b>---> <a href="https://t-do.ru/FS88ch">Канал в Telegram</a> <---</b><br>
+<br><b>---> <a href="https://t.me/FS88ch">Канал в Telegram</a> <---</b><br>
 
 # Приму в дар деньги на пиво! :))
 <i>в любой валюте))</i><br>
