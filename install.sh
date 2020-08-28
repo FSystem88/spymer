@@ -15,10 +15,10 @@ then
 	pkg install python
 	pkg install dos2unix
 	pip install requests colorama proxyscrape
-	cp ~/spymer/spammer.py /data/data/com.termux/files/usr/bin/spymer
-	dos2unix /data/data/com.termux/files/usr/bin/spymer
+	cp ~/spymer/spammer.py $PREFIX/bin/spymer
+	dos2unix $PREFIX/bin/spymer
 	chmod -R 777 ~/spymer
-	chmod 777 /data/data/com.termux/files/usr/bin/spymer
+	chmod 777 $PREFIX/bin/spymer
 	spymer
 else
 	if [ $numb = "2" ]
@@ -30,9 +30,9 @@ else
 		else
 			apt install python3 python3-pip dos2unix
 			pip3 install requests colorama proxyscrape
-			cp ~/spymer/spammer.py /usr/bin/spymer
-			dos2unix /usr/bin/spymer
-			chmod 777 /usr/bin/spymer
+			cp ~/spymer/spammer.py $PREFIX/bin/spymer
+			dos2unix $RPEFIX/bin/spymer
+			chmod 777 $RPEFIX/bin/spymer
 			chmod -R 777 ~/spymer
 			spymer
 		fi
