@@ -30,17 +30,17 @@ then
 		apt update
 		apt install python3 python3-pip dos2unix -y
 		pip3 install requests colorama proxyscrape
-		cp ~/spymer/spammer.py $PREFIX/bin/spymer
+		cp $PWD/spammer.py $PREFIX/bin/spymer
 		dos2unix $RPEFIX/bin/spymer
 		chmod 777 $RPEFIX/bin/spymer
-		chmod -R 777 ~/spymer
+		chmod -R 777 $PWD
 		spymer
 	fi
 elif [ $numb = "3" ]
 then
 	apk add python3 dos2unix py3-pip
 	pip3 install requests colorama proxyscrape
-	cp ~/spymer/spammer.py /usr/bin/spymer
+	cp $PWD/spammer.py /usr/bin/spymer
 	dos2unix /usr/bin/spymer
 	chmod 777 /usr/bin/spymer
 	spymer
