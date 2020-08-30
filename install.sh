@@ -24,7 +24,7 @@ elif [ $numb = "2" ]
 then
 	if [ "$(whoami)" != 'root' ];
 	then
-		echo "У вас нет прав. Запустите install.sh с root правами (sudo sh ~/spymer/install.sh)"
+		echo "У вас нет прав. Запустите install.sh с root правами (sudo sh $PWD/install.sh)"
 		exit
 	else
 		apt update
