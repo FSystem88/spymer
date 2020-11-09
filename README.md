@@ -37,7 +37,6 @@ SMS-спамер<br>
 • <code>spymer</code><br>
 <br>
 Установка на Linux аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
-Инструкция для Windows находится [тут](win.md)<br>
 За инструкцию для iOS спасибо <a href="https://github.com/botduck">BOTDUCK</a>.
 <br><br>
 Будут вопросы - контакты выше.<br>
