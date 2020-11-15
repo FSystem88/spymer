@@ -1,7 +1,5 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GitHub contributors](https://img.shields.io/github/contributors/fsystem88/spymer.svg)](https://GitHub.com/fsystem88/spymer/graphs/contributors/) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) ![repo-size](https://img.shields.io/github/repo-size/fsystem88/spymer)
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=FSystem88)](https://github.com/FSystem88)
-
 # Spymer
 SMS-спамер<br>
 Только для России!<br><i>(но можете попробовать и для Украины или Казахстана)</i><br>
