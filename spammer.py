@@ -768,7 +768,7 @@ def MAIN():
 			def update():
 				a=input("Вы уверены, что хотите обновить? (y/n) ")
 				if a=="y":
-					os.system("cd ~/spymer && git pull && sh install.sh")
+					os.system("cd ~/spymer && rm -rf * && git pull && sh install.sh")
 					exit()
 				else:
 					print("Отменено")
