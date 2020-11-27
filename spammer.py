@@ -738,7 +738,7 @@ def MAIN():
 
 			def checkproxy(ip, prox):
 				try:
-					ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}, verify=False, timeout=10).text
+					ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}, verify=False, timeout=10).text
 				except:
 					ipx = ip
 				if ip != ipx:
