@@ -703,7 +703,7 @@ def MAIN():
 						print("Проверяю прокси...")
 						ip = requests.get("http://fsystem88.ru/ip", verify=False, timeout=10).text
 						try:
-							ipx = requests.get("http://fsystem88.ru/ip", proxies={'http':proxy, 'https':proxy}, verify=False, timeout=10).text
+							ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}, verify=False, timeout=10).text
 						except:
 							ipx = ip
 						if ip != ipx:
@@ -738,7 +738,7 @@ def MAIN():
 
 			def checkproxy(ip, prox):
 				try:
-					ipx = requests.get("http://fsystem88.ru/ip", proxies={'http':prox, 'https':prox}, verify=False, timeout=10).text
+					ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}, verify=False, timeout=10).text
 				except:
 					ipx = ip
 				if ip != ipx:
@@ -803,7 +803,7 @@ def MAIN():
 								if proxy=="localhost":
 									proxies=None
 								else:
-									proxies={"http":proxy, "https:":proxy}
+									proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}
 								while iteration < count:
 									addparams()
 									sms()
@@ -854,7 +854,7 @@ def MAIN():
 								if proxy=="localhost":
 									proxies=None
 								else:
-									proxies={"http":proxy, "https:":proxy}
+									proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}
 								try:
 									if int(phone):
 										print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
@@ -918,7 +918,7 @@ def MAIN():
 									if proxy=="localhost":
 										proxies=None
 									else:
-										proxies={"http":proxy, "https:":proxy}
+										proxies={'http': "http://{}".format(proxy), 'https':"http://{}".format(proxy)}
 									try:
 										if int(phone):
 											print('\nЗапущен спам на {}.Если хочешь остановить - нажмите Ctrl+Z.'.format(phone))
