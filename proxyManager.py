@@ -9,6 +9,7 @@ class ProxyManager:
 
     def __init__(self):
         self.autoChangeProxy = False
+        self.currentProxy=0
         self.proxy = "localhost"
 
 
@@ -51,19 +52,31 @@ class ProxyManager:
         if self.autoChangeProxy:
             try:
                 f = open("proxies.txt")
-                proxies = f.read().split()
-                self.proxy = random.choice(proxies)
+                proxyList = f.read().split()
+                self.currentProxy = self.currentProxy+1
+                if self.currentProxy >= len(proxyList):
+                    self.currentProxy = 0
+                    self.generateProxyList()
+                self.proxy = proxyList[self.currentProxy]
+                print("Смена прокси на:"+self.proxy)
+
                 f.close()
             except IOError:
-                self.generateproxy()
+                self.generateProxyList()
+                f = open("proxies.txt")
+                proxyList = f.read().split()
+                self.currentProxy = 0
+                self.proxy = proxyList[self.currentProxy]
+                print("Смена прокси на:"+self.proxy)
+
+                f.close()
         if self.proxy=="localhost":
                 proxies=None
         else:
                 proxies={'http': "http://{}".format(self.proxy), 'https':"http://{}".format(self.proxy)}
         return proxies 
 
-    def generateproxy(self):
-
+    def generateProxyList(self):
             print(Fore.YELLOW+"Подождите генерируем рабочий прокси.\nОбычно это занимает не больше 30 секунд..."+Style.RESET_ALL)
             url="https://api.proxyscrape.com/?request=displayproxies&proxytype=http&country=RU"
             req = requests.get(url)
@@ -78,6 +91,9 @@ class ProxyManager:
             # Wait for threads to finish:
             for x in thread_list:
                 x.join()
+
+    def generateproxy(self):
+            self.generateProxyList()
             f = open("proxies.txt")
             proxies = f.read().split()
             self.proxy = random.choice(proxies)
@@ -86,15 +102,23 @@ class ProxyManager:
 
 
     def checkproxy(self, ip, prox):
-        try:
-            result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
-
-            startIdx = result.find("Your IP</span>:")+16
-            endIdx = result.find("</span>",startIdx)
-            proxyIP = result[startIdx:endIdx]
-        except:
-            proxyIP = ip
-        if ip != proxyIP:
-            f = open("proxies.txt", "a+")
-            f.write("{}\n".format(prox))
-            f.close()
+            try:
+                ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}, verify=False, timeout=10).text
+            except:
+                ipx = ip
+            if ip != ipx:
+                f = open("proxies.txt", "a+")
+                f.write("{}\n".format(prox))
+                f.close()
+        # proxyIP = ip
+        # try:
+            # result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
+            # startIdx = result.find("Your IP</span>:")+16
+            # endIdx = result.find("</span>",startIdx)
+            # proxyIP = result[startIdx:endIdx]
+        # except:
+            # proxyIP = ip
+        # if ip != proxyIP:
+            # f = open("proxies.txt", "a+")
+            # f.write("{}\n".format(prox))
+            # f.close()

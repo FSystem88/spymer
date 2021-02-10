@@ -189,7 +189,8 @@ def MAIN():
                                         proxyManager.generateproxy()
                                 elif input51=="4":
                                         proxyManager.autoChangeProxy = True
-                                        proxyManager.generateproxy()
+                                        proxyManager.proxy="auto-change"
+                                        # proxyManager.generateproxy()
 
                         elif input1 == "3":
                                 update()
