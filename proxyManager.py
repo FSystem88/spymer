@@ -13,31 +13,38 @@ class ProxyManager:
 
 
     def updateproxy(self):
-            self.proxy = ""
-            self.info = ""
             try:
                     print ("Введите proxy в формате ip:port.")
                     print ("Пример: "+Fore.GREEN+"123.45.6.78:8080"+Style.RESET_ALL)
                     print ("Для отмены нажмите Ctrl+C")
-                    self.proxy = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
-                    if self.proxy == "":
-                            self.info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
-                            self.proxy = "localhost"
+                    newProxy = input(Fore.BLUE+"spymer > "+Style.RESET_ALL)
+                    if newProxy == "":
+                        return Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
                     else:
-                            print("Проверяю прокси...")
-                            ip = requests.get("http://fsystem88.ru/ip", verify=False, timeout=10).text
-                            try:
-                                    ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(self.proxy), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
-                            except:
-                                    ipx = ip
-                            if ip != ipx:
-                                    self.info = Fore.GREEN+"Proxy рабочий."+Style.RESET_ALL
-                            else:
-                                    print(Fore.RED+"{} не работает. Введите новый!".format(self.proxy)+Style.RESET_ALL)
-                                    self.updateproxy()
+                        print("Проверяю прокси...")
+                        result = requests.get("https://www.showmyip.com", verify=False, timeout=10).text
+                        startIdx = result.find("Your IP</span>:")+16
+                        endIdx = result.find("</span>",startIdx)
+                        ownIP = result[startIdx:endIdx]
+                        proxyIP = ""
+                        # ip = requests.get("http://fsystem88.ru/ip", verify=False, timeout=10).text
+                        try:
+                            result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(newProxy), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
+
+                            startIdx = result.find("Your IP</span>:")+16
+                            endIdx = result.find("</span>",startIdx)
+                            proxyIP = result[startIdx:endIdx]
+                        except:
+                            proxyIP = ownIP
+
+                        if ownIP != proxyIP:
+                            self.proxy = newProxy
+                            return Fore.GREEN+"Proxy рабочий."+Style.RESET_ALL
+                        else:
+                            print(Fore.RED+"{} не работает. Введите новый!".format(newProxy)+Style.RESET_ALL)
+                            self.updateproxy()
             except:
-                    self.info = Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
-                    self.proxy = "localhost"
+                return Fore.RED+"\nНекорректно введены данные!"+Style.RESET_ALL
 
     def getProxies(self):
         proxies = ""
@@ -56,8 +63,6 @@ class ProxyManager:
         return proxies 
 
     def generateproxy(self):
-            self.proxy = ""
-            self.info = ""
 
             print(Fore.YELLOW+"Подождите генерируем рабочий прокси.\nОбычно это занимает не больше 30 секунд..."+Style.RESET_ALL)
             url="https://api.proxyscrape.com/?request=displayproxies&proxytype=http&country=RU"
@@ -76,16 +81,21 @@ class ProxyManager:
             f = open("proxies.txt")
             proxies = f.read().split()
             self.proxy = random.choice(proxies)
-            self.info = Fore.GREEN+"Рабочий прокси успешно найден!"+Style.RESET_ALL
             f.close()
+            return Fore.GREEN+"Рабочий прокси успешно найден!"+Style.RESET_ALL
 
 
     def checkproxy(self, ip, prox):
-            try:
-                    ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}, verify=False, timeout=10).text
-            except:
-                    ipx = ip
-            if ip != ipx:
-                    f = open("proxies.txt", "a+")
-                    f.write("{}\n".format(prox))
-                    f.close()
+        try:
+            # ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}, verify=False, timeout=10).text
+            result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
+
+            startIdx = result.find("Your IP</span>:")+16
+            endIdx = result.find("</span>",startIdx)
+            proxyIP = result[startIdx:endIdx]
+        except:
+            proxyIP = ip
+        if ip != proxyIP:
+            f = open("proxies.txt", "a+")
+            f.write("{}\n".format(prox))
+            f.close()
