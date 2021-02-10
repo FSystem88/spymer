@@ -48,9 +48,9 @@ def MAIN():
                         if int(count):
                             count=int(count)
                             iteration = 0
-                            print('\nТелефон: {}\nКол-во кругов: {}'.format(phone, count)+'\nСпамер запущен.\nЕсли хотите остановить - нажмите Ctrl+Z.')
                             clear()
                             logo()
+                            print('\nТелефон: {}\nКол-во кругов: {}'.format(phone, count)+'\nСпамер запущен.\nЕсли хотите остановить - нажмите Ctrl+Z.')
 
                             spammer = SmsSpammer(phone)
                             while iteration < count:

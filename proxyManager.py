@@ -27,7 +27,7 @@ class ProxyManager:
                         endIdx = result.find("</span>",startIdx)
                         ownIP = result[startIdx:endIdx]
                         proxyIP = ""
-                        # ip = requests.get("http://fsystem88.ru/ip", verify=False, timeout=10).text
+
                         try:
                             result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(newProxy), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
 
@@ -87,7 +87,6 @@ class ProxyManager:
 
     def checkproxy(self, ip, prox):
         try:
-            # ipx = requests.get("http://fsystem88.ru/ip", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}, verify=False, timeout=10).text
             result = requests.get("http://www.showmyip.com", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(self.proxy)}, verify=False, timeout=10).text
 
             startIdx = result.find("Your IP</span>:")+16
