@@ -9,6 +9,7 @@ class SmsSpammer:
         self.phoneNumber = self.make7phone(phone)
         self.proxies=None
         self.timeout=10
+        self.timeoutCounter = 0
 
     def make7phone(self, phone):
             if phone[0] == '+':
@@ -22,20 +23,18 @@ class SmsSpammer:
     def sendSms(self, url, data="", json="", params=""):
         try:
             if data != "":
-                print('-data') 
                 requests.post(url, data=data, proxies=self.proxies, timeout=self.timeout)
             elif json != "":
-                print('-json') 
                 requests.post(url, json=json, proxies=self.proxies, timeout=self.timeout)
             elif params != "":
-                print('-params') 
                 requests.post(url, params=params, proxies=self.proxies, timeout=self.timeout)
-            print('-cool') 
         except:
-            print('-timeout') 
+            self.timeoutCounter = self.timeoutCounter + 1
 
     def setProxies(self, new_proxies):
-        self.proxies = new_proxies
+        if self.proxies != new_proxies:
+            self.timeoutCounter = 0
+            self.proxies = new_proxies
 
     def addparams(self):
             self.name = ''
