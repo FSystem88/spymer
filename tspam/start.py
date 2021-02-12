@@ -25,7 +25,7 @@ def MAIN():
             print("Вы уверены, что хотите обновить?")
             menuInput = ui.getUserChoice("spymer > ", ["Да","Нет"])
             if menuInput==1:
-                os.system("cd && rm -rf spymer && git clone https://github.com/s0563858/spymer && cd spymer && sh install.sh")
+                os.system("cd && rm -rf spymer && git clone https://github.com/s0563858/spymer && cd spymer && python3 setup.py install")
                 ui.printWarning("Успех! Теперь перезапустите программу!")
                 exit()
             else:
