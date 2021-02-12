@@ -4,10 +4,15 @@ import os
 def MAIN():
 
         def checkver():
-                ver = '90'
-                version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
-                if int(ver) < int(version):
-                        print(Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL)
+            global ui
+            result = subprocess.check_output(["git", "diff"])
+            print(result)
+            if result != "":
+                ui.printError("\nВерсия устарела и нуждается в обновлении!")
+                # ver = '90'
+                # version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
+                # if int(ver) < int(version):
+                        # print(Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL)
 
 
 
@@ -195,6 +200,7 @@ def MAIN():
                 import json
                 import threading
                 from threading import Thread
+                import subprocess
                 from src.sms import SmsSpammer
                 from src.proxyManager import ProxyManager
                 from src.userInterface import UserInterface
