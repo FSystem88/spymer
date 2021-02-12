@@ -5,7 +5,7 @@ def MAIN():
 
         def checkver():
             global ui
-            result = subprocess.check_output(["git", "diff"])
+            result = subprocess.check_output(["git", "diff"]).decode("utf-8") 
             print(result)
             if result != "":
                 ui.printError("\nВерсия устарела и нуждается в обновлении!")
