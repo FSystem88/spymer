@@ -24,8 +24,8 @@ SMS-спамер который спамит СМС-подтверждениям
     • <code>apt upgrade</code><br>
     • <code>apt install git</code><br>
     • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>sh ~/spymer/install.sh</code><br>
-    • <code>spymer</code><br>
+    • <code>python3 setup install</code><br>
+    • <code>tspam</code><br>
 
 ## iOS:
 Если у вас iOS - скачать <a href="https://apps.apple.com/ru/app/testflight/id899247664">Testflight из App Store</a>, после чего присоедениться к тестированию <a href="https://testflight.apple.com/join/97i7KM8O">iSH в Testflight</a> и прописать команды ниже:<br>
@@ -33,8 +33,8 @@ SMS-спамер который спамит СМС-подтверждениям
     • <code>apk upgrade</code><br>
     • <code>apk add git</code><br>
     • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>sh ~/spymer/install.sh</code><br>
-    • <code>spymer</code><br>
+    • <code>python3 setup install</code><br>
+    • <code>tspam</code><br>
     <br>
 ## Linux/MacOS:
 Установка на Linux и MacOS аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
@@ -42,10 +42,10 @@ SMS-спамер который спамит СМС-подтверждениям
 ## Windows
 Если у вас Windows: <a href="https://www.python.org/downloads/">скачайте</a> и установите *python* для Windows. <br>
 Запустите *cmd* (Для вбейте "cmd" в поиск рядом с кнопкой старт) - это запустит консоль в которую нужно вбить следуйщую команду:<br>
-<code>pip install requests colorama proxyscrape </code><br><br>
+<code>pip install requests colorama proxyscrape ascyncio aiohttp</code><br><br>
 
 Теперь нужно скачать программу и запустить. Скачайте <a href="https://github.com/s0563858/spymer/archive/master.zip">архив</a> с программой и распокуйте его.<br>
-    Чтобы запустить спаммер: зайдите в распакованную папку и кликните на файл <code>spammer.py</code> - откроется окно - там нажмите вверху на пункт *Run* и выберите *Run Module*.<br>
+    Чтобы запустить спаммер: зайдите в распакованную папку и кликните на файл <code>tspam/start.py</code> - откроется окно - там нажмите вверху на пункт *Run* и выберите *Run Module*.<br>
 
 
 
