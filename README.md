@@ -33,10 +33,16 @@ SMS-спамер который спамит СМС-подтверждениям
      <code>apk update</code><br>
      <code>apk upgrade</code><br>
      <code>apk add git</code><br>
+      <code>apk add python3</code><br>
+      <code>apk add py3-pip</code><br>
+      <code>apk add gcc</code><br>
+      <code>apk add python3-dev</code><br>
+      <code>apk add musl-dev</code><br>
      <code>git clone https://github.com/s0563858/spymer</code><br>
       <code>cd spymer</code><br>
      <code>python3 setup.py install</code><br>
      <code>tspam</code><br>
+     Внимание: первая установка может занять 20 минут!
     <br>
 ## Linux/MacOS:
 Установка на Linux и MacOS аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
