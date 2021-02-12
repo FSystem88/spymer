@@ -1,2 +1,5 @@
 __*
 *.txt
+build
+dist
+tspam.egg-info
