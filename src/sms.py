@@ -49,7 +49,7 @@ class SmsSpammer:
             self.name = self.name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
             self.password = self.name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
             self.email = "{}@gmail.com".format(self.name)
-        f = open("servicesList.json","r")
+        f = open("src/servicesList.json","r")
         services = f.read()
         services = services.replace("$phone$",self.phoneNumber)
         services = services.replace("$name$",self.name)
@@ -77,7 +77,9 @@ class SmsSpammer:
         async with aiohttp.ClientSession() as session:
             i=0
             for service in self.servicesURLs :
-                proxy = random.choice(self.proxies)
+                proxy = ""
+                if self.proxies != None:
+                    proxy = random.choice(self.proxies)
                 tasks.append(self.asyncSendSMS(session, service,proxy,i))
                 i+=1
             results = await asyncio.gather(*tasks)

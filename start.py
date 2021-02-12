@@ -6,15 +6,8 @@ def MAIN():
         def checkver():
             global ui
             result = subprocess.check_output(["git", "diff"]).decode("utf-8") 
-            print(result)
             if result != "":
                 ui.printError("\nВерсия устарела и нуждается в обновлении!")
-                # ver = '90'
-                # version = requests.post("https://fsystem88.ru/spymer/version.php").json()["version"]
-                # if int(ver) < int(version):
-                        # print(Back.RED+"\nВерсия устарела и нуждается в обновлении!"+Style.RESET_ALL)
-
-
 
 
         def update():
