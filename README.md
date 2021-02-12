@@ -44,10 +44,7 @@ SMS-спамер который спамит СМС-подтверждениям
      <code>tspam</code><br>
      Внимание: первая установка может занять 20 минут!
     <br>
-## Linux/MacOS:
-Установка на Linux и MacOS аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
-
-
+    
 ## Windows:
 С начала установите Windows WSL - как это делается можно посмотреть <a href="https://www.youtube.com/watch?v=HYuFw-YldjU">здесь</a>.
 После установки Ubuntu WSL - запустите Ubuntu WSL и пробейте следуйщие комманды:<br>
@@ -58,6 +55,23 @@ SMS-спамер который спамит СМС-подтверждениям
      <code>cd spymer</code><br>
      <code>python3 setup.py install</code><br>
      <code>tspam</code><br>
+     
+## Linux:
+Установка на Linux аналогична установке на Windows (только без устоновки Ubuntu WSL), нужно лишь вбить команды в терминале.<br>
+
+## MacOS:
+Сначала установите brew если он у вас еще не установлен. Откройте терминал и вбейте:<br>
+<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code><br>
+После этого пропишите в терминале следуйщие комманды:<br>
+ <code>brew upgrade --cask</code><br>
+ <code>brew install python3</code><br>
+ <code>brew install git</code><br>
+<code>git clone https://github.com/s0563858/spymer</code><br>
+ <code>cd spymer</code><br>
+  <code>python3 setup.py install</code><br>
+<code>tspam</code><br>
+
+
 
 
 
