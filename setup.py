@@ -11,5 +11,5 @@ setup(
        # function to call on $ python my.egg
     py_modules=['tspam.start:MAIN'],
     license="MPL 2.0",
-   install_requires=['asyncio', 'aiohttp', "requests", "colorama"], #external packages as dependencies
+   install_requires=['asyncio', 'aiohttp', "requests", "colorama","urllib3"], #external packages as dependencies
 )
