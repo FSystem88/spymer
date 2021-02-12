@@ -20,27 +20,38 @@ SMS-спамер который спамит СМС-подтверждениям
 Просто следуйте следуйщей инструкции<br>
 ## Android:
 Если у вас Android - скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из Google Play</a>, открыть его и прописать команды ниже:<br>
-    • <code>apt update</code><br>
-    • <code>apt upgrade</code><br>
-    • <code>apt install git</code><br>
-    • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>python3 setup.py install</code><br>
-    • <code>tspam</code><br>
+     <code>apt update</code><br>
+     <code>apt upgrade</code><br>
+     <code>apt install git</code><br>
+     <code>git clone https://github.com/s0563858/spymer</code><br>
+     <code>cd spymer</code><br>
+     <code>python3 setup.py install</code><br>
+     <code>tspam</code><br>
 
 ## iOS:
 Если у вас iOS - скачать <a href="https://apps.apple.com/ru/app/testflight/id899247664">Testflight из App Store</a>, после чего присоедениться к тестированию <a href="https://testflight.apple.com/join/97i7KM8O">iSH в Testflight</a> и прописать команды ниже:<br>
-    • <code>apk update</code><br>
-    • <code>apk upgrade</code><br>
-    • <code>apk add git</code><br>
-    • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>python3 setup.py install</code><br>
-    • <code>tspam</code><br>
+     <code>apk update</code><br>
+     <code>apk upgrade</code><br>
+     <code>apk add git</code><br>
+     <code>git clone https://github.com/s0563858/spymer</code><br>
+      <code>cd spymer</code><br>
+     <code>python3 setup.py install</code><br>
+     <code>tspam</code><br>
     <br>
 ## Linux/MacOS:
 Установка на Linux и MacOS аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
 
 
-
+## Windows:
+С начала установите Windows WSL - как это делается можно посмотреть <a href="https://www.youtube.com/watch?v=HYuFw-YldjU">здесь</a>.
+После установки Ubuntu WSL - запустите Ubuntu WSL и пробейте следуйщие комманды:<br>
+    <code>sudo add-apt-repository universe</code><br>
+    <code>sudo apt-get update</code><br>
+    <code>sudo apt install git</code><br>
+    <code>git clone https://github.com/s0563858/spymer</code><br>
+     <code>cd spymer</code><br>
+     <code>python3 setup.py install</code><br>
+     <code>tspam</code><br>
 
 
 
