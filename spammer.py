@@ -191,6 +191,8 @@ def MAIN():
                 import sys
                 import re
                 import time
+                import asyncio
+                import aiohttp
                 import datetime
                 import json
                 import threading
@@ -204,17 +206,9 @@ def MAIN():
                 os.system('cls' if os.name=='nt' else 'clear')
                 print("Нажмите Enter чтобы установить недостающие библиотеки...")
                 input()
-                os.system("python -m pip install requests colorama")
+                os.system("python -m pip install requests colorama asyncio aiohttp")
 
 
-        global proxyManager
-        #delete old list with proxies at start:
-        try:
-            f = open("proxies.txt")
-            f.close()
-            os.remove("proxies.txt")
-        except IOError:
-            pass
 
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         startApplication()
