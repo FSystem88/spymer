@@ -39,14 +39,6 @@ SMS-спамер который спамит СМС-подтверждениям
 ## Linux/MacOS:
 Установка на Linux и MacOS аналогична установке на Android, только без Termux'a, достаточно прав SU и терминала.<br>
 
-## Windows
-Если у вас Windows: <a href="https://www.python.org/downloads/">скачайте</a> и установите *python* для Windows. <br>
-Запустите *cmd* (Для вбейте "cmd" в поиск рядом с кнопкой старт) - это запустит консоль в которую нужно вбить следуйщую команду:<br>
-<code>pip install requests colorama proxyscrape ascyncio aiohttp</code><br><br>
-
-Теперь нужно скачать программу и запустить. Скачайте <a href="https://github.com/s0563858/spymer/archive/master.zip">архив</a> с программой и распокуйте его.<br>
-    Чтобы запустить спаммер: зайдите в распакованную папку и кликните на файл <code>tspam/start.py</code> - откроется окно - там нажмите вверху на пункт *Run* и выберите *Run Module*.<br>
-
 
 
 
