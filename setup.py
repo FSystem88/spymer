@@ -8,6 +8,8 @@ setup(
    author_email='andrey.borisov@outlook.de',
    packages=['tspam'],  #same as name
    entry_points={'console_scripts': [ 'tspam=tspam.start:MAIN']},
+       # function to call on $ python my.egg
+    py_modules=['tspam=tspam.start:MAIN'],
     license="MPL 2.0",
    install_requires=['asyncio', 'aiohttp', "requests", "colorama"], #external packages as dependencies
 )
