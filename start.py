@@ -161,7 +161,7 @@ def MAIN():
                     elif menuInput == 2:
                         result=severalNumbers()
                 elif menuInput == 2:
-                    menuInput = ui.getUserInput("spymer >  ", ["Удалить прокси","Ввести свой прокси","Сгенерировать прокси","Включить автоматическую смену прокси после каждого круга"])
+                    menuInput = ui.getUserInput("spymer >  ", ["Удалить прокси","Ввести свой прокси","Сгенерировать прокси","Включить автоматическую генерацию прокси после каждого круга"])
                     ui.clear()
                     ui.logo()
                     if menuInput==1:
@@ -197,9 +197,9 @@ def MAIN():
                 import json
                 import threading
                 from threading import Thread
-                from sms import SmsSpammer
-                from proxyManager import ProxyManager
-                from userInterface import UserInterface
+                from src.sms import SmsSpammer
+                from src.proxyManager import ProxyManager
+                from src.userInterface import UserInterface
                 from colorama import Fore, Back, Style
                 from random import randint
         except ModuleNotFoundError:
