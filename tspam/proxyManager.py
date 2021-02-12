@@ -64,7 +64,7 @@ class ProxyManager:
     async def asyncCheckProxy(self,session, prox):
         try:
             async with session.get("https://google.com",proxy="http://"+prox, timeout=10) as r:
-                json_body = await r.text()
+                await r.text()
                 return prox
         except:
             return("")
