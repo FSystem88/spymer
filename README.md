@@ -24,7 +24,7 @@ SMS-спамер который спамит СМС-подтверждениям
     • <code>apt upgrade</code><br>
     • <code>apt install git</code><br>
     • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>python3 setup install</code><br>
+    • <code>python3 setup.py install</code><br>
     • <code>tspam</code><br>
 
 ## iOS:
@@ -33,7 +33,7 @@ SMS-спамер который спамит СМС-подтверждениям
     • <code>apk upgrade</code><br>
     • <code>apk add git</code><br>
     • <code>git clone https://github.com/s0563858/spymer</code><br>
-    • <code>python3 setup install</code><br>
+    • <code>python3 setup.py install</code><br>
     • <code>tspam</code><br>
     <br>
 ## Linux/MacOS:
