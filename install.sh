@@ -15,7 +15,7 @@ then
     pkg install python
     pkg install dos2unix
     pip install requests colorama proxyscrape aiohttp asyncio
-    cp ~/spymer/spammer.py $PREFIX/bin/spymer
+    cp ~/spymer/start.py $PREFIX/bin/spymer
     dos2unix $PREFIX/bin/spymer
     chmod -R 777 ~/spymer
     chmod 777 $PREFIX/bin/spymer
@@ -30,7 +30,7 @@ else
         else
             apt install python3 python3-pip dos2unix
             pip3 install requests colorama proxyscrape aiohttp asyncio
-            cp ~/spymer/spammer.py $PREFIX/bin/spymer
+            cp ~/spymer/start.py $PREFIX/bin/spymer
             dos2unix $RPEFIX/bin/spymer
             chmod 777 $RPEFIX/bin/spymer
             chmod -R 777 ~/spymer
@@ -47,7 +47,7 @@ else
             pip3 install proxyscrape
             pip3 install aiohttp
             pip3 install asyncio
-            cp ~/spymer/spammer.py /usr/bin/spymer
+            cp ~/spymer/start.py /usr/bin/spymer
             dos2unix /usr/bin/spymer
             chmod 777 /usr/bin/spymer
             spymer
