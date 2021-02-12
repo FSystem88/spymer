@@ -13,11 +13,14 @@ from colorama import Fore, Back, Style
 import os
 def MAIN():
 
+    #//////////////     TODO      ////////////////
         def checkver():
             global ui
-            result = subprocess.check_output(["git", "diff"]).decode("utf-8") 
+            # result = subprocess.check_output(["git", "diff"]).decode("utf-8") 
+            result = "TODO"
             if result != "":
                 ui.printError("\nВерсия устарела и нуждается в обновлении!")
+    #//////////////     TODO      ////////////////
 
 
         def update():
