@@ -17,7 +17,7 @@ SMS-спамер который спамит СМС-подтверждениям
 8. Возможность просто добавлять новые сервисы (в файле <code>servicesList.py</code>)
 
 # Как установить?
-Просто одной из инструкций<br>
+Просто следуйте одной из инструкций<br>
 ## Android:
 Если у вас Android - скачать <a href="https://play.google.com/store/apps/details?id=com.termux&hl=ru">Termux из Google Play</a>, открыть его и прописать команды ниже:<br>
      <code>apt update</code><br>
