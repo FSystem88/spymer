@@ -14,14 +14,16 @@ def MAIN():
 
 
 
-
         def update():
-            a=input("Вы уверены, что хотите обновить? (y/n) ")
-            if a=="y":
+            global ui
+            print("Вы уверены, что хотите обновить?")
+            menuInput = ui.getUserInput("spymer > ", ["Да","Нет"])
+            if menuInput==1:
                 os.system("cd && rm -rf spymer && git clone https://github.com/s0563858/spymer && cd spymer && sh install.sh")
+                ui.printWarning("Успех! Теперь перезапустите программу!")
                 exit()
             else:
-                print("Отменено")
+                return "Отменено"
 
         def oneNumber():
             global proxyManager
@@ -42,16 +44,16 @@ def MAIN():
             except:
                 return Fore.RED+"Неверно введено кол-во кругов"+Style.RESET_ALL
             
-            iteration = 0
             ui.clear()
             ui.logo()
             print('\nТелефон: {}\nКол-во кругов: {}'.format(phone,iterationsNumber)+'\nСпамер запущен.\nЕсли хотите остановить - нажмите Ctrl+Z.')
-            t = threading.Thread (target=doSpamming, args=(phone,int(iterationsNumber)))
-            t.start()
+            doSpamming(phone, int(iterationsNumber))
+            # t = threading.Thread (target=doSpamming, args=(phone,int(iterationsNumber)))
+            # t.start()
             #wait for thread to finish:
-            t.join()
+            # t.join()
 
-            return Fore.BLUE+"\nГотово.\nТелефон: {}\nКол-во кругов: {}".format(phone, iteration)+Style.RESET_ALL
+            return Fore.BLUE+"\nГотово.\nТелефон: {}\nКол-во кругов: {}".format(phone, iterationsNumber)+Style.RESET_ALL
 
 
 
@@ -122,9 +124,7 @@ def MAIN():
             global proxyManager
             iteration=0
             spammer = SmsSpammer(phone)
-            print("hi")
             while iteration < iterationsNumber:
-                print("hi"+str(iteration))
                 proxies = proxyManager.getProxies()
                 spammer.setProxies(proxies)
                 spammer.startSending()
@@ -147,8 +147,8 @@ def MAIN():
                 ui.logo()
                 checkver()
                 print(result)
-                print("Proxy: "+Fore.BLUE+"{}".format(proxyManager.proxy)+Style.RESET_ALL)
-                if proxyManager.proxy == "localhost":
+                print("Proxy: "+Fore.BLUE+"{}".format(proxyManager.proxyList)+Style.RESET_ALL)
+                if proxyManager.proxyList == []:
                     ui.printWarning("Советую использовать прокси !!!")
 
                 menuInput = ui.getUserInput("Введите номер пункта: ", ["Запустить спамер","Настройки прокси","Обновить SPYMER","Выход"])
@@ -177,7 +177,7 @@ def MAIN():
                 elif menuInput == 3:
                     ui.clear()
                     ui.logo()
-                    update()
+                    result=update()
                 
                 elif menuInput == 4:
                     print (Fore.BLUE+"\nДо скорой встречи!)\n"+Style.RESET_ALL)
@@ -205,6 +205,7 @@ def MAIN():
                 print("Нажмите Enter чтобы установить недостающие библиотеки...")
                 input()
                 os.system("python -m pip install requests colorama")
+
 
         global proxyManager
         #delete old list with proxies at start:
