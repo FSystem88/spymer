@@ -37,7 +37,6 @@ SMS-спамер который спамит СМС-подтверждениям
       <code>cd spymer</code><br>
      <code>python3 setup_mobile.py install</code><br>
      <code>tspymer</code><br>
-     Внимание: первая установка может занять 20 минут!
     <br>
     
 ## Windows:
