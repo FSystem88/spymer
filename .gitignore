@@ -2,4 +2,4 @@ __pycache
 *.txt
 build
 dist
-tspam.egg-info
+*.egg-info

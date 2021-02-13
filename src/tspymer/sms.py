@@ -5,7 +5,6 @@ import json
 import requests
 import time
 import pkgutil
-from tspam.servicesList import allServices
 
 
 class SmsSpammer:
@@ -39,7 +38,7 @@ class SmsSpammer:
             self.password = self.name + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
             self.email = "{}@gmail.com".format(self.name)
 
-        services = pkgutil.get_data('tspam','data/servicesList.json').decode("utf-8")
+        services = pkgutil.get_data('tspymer','data/servicesList.json').decode("utf-8")
         services = services.replace("$phone$",self.phoneNumber)
         services = services.replace("$name$",self.name)
         services = services.replace("$email$",self.email)

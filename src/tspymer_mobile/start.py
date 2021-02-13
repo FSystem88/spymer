@@ -5,9 +5,9 @@ import time
 import threading
 from threading import Thread
 import subprocess
-from tspam.sms import SmsSpammer
-from tspam.proxyManager import ProxyManager
-from tspam.userInterface import UserInterface
+from tspymer.sms import SmsSpammer
+from tspymer.proxyManager import ProxyManager
+from tspymer.userInterface import UserInterface
 from colorama import Fore, Back, Style
 
 import os
@@ -145,7 +145,6 @@ def MAIN():
                     menuInput = ui.getUserChoice("Выберите один вариант: ", ["Запустить спамер на один номер","Запустить спамер на несколько номеров"])
                     if menuInput == 1:
                         result=oneNumber()
-                        exit()
                     elif menuInput == 2:
                         result=severalNumbers()
                 elif menuInput == 2:
