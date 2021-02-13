@@ -60,28 +60,30 @@ class SmsSpammer:
 
 
     async def asyncSending(self):
-        tasks = []
-        async with aiohttp.ClientSession() as session:
-            i=0
-            for service in self.servicesURLs :
-                proxy = ""
-                if self.proxies != None:
-                    proxy = random.choice(self.proxies)
-                tasks.append(self.asyncSendSMS(session, service,proxy,i))
-                i+=1
-            results = await asyncio.gather(*tasks)
-            successes = 0
-            failures = 0
-            for r in results:
-                if r == 2:
-                    failures += 1
-                if r == 1:
-                    successes += 1
-            print("Успешно отосланно: "+str(successes)+", не получилось отослать:"+str(failures))
+        try:
+            tasks = []
+            async with aiohttp.ClientSession() as session:
+                i=0
+                for service in self.servicesURLs :
+                    proxy = ""
+                    if self.proxies != None:
+                        proxy = random.choice(self.proxies)
+                    tasks.append(self.asyncSendSMS(session, service,proxy,i))
+                    i+=1
+                results = await asyncio.gather(*tasks)
+                successes = 0
+                failures = 0
+                for r in results:
+                    if r == 2:
+                        failures += 1
+                    if r == 1:
+                        successes += 1
+                print("Успешно отосланно: "+str(successes)+", не получилось отослать:"+str(failures))
+        except:
+            pass
 
 
     def startSending(self):
             self.addparams()
             loop = asyncio.get_event_loop()
             loop.run_until_complete(self.asyncSending())
-            # exit()

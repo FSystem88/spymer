@@ -70,14 +70,17 @@ class ProxyManager:
             return("")
 
     async def asyncChecking(self,proxies):
-        tasks = []
-        async with aiohttp.ClientSession() as session:
-            for p in proxies:
-                tasks.append(self.asyncCheckProxy(session, p))
-            checkedProxies = await asyncio.gather(*tasks)
-            for p in checkedProxies:
-                if p != "":
-                    self.proxyList.append(p)
+        try:
+            tasks = []
+            async with aiohttp.ClientSession() as session:
+                for p in proxies:
+                    tasks.append(self.asyncCheckProxy(session, p))
+                checkedProxies = await asyncio.gather(*tasks)
+                for p in checkedProxies:
+                    if p != "":
+                        self.proxyList.append(p)
+        except:
+            pass
 
 
 
