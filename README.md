@@ -25,8 +25,8 @@ SMS-спамер который спамит СМС-подтверждениям
      <code>apt install git</code><br>
      <code>git clone https://github.com/s0563858/spymer</code><br>
      <code>cd spymer</code><br>
-     <code>python3 setup.py install</code><br>
-     <code>tspam</code><br>
+     <code>python3 setup_mobile.py install</code><br>
+     <code>tspymer</code><br>
 
 ## iOS:
 Если у вас iOS - скачать <a href="https://apps.apple.com/ru/app/testflight/id899247664">Testflight из App Store</a>, после чего присоедениться к тестированию <a href="https://testflight.apple.com/join/97i7KM8O">iSH в Testflight</a> и прописать команды ниже:<br>
@@ -35,8 +35,8 @@ SMS-спамер который спамит СМС-подтверждениям
      <code>apk add git python3 py3-pip python3-dev gcc musl-dev</code><br>
      <code>git clone https://github.com/s0563858/spymer</code><br>
       <code>cd spymer</code><br>
-     <code>python3 setup.py install</code><br>
-     <code>tspam</code><br>
+     <code>python3 setup_mobile.py install</code><br>
+     <code>tspymer</code><br>
      Внимание: первая установка может занять 20 минут!
     <br>
     
@@ -49,7 +49,7 @@ SMS-спамер который спамит СМС-подтверждениям
     <code>git clone https://github.com/s0563858/spymer</code><br>
      <code>cd spymer</code><br>
      <code>python3 setup.py install</code><br>
-     <code>tspam</code><br>
+     <code>tspymer</code><br>
      
 ## Linux:
 Установка на Linux аналогична установке на Windows (только без устоновки Ubuntu WSL), нужно лишь вбить команды в терминале.<br>
@@ -64,7 +64,7 @@ SMS-спамер который спамит СМС-подтверждениям
 <code>git clone https://github.com/s0563858/spymer</code><br>
  <code>cd spymer</code><br>
   <code>python3 setup.py install</code><br>
-<code>tspam</code><br>
+<code>tspymer</code><br>
 
 
 
