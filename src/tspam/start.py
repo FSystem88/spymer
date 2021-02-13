@@ -145,6 +145,7 @@ def MAIN():
                     menuInput = ui.getUserChoice("Выберите один вариант: ", ["Запустить спамер на один номер","Запустить спамер на несколько номеров"])
                     if menuInput == 1:
                         result=oneNumber()
+                        exit()
                     elif menuInput == 2:
                         result=severalNumbers()
                 elif menuInput == 2:
