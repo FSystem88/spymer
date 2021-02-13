@@ -1,4 +1,4 @@
-__*
+__pycache
 *.txt
 build
 dist
