@@ -2,8 +2,12 @@
 ![logo](https://raw.githubusercontent.com/s0563858/spymer/master/logo.jpg)
 #
 SMS-спамер который спамит СМС-подтверждениями с разных сайтов.<br>
-Данный проэкт является форком следуйщего <a href="https://github.com/FSystem88/spymer">проекта</a>.<br>
 Только для России!<br>
+
+Новости об обновлениях на <a href="https://t.me/FS88ch">канале в Telegram</a>.<br> Обязательно подпишитесь на канал в телеграме, там может решаться дальнейшая судьба проекта или очень важная информация!
+
+
+
 
 # Функции:
 Данный спамер содержит следуйщие функции:
@@ -66,7 +70,14 @@ SMS-спамер который спамит СМС-подтверждениям
 <code>tspymer</code><br>
 
 
-
+# Сказать спасибо
+Выразить благодарность автору можно здесь:<br>
+<b>1. PAYPAL:</b> https://paypal.me/FSystem88<br>
+<b>2. QIWI:</b> https://qiwi.com/n/FSYSTEM88<br>
+<b>3. YANDEX MONEY:</b> https://money.yandex.ru/to/410015440700904<br>
+<br>
+<i>Free programmers also need to eat :)</i>
+<br>
 
 
 # LICENSE
