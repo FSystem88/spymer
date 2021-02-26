@@ -39,8 +39,8 @@ else
 	else
 		if [ $numb = "3" ] 
 		then
-			apk add python
 			apk add python3
+			apk add py3-pip
 			apk add dos2unix
 			pip3 install requests
 			pip3 install colorama
