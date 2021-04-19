@@ -39,7 +39,6 @@ else
 	else
 		if [ $numb = "3" ] 
 		then
-			apk add python
 			apk add python3
 			apk add dos2unix
 			pip3 install requests
