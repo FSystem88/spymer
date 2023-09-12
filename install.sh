@@ -30,7 +30,7 @@ else
 		else
 			apt install python3 python3-pip dos2unix
 			pip3 install requests colorama proxyscrape
-			cp ~/spymer/spammer.py $PREFIX/bin/spymer
+			cp $(pwd)/spymer/spammer.py $PREFIX/bin/spymer
 			dos2unix $RPEFIX/bin/spymer
 			chmod 777 $RPEFIX/bin/spymer
 			chmod -R 777 ~/spymer
